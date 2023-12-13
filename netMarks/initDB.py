@@ -4,12 +4,22 @@ conn = sqlite3.connect('data.db')
 cursor = conn.cursor()
 
 cursor.execute('''
-    CREATE TABLE IF NOT EXISTS app_matrix (
+    CREATE TABLE IF NOT EXISTS netRate (
         source_app TEXT NOT NULL,
         destination_app TEXT NOT NULL,
         rate REAL NOT NULL,
         timeframes INT NOT NULL,
-        UNIQUE(source_app, destination_app) ON CONFLICT REPLACE
+        UNIQUE(source_app, destination_app) ON CONFLICT REPLACE,
+        CHECK (source_app <> destination_app)
+    )
+''')
+
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS cpuRate (
+        source_app TEXT NOT NULL,
+        rate REAL NOT NULL,
+        timeframes INT NOT NULL,
+        UNIQUE(source_app) ON CONFLICT REPLACE
     )
 ''')
 
@@ -36,7 +46,13 @@ for appsrc in app_list:
             continue
         sample_data.append((appsrc, appdest, 0.0, 0))
 
-cursor.executemany('INSERT INTO app_matrix (source_app, destination_app, rate, timeframes) VALUES (?, ?, ?, ?)', sample_data)
+cursor.executemany('INSERT INTO netRate (source_app, destination_app, rate, timeframes) VALUES (?, ?,  ?, ?)', sample_data)
+
+cpu_init_data = []
+for app in app_list:
+    cpu_init_data.append((app, 0.0, 0))
+
+cursor.executemany('INSERT INTO cpuRate (source_app, rate, timeframes) VALUES (?, ?, ?)', cpu_init_data)
 
 conn.commit()
 
