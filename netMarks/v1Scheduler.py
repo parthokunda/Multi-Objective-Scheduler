@@ -45,8 +45,8 @@ def nodes_available():
 # returns tuples of current pods on nodeName in (appName, podName) format 
 def getAllAppsOnNode(nodeName):
     list_pod = []
-    # only take the running pods on nodes, otherwise descheduled pods might get calculated
-    pod_on_node =  run_shell_command(f"kubectl get pods --namespace=default --field-selector spec.nodeName={nodeName} | grep Running | awk '{{print $1}}'").split()
+    #? not done(grep RUNNING problemous) only take the running pods on nodes, otherwise descheduled pods might get calculated
+    pod_on_node =  run_shell_command(f"kubectl get pods --namespace=default --field-selector spec.nodeName={nodeName} | awk '{{print $1}}'").split()[1:]
     logs.info(f"all pods on node {nodeName} {str(pod_on_node)}")
     for pod in pod_on_node:
         app = run_shell_command(f"kubectl get pod {pod} --namespace=default -o jsonpath='{{.metadata.labels.app}}'")
@@ -81,12 +81,21 @@ def scoreNode(node, scheduleAppName):
     conn = sqlite3.connect('data.db')
     cursor = conn.cursor()
     cursor.execute('''
-                   SELECT MAX(total_rate) as max_rate, MIN(total_rate) as min_rate
-                    FROM (
-                        SELECT SUM(rate) as total_rate,source_app  from netRate GROUP BY source_app
-                    ) AS GROUPED_DATA;
+                    SELECT SUM(rate) as total_rate,source_app  from netRate GROUP BY source_app
+                    UNION
+                    SELECT SUM(rate) as total_rate,destination_app as source_app from netRate GROUP BY destination_app
                    ''')
-    max_net, min_net = cursor.fetchall()[0]
+    all_datas = cursor.fetchall()
+    nets = {}
+    for rate, pod in all_datas:
+        if pod not in nets:
+            nets.update({pod:rate})
+        else: 
+            nets[pod] += rate
+    max_net = max(nets.values())
+    min_net = min(nets.values())
+    logs.debug(f'max_net {max_net} min_net {min_net}')
+
     cursor.execute('''
                    SELECT MAX(total_rate) as max_rate, MIN(total_rate) as min_rate
                     FROM (
@@ -96,8 +105,8 @@ def scoreNode(node, scheduleAppName):
     max_cpu, min_cpu = cursor.fetchall()[0]
 
     cursor.execute('''
-                    SELECT destination_app, rate from netRate where source_app = ?;
-                   ''', (scheduleAppName,))
+                    SELECT source_app,destination_app, rate from netRate where source_app = ? or destination_app = ?;
+                   ''', (scheduleAppName,scheduleAppName))
     netRates = cursor.fetchall()
 
     cursor.execute('''
@@ -107,9 +116,13 @@ def scoreNode(node, scheduleAppName):
 
     conn.close()
 
-    for dest_app, rate in netRates:
-        if dest_app in appOnNodeList:
-            netScore += (rate - min_net) / max_net
+    all_pod_net_sum = 0
+    for src_app, dest_app, rate in netRates:
+        if dest_app in appOnNodeList or src_app in appOnNodeList:
+            all_pod_net_sum += rate
+    logs.debug(f'{scheduleAppName} on {node} has all_pod_net_sum {all_pod_net_sum}')
+    netScore += (all_pod_net_sum - min_net) / max_net
+    
     for app_name, cpu in cpuRates:
         if app_name in appOnNodeList :
             cpuScore += (cpu - min_cpu) / max_cpu
