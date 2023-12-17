@@ -54,7 +54,7 @@ def getAllAppsOnNode(nodeName):
             logs.warning("No app name found")
         else:
             list_pod.append((app, pod))
-        logs.info(f"appended {app}, {pod} to list_pod")
+            logs.info(f"appended {app}, {pod} to list_pod")
     return list_pod
 
 def getRateFromDB(cursor, scheduleAppName, neighborApp):
@@ -80,29 +80,32 @@ def scoreNode(node, scheduleAppName):
 
     conn = sqlite3.connect('data.db')
     cursor = conn.cursor()
-    cursor.execute('''
-                    SELECT SUM(rate) as total_rate,source_app  from netRate GROUP BY source_app
-                    UNION
-                    SELECT SUM(rate) as total_rate,destination_app as source_app from netRate GROUP BY destination_app
-                   ''')
-    all_datas = cursor.fetchall()
-    nets = {}
-    for rate, pod in all_datas:
-        if pod not in nets:
-            nets.update({pod:rate})
-        else: 
-            nets[pod] += rate
-    max_net = max(nets.values())
-    min_net = min(nets.values())
-    logs.debug(f'max_net {max_net} min_net {min_net}')
+    # cursor.execute('''
+    #                 SELECT SUM(rate) as total_rate,source_app  from netRate GROUP BY source_app
+    #                 UNION
+    #                 SELECT SUM(rate) as total_rate,destination_app as source_app from netRate GROUP BY destination_app
+    #                ''')
+    # all_datas = cursor.fetchall()
+    # nets = {}
+    # for rate, pod in all_datas:
+    #     if pod not in nets:
+    #         nets.update({pod:rate})
+    #     else: 
+    #         nets[pod] += rate
 
-    cursor.execute('''
-                   SELECT MAX(total_rate) as max_rate, MIN(total_rate) as min_rate
-                    FROM (
-                        SELECT SUM(rate) as total_rate,source_app  from cpuRate GROUP BY source_app
-                    ) AS GROUPED_DATA;
-                   ''')
-    max_cpu, min_cpu = cursor.fetchall()[0]
+    
+    # max_net = max(nets.values())
+    # min_net = min(nets.values())
+    # logs.debug(f'max_net {max_net} min_net {min_net}')
+    # logs.debug(f'nets matrix is {nets}')
+
+    # cursor.execute('''
+    #                SELECT MAX(total_rate) as max_rate, MIN(total_rate) as min_rate
+    #                 FROM (
+    #                     SELECT SUM(rate) as total_rate,source_app  from cpuRate GROUP BY source_app
+    #                 ) AS GROUPED_DATA;
+    #                ''')
+    # max_cpu, min_cpu = cursor.fetchall()[0]
 
     cursor.execute('''
                     SELECT source_app,destination_app, rate from netRate where source_app = ? or destination_app = ?;
@@ -116,34 +119,59 @@ def scoreNode(node, scheduleAppName):
 
     conn.close()
 
-    all_pod_net_sum = 0
     for src_app, dest_app, rate in netRates:
         if dest_app in appOnNodeList or src_app in appOnNodeList:
-            all_pod_net_sum += rate
-    logs.debug(f'{scheduleAppName} on {node} has all_pod_net_sum {all_pod_net_sum}')
-    netScore += (all_pod_net_sum - min_net) / max_net
+            netScore += rate
+    logs.debug(f'{scheduleAppName} on {node} has all_pod_net_sum {netScore}')
+    # netScore += (all_pod_net_sum - min_net) / max_net
     
     for app_name, cpu in cpuRates:
         if app_name in appOnNodeList :
-            cpuScore += (cpu - min_cpu) / max_cpu
+            cpuScore += cpu
 
-    score = - cpuScore * CPU_WEIGHT + netScore * NET_WEIGHT
+    # score = - cpuScore * CPU_WEIGHT + netScore * NET_WEIGHT
 
-    logs.info(f'AppName: {scheduleAppName} Node: {node} netScore: {netScore} cpuScore: {cpuScore} score: {score}')
+    # logs.info(f'AppName: {scheduleAppName} Node: {node} netScore: {netScore} cpuScore: {cpuScore} score: {score}')
 
-    return score
+    return netScore, cpuScore
 
 
 def v1SchedulerScore(appName):
     nodeList = nodes_available()
-    mxScore = -10000000000
-    selectedNode = random.choice(nodeList)
+    netScores = {} 
+    cpuScores = {}
+
     for node in nodeList:
-        score = scoreNode(node, appName)
-        if mxScore < score:
-            mxScore = score
+        net, cpu = scoreNode(node, appName)
+        # scores.append((node, net, cpu))
+        netScores[node] = net
+        cpuScores[node] = cpu
+    logs.debug(f'scores retrieved {nodeList} {netScores} {cpuScores}')
+    
+    mxNet = max(netScores.values()) + .000001
+    mnNet = min(netScores.values())
+    mxCpu = max(cpuScores.values()) + .000001
+    mnCpu = min(cpuScores.values())
+    logs.debug(f' mxNet {mxNet} mnNet {mnNet} mxCpu {mxCpu} mnCpu {mnCpu}')
+
+    for node in nodeList:
+        netScores[node] = (netScores[node] - mnNet) / (mxNet - mnNet)
+        cpuScores[node] = (cpuScores[node] - mnCpu) / (mxCpu - mnCpu)
+    
+    logs.info(f'scores after normalization {netScores} {cpuScores}')
+        
+    mnScore = 10.0
+    
+    # without below line, scheduler will always choose the first app's node deterministically 
+    random.shuffle(nodeList)
+    
+    for node in nodeList:
+        score = netScores[node] + cpuScores[node]
+        if mnScore > score:
+            mnScore = score
             selectedNode = node
     logs.info(f"Scheduled {appName} to {selectedNode}")
+
     return selectedNode
 
 def scheduler(name, node, namespace="default"):
