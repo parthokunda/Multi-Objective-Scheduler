@@ -34,7 +34,7 @@ def queryProm(query: str) :
         print('error in query '+query)
         return None
 
-def queryRange(query, csvFileName="test", minCount = 30):
+def queryRange(query, minCount = 30):
     ip = run_shell_command("kubectl  get svc -A | grep prometheus | grep 9090 | awk '{print $4 \":\" $6}'")
     ip = ip.split('/')[0]
     url = f"http://{ip}/api/v1/query_range"
