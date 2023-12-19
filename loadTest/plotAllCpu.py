@@ -40,21 +40,14 @@ axs[1].set_xlabel('Timestamp')
 axs[1].set_ylabel('k8s-vm2')
 axs[1].legend()
 
-# # plt.figure()
+
 axs[2].plot(nMvm3['timestamp'], nMvm3['value'], linestyle='-', label = 'NetMarks')
 axs[2].plot(v1vm3['timestamp'], v1vm3['value'], color='red', label = 'v1')
 axs[2].grid(True)
-# axs[0, 0].set_title('Graph 1')
 axs[2].set_xlabel('Timestamp')
 axs[2].set_ylabel('k8s-vm3')
 axs[2].legend()
 
-# axs[1,1].plot(datalowdefault['Timestamp'],datalowdefault['value'], label = 'NetMarks')
-# axs[1,1].plot(datahighdefault['Timestamp'], datahighdefault['value'], color='red', label = 'Default')
-# axs[1,1].grid(True)
-# axs[1,1].set_xlabel('Timestamp')
-# axs[1,1].set_ylabel('k8s-vm4')
-# axs[1,1].legend()
 
 
 

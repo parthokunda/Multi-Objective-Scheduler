@@ -23,7 +23,7 @@ def run_shell_command(command):
 
 
 def queryProm(query: str) :
-    ip = run_shell_command("kubectl  get svc -A | grep prometheus | awk '{print $4 \":\" $6}'")
+    ip = run_shell_command("kubectl  get svc -A | grep prometheus | grep 9090 | awk '{print $4 \":\" $6}'")
     ip = ip.split('/')[0]
     url = f'http://{ip}/api/v1/query'
     params = {
