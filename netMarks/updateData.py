@@ -4,7 +4,6 @@ import sqlite3
 import logging
 from query import queryProm
 from time import sleep
-import os
 
 
 logging.basicConfig(filename="testLog.txt", level=logging.DEBUG, 

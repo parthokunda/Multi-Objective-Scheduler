@@ -1,31 +1,19 @@
 from kubernetes import watch, client, config
 import json
-import subprocess
 import logging as logs
 import sqlite3
 import random
+from utils import run_shell_command
+import sys
 
-NET_WEIGHT = .5
-CPU_WEIGHT = .5
+NET_WEIGHT = .25
+CPU_WEIGHT = 1.0 - NET_WEIGHT
+random.seed(107)
 
 logs.basicConfig(filename="logscheduler.txt", level=logs.DEBUG, 
                     filemode='w',
                     format='%(asctime)s - %(levelname)s  [%(filename)s:%(lineno)d] - %(message)s', 
                     datefmt='%Y-%m-%d %H:%M:%S')
-
-def run_shell_command(command):
-    try:
-        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
-
-        if result.returncode == 0:
-            return result.stdout.strip()
-        else:
-            print(f"Error: {result.stderr.strip()}")
-            return None
-
-    except Exception as e:
-        print(f"Exception: {str(e)}")
-        return None
 
 config.load_kube_config()
 v1 = client.CoreV1Api()
@@ -74,38 +62,11 @@ def scoreNode(node, scheduleAppName):
     appOnNodeList = getAllAppsOnNode(node)
     appOnNodeList = [i[0] for i in appOnNodeList]
     logs.info(f'app on Node list {appOnNodeList}')
-    score = 0.0
     netScore = 0.0
     cpuScore = 0.0
 
-    conn = sqlite3.connect('data.db')
+    conn = sqlite3.connect('/root/netMarks/data.db')
     cursor = conn.cursor()
-    # cursor.execute('''
-    #                 SELECT SUM(rate) as total_rate,source_app  from netRate GROUP BY source_app
-    #                 UNION
-    #                 SELECT SUM(rate) as total_rate,destination_app as source_app from netRate GROUP BY destination_app
-    #                ''')
-    # all_datas = cursor.fetchall()
-    # nets = {}
-    # for rate, pod in all_datas:
-    #     if pod not in nets:
-    #         nets.update({pod:rate})
-    #     else: 
-    #         nets[pod] += rate
-
-    
-    # max_net = max(nets.values())
-    # min_net = min(nets.values())
-    # logs.debug(f'max_net {max_net} min_net {min_net}')
-    # logs.debug(f'nets matrix is {nets}')
-
-    # cursor.execute('''
-    #                SELECT MAX(total_rate) as max_rate, MIN(total_rate) as min_rate
-    #                 FROM (
-    #                     SELECT SUM(rate) as total_rate,source_app  from cpuRate GROUP BY source_app
-    #                 ) AS GROUPED_DATA;
-    #                ''')
-    # max_cpu, min_cpu = cursor.fetchall()[0]
 
     cursor.execute('''
                     SELECT source_app,destination_app, rate from netRate where source_app = ? or destination_app = ?;
@@ -123,15 +84,10 @@ def scoreNode(node, scheduleAppName):
         if dest_app in appOnNodeList or src_app in appOnNodeList:
             netScore += rate
     logs.debug(f'{scheduleAppName} on {node} has all_pod_net_sum {netScore}')
-    # netScore += (all_pod_net_sum - min_net) / max_net
     
     for app_name, cpu in cpuRates:
         if app_name in appOnNodeList :
             cpuScore += cpu
-
-    # score = - cpuScore * CPU_WEIGHT + netScore * NET_WEIGHT
-
-    # logs.info(f'AppName: {scheduleAppName} Node: {node} netScore: {netScore} cpuScore: {cpuScore} score: {score}')
 
     return netScore, cpuScore
 
@@ -146,6 +102,11 @@ def v1SchedulerScore(appName):
         # scores.append((node, net, cpu))
         netScores[node] = net
         cpuScores[node] = cpu
+    
+    sumNet = sum(netScores.values())
+    for key in netScores.keys():
+        netScores[key] = sumNet - netScores[key]
+
     logs.debug(f'scores retrieved {nodeList} {netScores} {cpuScores}')
     
     mxNet = max(netScores.values()) + .000001
@@ -160,13 +121,14 @@ def v1SchedulerScore(appName):
     
     logs.info(f'scores after normalization {netScores} {cpuScores}')
         
-    mnScore = 10.0
+    mnScore = 100.0
     
     # without below line, scheduler will always choose the first app's node deterministically 
     random.shuffle(nodeList)
     
     for node in nodeList:
-        score = netScores[node] + cpuScores[node]
+        score = netScores[node] * NET_WEIGHT + cpuScores[node] * CPU_WEIGHT
+        logs.debug(f'node: {node} score: {score}')
         if mnScore > score:
             mnScore = score
             selectedNode = node
@@ -182,6 +144,10 @@ def scheduler(name, node, namespace="default"):
     return v1.create_namespaced_binding(namespace, body, _preload_content=False)
 
 if __name__ == "__main__":
+    if len(sys.argv) == 2:
+        NET_WEIGHT = float(sys.argv[1])
+    
+    logs.debug(f'net weight : {NET_WEIGHT}')
     w = watch.Watch()
     scheduledId = [] # gonna hold the uid inside event, to avoid multiple schedule try of same pod
     for event in w.stream(v1.list_namespaced_pod, "default"):

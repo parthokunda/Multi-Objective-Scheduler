@@ -1,14 +1,399 @@
-2023-12-05 18:07:28 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'currencyservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'currencyservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'currencyservice.default.svc.cluster.local', 'destination_service_name': 'currencyservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'currencyservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.113, '193.76666666666665']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'currencyservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'currencyservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'currencyservice.default.svc.cluster.local', 'destination_service_name': 'currencyservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'currencyservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.113, '134.56666666666666']}]
-2023-12-05 18:07:28 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'recommendationservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'recommendationservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'recommendationservice.default.svc.cluster.local', 'destination_service_name': 'recommendationservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'recommendationservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.213, '103.72222222222221']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'recommendationservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'recommendationservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'recommendationservice.default.svc.cluster.local', 'destination_service_name': 'recommendationservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'recommendationservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.213, '86.16666666666666']}]
-2023-12-05 18:07:28 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'adservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'adservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'adservice.default.svc.cluster.local', 'destination_service_name': 'adservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'adservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.312, '37.766666666666666']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'adservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'adservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'adservice.default.svc.cluster.local', 'destination_service_name': 'adservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'adservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.312, '44.56666666666666']}]
-2023-12-05 18:07:28 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'productcatalogservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'productcatalogservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'productcatalogservice.default.svc.cluster.local', 'destination_service_name': 'productcatalogservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'productcatalogservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.486, '349.5666666666666']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'productcatalogservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'productcatalogservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'productcatalogservice.default.svc.cluster.local', 'destination_service_name': 'productcatalogservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'productcatalogservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.486, '284.3666666666666']}]
-2023-12-05 18:07:28 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'cartservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'cartservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'cartservice.default.svc.cluster.local', 'destination_service_name': 'cartservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'cartservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.576, '109.64444444444443']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'cartservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'cartservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'cartservice.default.svc.cluster.local', 'destination_service_name': 'cartservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'cartservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.576, '85.53333333333332']}]
-2023-12-05 18:07:28 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'checkoutservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'checkoutservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'checkoutservice.default.svc.cluster.local', 'destination_service_name': 'checkoutservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'checkoutservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.764, '25.999999999999996']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'checkoutservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'checkoutservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'checkoutservice.default.svc.cluster.local', 'destination_service_name': 'checkoutservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'checkoutservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.764, '8.666666666666666']}]
-2023-12-05 18:07:28 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'shippingservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'shippingservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'shippingservice.default.svc.cluster.local', 'destination_service_name': 'shippingservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'shippingservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.849, '28.555555555555554']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'shippingservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'shippingservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'shippingservice.default.svc.cluster.local', 'destination_service_name': 'shippingservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'shippingservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799648.849, '11.633333333333331']}]
-2023-12-05 18:08:28 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'currencyservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'currencyservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'currencyservice.default.svc.cluster.local', 'destination_service_name': 'currencyservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'currencyservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799708.401, '202.21111111111108']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'currencyservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'currencyservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'currencyservice.default.svc.cluster.local', 'destination_service_name': 'currencyservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'currencyservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799708.401, '137.29999999999998']}]
-2023-12-05 18:08:28 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'recommendationservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'recommendationservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'recommendationservice.default.svc.cluster.local', 'destination_service_name': 'recommendationservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'recommendationservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799708.537, '58.85555555555555']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'recommendationservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'recommendationservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'recommendationservice.default.svc.cluster.local', 'destination_service_name': 'recommendationservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'recommendationservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799708.537, '84.93333333333332']}]
-2023-12-05 18:08:28 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'adservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'adservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'adservice.default.svc.cluster.local', 'destination_service_name': 'adservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'adservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799708.617, '33.05555555555555']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'adservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'adservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'adservice.default.svc.cluster.local', 'destination_service_name': 'adservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'adservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799708.617, '41.14444444444444']}]
-2023-12-05 18:08:28 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'productcatalogservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'productcatalogservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'productcatalogservice.default.svc.cluster.local', 'destination_service_name': 'productcatalogservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'productcatalogservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799708.809, '202.96666666666664']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'productcatalogservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'productcatalogservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'productcatalogservice.default.svc.cluster.local', 'destination_service_name': 'productcatalogservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'productcatalogservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799708.809, '278.5666666666666']}]
-2023-12-05 18:08:28 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'cartservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'cartservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'cartservice.default.svc.cluster.local', 'destination_service_name': 'cartservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'cartservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799708.899, '74.72222222222221']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'cartservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'cartservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'cartservice.default.svc.cluster.local', 'destination_service_name': 'cartservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'cartservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799708.899, '80.89999999999999']}]
-2023-12-05 18:08:29 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'checkoutservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'checkoutservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'checkoutservice.default.svc.cluster.local', 'destination_service_name': 'checkoutservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'checkoutservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799709.041, '4.333333333333333']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'checkoutservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'checkoutservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'checkoutservice.default.svc.cluster.local', 'destination_service_name': 'checkoutservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'checkoutservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799709.041, '17.333333333333332']}]
-2023-12-05 18:08:29 - WARNING - more than one valid data[{'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'shippingservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'shippingservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'shippingservice.default.svc.cluster.local', 'destination_service_name': 'shippingservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'shippingservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.134:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-2cgq8', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799709.112, '14.899999999999999']}, {'metric': {'app': 'frontend', 'connection_security_policy': 'unknown', 'destination_app': 'shippingservice', 'destination_canonical_revision': 'latest', 'destination_canonical_service': 'shippingservice', 'destination_cluster': 'Kubernetes', 'destination_principal': 'spiffe://cluster.local/ns/default/sa/default', 'destination_service': 'shippingservice.default.svc.cluster.local', 'destination_service_name': 'shippingservice', 'destination_service_namespace': 'default', 'destination_version': 'unknown', 'destination_workload': 'shippingservice', 'destination_workload_namespace': 'default', 'grpc_response_status': '0', 'instance': '10.244.1.136:15020', 'job': 'kubernetes-pods', 'namespace': 'default', 'pod': 'frontend-6c686789d8-r5gv6', 'pod_template_hash': '6c686789d8', 'reporter': 'source', 'request_protocol': 'grpc', 'response_code': '200', 'response_flags': '-', 'security_istio_io_tlsMode': 'istio', 'service_istio_io_canonical_name': 'frontend', 'service_istio_io_canonical_revision': 'latest', 'source_app': 'frontend', 'source_canonical_revision': 'latest', 'source_canonical_service': 'frontend', 'source_cluster': 'Kubernetes', 'source_principal': 'spiffe://cluster.local/ns/default/sa/default', 'source_workload': 'frontend', 'source_workload_namespace': 'default'}, 'value': [1701799709.112, '15.111111111111109']}]
+2023-12-12 15:02:39 - INFO - Updating Data in DB
+2023-12-12 15:02:39 - INFO - request rate between frontend and adservice is 76.87777777777778
+2023-12-12 15:02:39 - INFO - Response rate between frontend and adservice is 211.4888888888889
+2023-12-12 15:02:39 - INFO - Inserting data frontend adservice 1199.9615144534282 31
+2023-12-12 15:02:39 - INFO - request rate between frontend and paymentservice is 0
+2023-12-12 15:02:39 - INFO - Response rate between frontend and paymentservice is 0
+2023-12-12 15:02:39 - INFO - Inserting data frontend paymentservice 0.0 31
+2023-12-12 15:02:39 - INFO - request rate between frontend and recommendationservice is 136.07777777777775
+2023-12-12 15:02:39 - INFO - Response rate between frontend and recommendationservice is 191.2222222222222
+2023-12-12 15:02:39 - INFO - Inserting data frontend recommendationservice 2420.65490675196 31
+2023-12-12 15:02:40 - INFO - request rate between frontend and redis-cart is 0
+2023-12-12 15:02:40 - INFO - Response rate between frontend and redis-cart is 0
+2023-12-12 15:02:40 - INFO - Inserting data frontend redis-cart 0.0 31
+2023-12-12 15:02:40 - INFO - request rate between frontend and shippingservice is 20.42222222222222
+2023-12-12 15:02:40 - INFO - Response rate between frontend and shippingservice is 29.53333333333333
+2023-12-12 15:02:40 - INFO - Inserting data frontend shippingservice 555.4065585877032 31
+2023-12-12 15:02:41 - INFO - request rate between frontend and currencyservice is 292.0777777777777
+2023-12-12 15:02:41 - INFO - Response rate between frontend and currencyservice is 656.9333333333333
+2023-12-12 15:02:41 - INFO - Inserting data frontend currencyservice 5386.149612359748 31
+2023-12-12 15:02:41 - INFO - request rate between frontend and cartservice is 148.73333333333332
+2023-12-12 15:02:41 - INFO - Response rate between frontend and cartservice is 112.37777777777777
+2023-12-12 15:02:41 - INFO - Inserting data frontend cartservice 2547.8385784683815 31
+2023-12-12 15:02:41 - INFO - request rate between frontend and checkoutservice is 12.999999999999998
+2023-12-12 15:02:41 - INFO - Response rate between frontend and checkoutservice is 18.11111111111111
+2023-12-12 15:02:41 - INFO - Inserting data frontend checkoutservice 263.9820788530466 31
+2023-12-12 15:02:41 - INFO - request rate between frontend and loadgenerator is 0
+2023-12-12 15:02:42 - INFO - Response rate between frontend and loadgenerator is 0
+2023-12-12 15:02:42 - INFO - Inserting data frontend loadgenerator 0.0 31
+2023-12-12 15:02:42 - INFO - request rate between frontend and productcatalogservice is 454.0333333333333
+2023-12-12 15:02:42 - INFO - Response rate between frontend and productcatalogservice is 2350.7777777777774
+2023-12-12 15:02:42 - INFO - Inserting data frontend productcatalogservice 8184.609020943974 31
+2023-12-12 15:02:43 - INFO - request rate between frontend and emailservice is 0
+2023-12-12 15:02:43 - INFO - Response rate between frontend and emailservice is 0
+2023-12-12 15:02:43 - INFO - Inserting data frontend emailservice 0.0 31
+2023-12-12 15:02:44 - INFO - request rate between adservice and frontend is 0
+2023-12-12 15:02:44 - INFO - Response rate between adservice and frontend is 0
+2023-12-12 15:02:44 - INFO - Inserting data adservice frontend 0.0 31
+2023-12-12 15:02:45 - INFO - request rate between adservice and paymentservice is 0
+2023-12-12 15:02:45 - INFO - Response rate between adservice and paymentservice is 0
+2023-12-12 15:02:45 - INFO - Inserting data adservice paymentservice 0.0 31
+2023-12-12 15:02:45 - INFO - request rate between adservice and recommendationservice is 0
+2023-12-12 15:02:45 - INFO - Response rate between adservice and recommendationservice is 0
+2023-12-12 15:02:45 - INFO - Inserting data adservice recommendationservice 0.0 31
+2023-12-12 15:02:46 - INFO - request rate between adservice and redis-cart is 0
+2023-12-12 15:02:46 - INFO - Response rate between adservice and redis-cart is 0
+2023-12-12 15:02:46 - INFO - Inserting data adservice redis-cart 0.0 31
+2023-12-12 15:02:46 - INFO - request rate between adservice and shippingservice is 0
+2023-12-12 15:02:46 - INFO - Response rate between adservice and shippingservice is 0
+2023-12-12 15:02:46 - INFO - Inserting data adservice shippingservice 0.0 31
+2023-12-12 15:02:46 - INFO - request rate between adservice and currencyservice is 0
+2023-12-12 15:02:47 - INFO - Response rate between adservice and currencyservice is 0
+2023-12-12 15:02:47 - INFO - Inserting data adservice currencyservice 0.0 31
+2023-12-12 15:02:47 - INFO - request rate between adservice and cartservice is 0
+2023-12-12 15:02:47 - INFO - Response rate between adservice and cartservice is 0
+2023-12-12 15:02:47 - INFO - Inserting data adservice cartservice 0.0 31
+2023-12-12 15:02:48 - INFO - request rate between adservice and checkoutservice is 0
+2023-12-12 15:02:48 - INFO - Response rate between adservice and checkoutservice is 0
+2023-12-12 15:02:48 - INFO - Inserting data adservice checkoutservice 0.0 31
+2023-12-12 15:02:49 - INFO - request rate between adservice and loadgenerator is 0
+2023-12-12 15:02:49 - INFO - Response rate between adservice and loadgenerator is 0
+2023-12-12 15:02:49 - INFO - Inserting data adservice loadgenerator 0.0 31
+2023-12-12 15:02:49 - INFO - request rate between adservice and productcatalogservice is 0
+2023-12-12 15:02:49 - INFO - Response rate between adservice and productcatalogservice is 0
+2023-12-12 15:02:49 - INFO - Inserting data adservice productcatalogservice 0.0 31
+2023-12-12 15:02:50 - INFO - request rate between adservice and emailservice is 0
+2023-12-12 15:02:50 - INFO - Response rate between adservice and emailservice is 0
+2023-12-12 15:02:50 - INFO - Inserting data adservice emailservice 0.0 31
+2023-12-12 15:02:50 - INFO - request rate between paymentservice and frontend is 0
+2023-12-12 15:02:50 - INFO - Response rate between paymentservice and frontend is 0
+2023-12-12 15:02:50 - INFO - Inserting data paymentservice frontend 0.0 31
+2023-12-12 15:02:51 - INFO - request rate between paymentservice and adservice is 0
+2023-12-12 15:02:51 - INFO - Response rate between paymentservice and adservice is 0
+2023-12-12 15:02:51 - INFO - Inserting data paymentservice adservice 0.0 31
+2023-12-12 15:02:51 - INFO - request rate between paymentservice and recommendationservice is 0
+2023-12-12 15:02:51 - INFO - Response rate between paymentservice and recommendationservice is 0
+2023-12-12 15:02:51 - INFO - Inserting data paymentservice recommendationservice 0.0 31
+2023-12-12 15:02:51 - INFO - request rate between paymentservice and redis-cart is 0
+2023-12-12 15:02:51 - INFO - Response rate between paymentservice and redis-cart is 0
+2023-12-12 15:02:51 - INFO - Inserting data paymentservice redis-cart 0.0 31
+2023-12-12 15:02:52 - INFO - request rate between paymentservice and shippingservice is 0
+2023-12-12 15:02:52 - INFO - Response rate between paymentservice and shippingservice is 0
+2023-12-12 15:02:52 - INFO - Inserting data paymentservice shippingservice 0.0 31
+2023-12-12 15:02:53 - INFO - request rate between paymentservice and currencyservice is 0
+2023-12-12 15:02:53 - INFO - Response rate between paymentservice and currencyservice is 0
+2023-12-12 15:02:53 - INFO - Inserting data paymentservice currencyservice 0.0 31
+2023-12-12 15:02:53 - INFO - request rate between paymentservice and cartservice is 0
+2023-12-12 15:02:53 - INFO - Response rate between paymentservice and cartservice is 0
+2023-12-12 15:02:53 - INFO - Inserting data paymentservice cartservice 0.0 31
+2023-12-12 15:02:54 - INFO - request rate between paymentservice and checkoutservice is 0
+2023-12-12 15:02:54 - INFO - Response rate between paymentservice and checkoutservice is 0
+2023-12-12 15:02:54 - INFO - Inserting data paymentservice checkoutservice 0.0 31
+2023-12-12 15:02:54 - INFO - request rate between paymentservice and loadgenerator is 0
+2023-12-12 15:02:54 - INFO - Response rate between paymentservice and loadgenerator is 0
+2023-12-12 15:02:54 - INFO - Inserting data paymentservice loadgenerator 0.0 31
+2023-12-12 15:02:54 - INFO - request rate between paymentservice and productcatalogservice is 0
+2023-12-12 15:02:54 - INFO - Response rate between paymentservice and productcatalogservice is 0
+2023-12-12 15:02:54 - INFO - Inserting data paymentservice productcatalogservice 0.0 31
+2023-12-12 15:02:55 - INFO - request rate between paymentservice and emailservice is 0
+2023-12-12 15:02:55 - INFO - Response rate between paymentservice and emailservice is 0
+2023-12-12 15:02:55 - INFO - Inserting data paymentservice emailservice 0.0 31
+2023-12-12 15:02:55 - INFO - request rate between recommendationservice and frontend is 0
+2023-12-12 15:02:55 - INFO - Response rate between recommendationservice and frontend is 0
+2023-12-12 15:02:55 - INFO - Inserting data recommendationservice frontend 0.0 31
+2023-12-12 15:02:55 - INFO - request rate between recommendationservice and adservice is 0
+2023-12-12 15:02:55 - INFO - Response rate between recommendationservice and adservice is 0
+2023-12-12 15:02:55 - INFO - Inserting data recommendationservice adservice 0.0 31
+2023-12-12 15:02:55 - INFO - request rate between recommendationservice and paymentservice is 0
+2023-12-12 15:02:56 - INFO - Response rate between recommendationservice and paymentservice is 0
+2023-12-12 15:02:56 - INFO - Inserting data recommendationservice paymentservice 0.0 31
+2023-12-12 15:02:56 - INFO - request rate between recommendationservice and redis-cart is 0
+2023-12-12 15:02:56 - INFO - Response rate between recommendationservice and redis-cart is 0
+2023-12-12 15:02:56 - INFO - Inserting data recommendationservice redis-cart 0.0 31
+2023-12-12 15:02:56 - INFO - request rate between recommendationservice and shippingservice is 0
+2023-12-12 15:02:56 - INFO - Response rate between recommendationservice and shippingservice is 0
+2023-12-12 15:02:56 - INFO - Inserting data recommendationservice shippingservice 0.0 31
+2023-12-12 15:02:56 - INFO - request rate between recommendationservice and currencyservice is 0
+2023-12-12 15:02:56 - INFO - Response rate between recommendationservice and currencyservice is 0
+2023-12-12 15:02:56 - INFO - Inserting data recommendationservice currencyservice 0.0 31
+2023-12-12 15:02:57 - INFO - request rate between recommendationservice and cartservice is 0
+2023-12-12 15:02:57 - INFO - Response rate between recommendationservice and cartservice is 0
+2023-12-12 15:02:57 - INFO - Inserting data recommendationservice cartservice 0.0 31
+2023-12-12 15:02:57 - INFO - request rate between recommendationservice and checkoutservice is 0
+2023-12-12 15:02:58 - INFO - Response rate between recommendationservice and checkoutservice is 0
+2023-12-12 15:02:58 - INFO - Inserting data recommendationservice checkoutservice 0.0 31
+2023-12-12 15:02:58 - INFO - request rate between recommendationservice and loadgenerator is 0
+2023-12-12 15:02:58 - INFO - Response rate between recommendationservice and loadgenerator is 0
+2023-12-12 15:02:58 - INFO - Inserting data recommendationservice loadgenerator 0.0 31
+2023-12-12 15:02:58 - INFO - request rate between recommendationservice and productcatalogservice is 76.14444444444443
+2023-12-12 15:02:58 - INFO - Response rate between recommendationservice and productcatalogservice is 2481.111111111111
+2023-12-12 15:02:58 - INFO - Inserting data recommendationservice productcatalogservice 1427.8777777777775 31
+2023-12-12 15:02:59 - INFO - request rate between recommendationservice and emailservice is 0
+2023-12-12 15:02:59 - INFO - Response rate between recommendationservice and emailservice is 0
+2023-12-12 15:02:59 - INFO - Inserting data recommendationservice emailservice 0.0 31
+2023-12-12 15:02:59 - INFO - request rate between redis-cart and frontend is 0
+2023-12-12 15:02:59 - INFO - Response rate between redis-cart and frontend is 0
+2023-12-12 15:02:59 - INFO - Inserting data redis-cart frontend 0.0 31
+2023-12-12 15:02:59 - INFO - request rate between redis-cart and adservice is 0
+2023-12-12 15:02:59 - INFO - Response rate between redis-cart and adservice is 0
+2023-12-12 15:02:59 - INFO - Inserting data redis-cart adservice 0.0 31
+2023-12-12 15:03:00 - INFO - request rate between redis-cart and paymentservice is 0
+2023-12-12 15:03:00 - INFO - Response rate between redis-cart and paymentservice is 0
+2023-12-12 15:03:00 - INFO - Inserting data redis-cart paymentservice 0.0 31
+2023-12-12 15:03:00 - INFO - request rate between redis-cart and recommendationservice is 0
+2023-12-12 15:03:00 - INFO - Response rate between redis-cart and recommendationservice is 0
+2023-12-12 15:03:00 - INFO - Inserting data redis-cart recommendationservice 0.0 31
+2023-12-12 15:03:00 - INFO - request rate between redis-cart and shippingservice is 0
+2023-12-12 15:03:00 - INFO - Response rate between redis-cart and shippingservice is 0
+2023-12-12 15:03:00 - INFO - Inserting data redis-cart shippingservice 0.0 31
+2023-12-12 15:03:01 - INFO - request rate between redis-cart and currencyservice is 0
+2023-12-12 15:03:01 - INFO - Response rate between redis-cart and currencyservice is 0
+2023-12-12 15:03:01 - INFO - Inserting data redis-cart currencyservice 0.0 31
+2023-12-12 15:03:01 - INFO - request rate between redis-cart and cartservice is 0
+2023-12-12 15:03:01 - INFO - Response rate between redis-cart and cartservice is 0
+2023-12-12 15:03:01 - INFO - Inserting data redis-cart cartservice 0.0 31
+2023-12-12 15:03:02 - INFO - request rate between redis-cart and checkoutservice is 0
+2023-12-12 15:03:02 - INFO - Response rate between redis-cart and checkoutservice is 0
+2023-12-12 15:03:02 - INFO - Inserting data redis-cart checkoutservice 0.0 31
+2023-12-12 15:03:02 - INFO - request rate between redis-cart and loadgenerator is 0
+2023-12-12 15:03:02 - INFO - Response rate between redis-cart and loadgenerator is 0
+2023-12-12 15:03:02 - INFO - Inserting data redis-cart loadgenerator 0.0 31
+2023-12-12 15:03:03 - INFO - request rate between redis-cart and productcatalogservice is 0
+2023-12-12 15:03:03 - INFO - Response rate between redis-cart and productcatalogservice is 0
+2023-12-12 15:03:03 - INFO - Inserting data redis-cart productcatalogservice 0.0 31
+2023-12-12 15:03:04 - INFO - request rate between redis-cart and emailservice is 0
+2023-12-12 15:03:04 - INFO - Response rate between redis-cart and emailservice is 0
+2023-12-12 15:03:04 - INFO - Inserting data redis-cart emailservice 0.0 31
+2023-12-12 15:03:04 - INFO - request rate between shippingservice and frontend is 0
+2023-12-12 15:03:04 - INFO - Response rate between shippingservice and frontend is 0
+2023-12-12 15:03:04 - INFO - Inserting data shippingservice frontend 0.0 31
+2023-12-12 15:03:05 - INFO - request rate between shippingservice and adservice is 0
+2023-12-12 15:03:05 - INFO - Response rate between shippingservice and adservice is 0
+2023-12-12 15:03:05 - INFO - Inserting data shippingservice adservice 0.0 31
+2023-12-12 15:03:05 - INFO - request rate between shippingservice and paymentservice is 0
+2023-12-12 15:03:05 - INFO - Response rate between shippingservice and paymentservice is 0
+2023-12-12 15:03:05 - INFO - Inserting data shippingservice paymentservice 0.0 31
+2023-12-12 15:03:06 - INFO - request rate between shippingservice and recommendationservice is 0
+2023-12-12 15:03:06 - INFO - Response rate between shippingservice and recommendationservice is 0
+2023-12-12 15:03:06 - INFO - Inserting data shippingservice recommendationservice 0.0 31
+2023-12-12 15:03:06 - INFO - request rate between shippingservice and redis-cart is 0
+2023-12-12 15:03:06 - INFO - Response rate between shippingservice and redis-cart is 0
+2023-12-12 15:03:06 - INFO - Inserting data shippingservice redis-cart 0.0 31
+2023-12-12 15:03:06 - INFO - request rate between shippingservice and currencyservice is 0
+2023-12-12 15:03:06 - INFO - Response rate between shippingservice and currencyservice is 0
+2023-12-12 15:03:06 - INFO - Inserting data shippingservice currencyservice 0.0 31
+2023-12-12 15:03:07 - INFO - request rate between shippingservice and cartservice is 0
+2023-12-12 15:03:07 - INFO - Response rate between shippingservice and cartservice is 0
+2023-12-12 15:03:07 - INFO - Inserting data shippingservice cartservice 0.0 31
+2023-12-12 15:03:08 - INFO - request rate between shippingservice and checkoutservice is 0
+2023-12-12 15:03:08 - INFO - Response rate between shippingservice and checkoutservice is 0
+2023-12-12 15:03:08 - INFO - Inserting data shippingservice checkoutservice 0.0 31
+2023-12-12 15:03:08 - INFO - request rate between shippingservice and loadgenerator is 0
+2023-12-12 15:03:08 - INFO - Response rate between shippingservice and loadgenerator is 0
+2023-12-12 15:03:08 - INFO - Inserting data shippingservice loadgenerator 0.0 31
+2023-12-12 15:03:09 - INFO - request rate between shippingservice and productcatalogservice is 0
+2023-12-12 15:03:09 - INFO - Response rate between shippingservice and productcatalogservice is 0
+2023-12-12 15:03:09 - INFO - Inserting data shippingservice productcatalogservice 0.0 31
+2023-12-12 15:03:09 - INFO - request rate between shippingservice and emailservice is 0
+2023-12-12 15:03:09 - INFO - Response rate between shippingservice and emailservice is 0
+2023-12-12 15:03:09 - INFO - Inserting data shippingservice emailservice 0.0 31
+2023-12-12 15:03:10 - INFO - request rate between currencyservice and frontend is 0
+2023-12-12 15:03:10 - INFO - Response rate between currencyservice and frontend is 0
+2023-12-12 15:03:10 - INFO - Inserting data currencyservice frontend 0.0 31
+2023-12-12 15:03:10 - INFO - request rate between currencyservice and adservice is 0
+2023-12-12 15:03:11 - INFO - Response rate between currencyservice and adservice is 0
+2023-12-12 15:03:11 - INFO - Inserting data currencyservice adservice 0.0 31
+2023-12-12 15:03:11 - INFO - request rate between currencyservice and paymentservice is 0
+2023-12-12 15:03:11 - INFO - Response rate between currencyservice and paymentservice is 0
+2023-12-12 15:03:11 - INFO - Inserting data currencyservice paymentservice 0.0 31
+2023-12-12 15:03:12 - INFO - request rate between currencyservice and recommendationservice is 0
+2023-12-12 15:03:12 - INFO - Response rate between currencyservice and recommendationservice is 0
+2023-12-12 15:03:12 - INFO - Inserting data currencyservice recommendationservice 0.0 31
+2023-12-12 15:03:12 - INFO - request rate between currencyservice and redis-cart is 0
+2023-12-12 15:03:12 - INFO - Response rate between currencyservice and redis-cart is 0
+2023-12-12 15:03:12 - INFO - Inserting data currencyservice redis-cart 0.0 31
+2023-12-12 15:03:12 - INFO - request rate between currencyservice and shippingservice is 0
+2023-12-12 15:03:12 - INFO - Response rate between currencyservice and shippingservice is 0
+2023-12-12 15:03:12 - INFO - Inserting data currencyservice shippingservice 0.0 31
+2023-12-12 15:03:13 - INFO - request rate between currencyservice and cartservice is 0
+2023-12-12 15:03:13 - INFO - Response rate between currencyservice and cartservice is 0
+2023-12-12 15:03:13 - INFO - Inserting data currencyservice cartservice 0.0 31
+2023-12-12 15:03:13 - INFO - request rate between currencyservice and checkoutservice is 0
+2023-12-12 15:03:13 - INFO - Response rate between currencyservice and checkoutservice is 0
+2023-12-12 15:03:13 - INFO - Inserting data currencyservice checkoutservice 0.0 31
+2023-12-12 15:03:14 - INFO - request rate between currencyservice and loadgenerator is 0
+2023-12-12 15:03:14 - INFO - Response rate between currencyservice and loadgenerator is 0
+2023-12-12 15:03:14 - INFO - Inserting data currencyservice loadgenerator 0.0 31
+2023-12-12 15:03:14 - INFO - request rate between currencyservice and productcatalogservice is 0
+2023-12-12 15:03:15 - INFO - Response rate between currencyservice and productcatalogservice is 0
+2023-12-12 15:03:15 - INFO - Inserting data currencyservice productcatalogservice 0.0 31
+2023-12-12 15:03:15 - INFO - request rate between currencyservice and emailservice is 0
+2023-12-12 15:03:15 - INFO - Response rate between currencyservice and emailservice is 0
+2023-12-12 15:03:15 - INFO - Inserting data currencyservice emailservice 0.0 31
+2023-12-12 15:03:15 - INFO - request rate between cartservice and frontend is 0
+2023-12-12 15:03:16 - INFO - Response rate between cartservice and frontend is 0
+2023-12-12 15:03:16 - INFO - Inserting data cartservice frontend 0.0 31
+2023-12-12 15:03:16 - INFO - request rate between cartservice and adservice is 0
+2023-12-12 15:03:16 - INFO - Response rate between cartservice and adservice is 0
+2023-12-12 15:03:16 - INFO - Inserting data cartservice adservice 0.0 31
+2023-12-12 15:03:16 - INFO - request rate between cartservice and paymentservice is 0
+2023-12-12 15:03:16 - INFO - Response rate between cartservice and paymentservice is 0
+2023-12-12 15:03:16 - INFO - Inserting data cartservice paymentservice 0.0 31
+2023-12-12 15:03:16 - INFO - request rate between cartservice and recommendationservice is 0
+2023-12-12 15:03:16 - INFO - Response rate between cartservice and recommendationservice is 0
+2023-12-12 15:03:16 - INFO - Inserting data cartservice recommendationservice 0.0 31
+2023-12-12 15:03:17 - INFO - tcp sent rate 87.55555555555554
+2023-12-12 15:03:17 - INFO - request rate between cartservice and redis-cart is 87.55555555555554
+2023-12-12 15:03:17 - INFO - tcp received rate 263.46666666666664
+2023-12-12 15:03:17 - INFO - Response rate between cartservice and redis-cart is 263.46666666666664
+2023-12-12 15:03:17 - INFO - Inserting data cartservice redis-cart 11.323297491039424 31
+2023-12-12 15:03:17 - INFO - request rate between cartservice and shippingservice is 0
+2023-12-12 15:03:17 - INFO - Response rate between cartservice and shippingservice is 0
+2023-12-12 15:03:17 - INFO - Inserting data cartservice shippingservice 0.0 31
+2023-12-12 15:03:18 - INFO - request rate between cartservice and currencyservice is 0
+2023-12-12 15:03:19 - INFO - Response rate between cartservice and currencyservice is 0
+2023-12-12 15:03:19 - INFO - Inserting data cartservice currencyservice 0.0 31
+2023-12-12 15:03:19 - INFO - request rate between cartservice and checkoutservice is 0
+2023-12-12 15:03:19 - INFO - Response rate between cartservice and checkoutservice is 0
+2023-12-12 15:03:19 - INFO - Inserting data cartservice checkoutservice 0.0 31
+2023-12-12 15:03:19 - INFO - request rate between cartservice and loadgenerator is 0
+2023-12-12 15:03:20 - INFO - Response rate between cartservice and loadgenerator is 0
+2023-12-12 15:03:20 - INFO - Inserting data cartservice loadgenerator 0.0 31
+2023-12-12 15:03:20 - INFO - request rate between cartservice and productcatalogservice is 0
+2023-12-12 15:03:20 - INFO - Response rate between cartservice and productcatalogservice is 0
+2023-12-12 15:03:20 - INFO - Inserting data cartservice productcatalogservice 0.0 31
+2023-12-12 15:03:20 - INFO - request rate between cartservice and emailservice is 0
+2023-12-12 15:03:20 - INFO - Response rate between cartservice and emailservice is 0
+2023-12-12 15:03:20 - INFO - Inserting data cartservice emailservice 0.0 31
+2023-12-12 15:03:21 - INFO - request rate between checkoutservice and frontend is 0
+2023-12-12 15:03:21 - INFO - Response rate between checkoutservice and frontend is 0
+2023-12-12 15:03:21 - INFO - Inserting data checkoutservice frontend 0.0 31
+2023-12-12 15:03:21 - INFO - request rate between checkoutservice and adservice is 0
+2023-12-12 15:03:21 - INFO - Response rate between checkoutservice and adservice is 0
+2023-12-12 15:03:21 - INFO - Inserting data checkoutservice adservice 0.0 31
+2023-12-12 15:03:21 - INFO - request rate between checkoutservice and paymentservice is 5.2333333333333325
+2023-12-12 15:03:21 - INFO - Response rate between checkoutservice and paymentservice is 6.999999999999999
+2023-12-12 15:03:21 - INFO - Inserting data checkoutservice paymentservice 105.92186379928314 31
+2023-12-12 15:03:21 - INFO - request rate between checkoutservice and recommendationservice is 0
+2023-12-12 15:03:22 - INFO - Response rate between checkoutservice and recommendationservice is 0
+2023-12-12 15:03:22 - INFO - Inserting data checkoutservice recommendationservice 0.0 31
+2023-12-12 15:03:22 - INFO - request rate between checkoutservice and redis-cart is 0
+2023-12-12 15:03:22 - INFO - Response rate between checkoutservice and redis-cart is 0
+2023-12-12 15:03:22 - INFO - Inserting data checkoutservice redis-cart 0.0 31
+2023-12-12 15:03:22 - INFO - request rate between checkoutservice and shippingservice is 17.999999999999996
+2023-12-12 15:03:22 - INFO - Response rate between checkoutservice and shippingservice is 9.2
+2023-12-12 15:03:22 - INFO - Inserting data checkoutservice shippingservice 375.68100358422936 31
+2023-12-12 15:03:22 - INFO - request rate between checkoutservice and currencyservice is 10.299999999999999
+2023-12-12 15:03:22 - INFO - Response rate between checkoutservice and currencyservice is 12.588888888888887
+2023-12-12 15:03:22 - INFO - Inserting data checkoutservice currencyservice 243.38996415770603 31
+2023-12-12 15:03:23 - INFO - request rate between checkoutservice and cartservice is 9.266666666666666
+2023-12-12 15:03:23 - INFO - Response rate between checkoutservice and cartservice is 8.799999999999999
+2023-12-12 15:03:23 - INFO - Inserting data checkoutservice cartservice 187.28494623655908 31
+2023-12-12 15:03:23 - INFO - request rate between checkoutservice and loadgenerator is 0
+2023-12-12 15:03:24 - INFO - Response rate between checkoutservice and loadgenerator is 0
+2023-12-12 15:03:24 - INFO - Inserting data checkoutservice loadgenerator 0.0 31
+2023-12-12 15:03:24 - INFO - request rate between checkoutservice and productcatalogservice is 3.8666666666666663
+2023-12-12 15:03:25 - INFO - Response rate between checkoutservice and productcatalogservice is 18.22222222222222
+2023-12-12 15:03:25 - INFO - Inserting data checkoutservice productcatalogservice 148.04946236559135 31
+2023-12-12 15:03:25 - INFO - request rate between checkoutservice and emailservice is 11.777777777777777
+2023-12-12 15:03:25 - INFO - Response rate between checkoutservice and emailservice is 2.822222222222222
+2023-12-12 15:03:25 - INFO - Inserting data checkoutservice emailservice 374.7820788530465 31
+2023-12-12 15:03:25 - INFO - request rate between loadgenerator and frontend is 581.6666666666666
+2023-12-12 15:03:25 - INFO - Response rate between loadgenerator and frontend is 22479.999999999996
+2023-12-12 15:03:25 - INFO - Inserting data loadgenerator frontend 2038.4245471483025 31
+2023-12-12 15:03:25 - INFO - request rate between loadgenerator and adservice is 0
+2023-12-12 15:03:25 - INFO - Response rate between loadgenerator and adservice is 0
+2023-12-12 15:03:25 - INFO - Inserting data loadgenerator adservice 0.0 31
+2023-12-12 15:03:25 - INFO - request rate between loadgenerator and paymentservice is 0
+2023-12-12 15:03:26 - INFO - Response rate between loadgenerator and paymentservice is 0
+2023-12-12 15:03:26 - INFO - Inserting data loadgenerator paymentservice 0.0 31
+2023-12-12 15:03:26 - INFO - request rate between loadgenerator and recommendationservice is 0
+2023-12-12 15:03:26 - INFO - Response rate between loadgenerator and recommendationservice is 0
+2023-12-12 15:03:26 - INFO - Inserting data loadgenerator recommendationservice 0.0 31
+2023-12-12 15:03:26 - INFO - request rate between loadgenerator and redis-cart is 0
+2023-12-12 15:03:26 - INFO - Response rate between loadgenerator and redis-cart is 0
+2023-12-12 15:03:26 - INFO - Inserting data loadgenerator redis-cart 0.0 31
+2023-12-12 15:03:26 - INFO - request rate between loadgenerator and shippingservice is 0
+2023-12-12 15:03:27 - INFO - Response rate between loadgenerator and shippingservice is 0
+2023-12-12 15:03:27 - INFO - Inserting data loadgenerator shippingservice 0.0 31
+2023-12-12 15:03:27 - INFO - request rate between loadgenerator and currencyservice is 0
+2023-12-12 15:03:27 - INFO - Response rate between loadgenerator and currencyservice is 0
+2023-12-12 15:03:27 - INFO - Inserting data loadgenerator currencyservice 0.0 31
+2023-12-12 15:03:27 - INFO - request rate between loadgenerator and cartservice is 0
+2023-12-12 15:03:27 - INFO - Response rate between loadgenerator and cartservice is 0
+2023-12-12 15:03:27 - INFO - Inserting data loadgenerator cartservice 0.0 31
+2023-12-12 15:03:27 - INFO - request rate between loadgenerator and checkoutservice is 0
+2023-12-12 15:03:27 - INFO - Response rate between loadgenerator and checkoutservice is 0
+2023-12-12 15:03:27 - INFO - Inserting data loadgenerator checkoutservice 0.0 31
+2023-12-12 15:03:27 - INFO - request rate between loadgenerator and productcatalogservice is 0
+2023-12-12 15:03:28 - INFO - Response rate between loadgenerator and productcatalogservice is 0
+2023-12-12 15:03:28 - INFO - Inserting data loadgenerator productcatalogservice 0.0 31
+2023-12-12 15:03:28 - INFO - request rate between loadgenerator and emailservice is 0
+2023-12-12 15:03:28 - INFO - Response rate between loadgenerator and emailservice is 0
+2023-12-12 15:03:28 - INFO - Inserting data loadgenerator emailservice 0.0 31
+2023-12-12 15:03:29 - INFO - request rate between productcatalogservice and frontend is 0
+2023-12-12 15:03:29 - INFO - Response rate between productcatalogservice and frontend is 0
+2023-12-12 15:03:29 - INFO - Inserting data productcatalogservice frontend 0.0 31
+2023-12-12 15:03:29 - INFO - request rate between productcatalogservice and adservice is 0
+2023-12-12 15:03:29 - INFO - Response rate between productcatalogservice and adservice is 0
+2023-12-12 15:03:29 - INFO - Inserting data productcatalogservice adservice 0.0 31
+2023-12-12 15:03:29 - INFO - request rate between productcatalogservice and paymentservice is 0
+2023-12-12 15:03:29 - INFO - Response rate between productcatalogservice and paymentservice is 0
+2023-12-12 15:03:29 - INFO - Inserting data productcatalogservice paymentservice 0.0 31
+2023-12-12 15:03:29 - INFO - request rate between productcatalogservice and recommendationservice is 0
+2023-12-12 15:03:30 - INFO - Response rate between productcatalogservice and recommendationservice is 0
+2023-12-12 15:03:30 - INFO - Inserting data productcatalogservice recommendationservice 0.0 31
+2023-12-12 15:03:30 - INFO - request rate between productcatalogservice and redis-cart is 0
+2023-12-12 15:03:30 - INFO - Response rate between productcatalogservice and redis-cart is 0
+2023-12-12 15:03:30 - INFO - Inserting data productcatalogservice redis-cart 0.0 31
+2023-12-12 15:03:30 - INFO - request rate between productcatalogservice and shippingservice is 0
+2023-12-12 15:03:30 - INFO - Response rate between productcatalogservice and shippingservice is 0
+2023-12-12 15:03:30 - INFO - Inserting data productcatalogservice shippingservice 0.0 31
+2023-12-12 15:03:31 - INFO - request rate between productcatalogservice and currencyservice is 0
+2023-12-12 15:03:31 - INFO - Response rate between productcatalogservice and currencyservice is 0
+2023-12-12 15:03:31 - INFO - Inserting data productcatalogservice currencyservice 0.0 31
+2023-12-12 15:03:31 - INFO - request rate between productcatalogservice and cartservice is 0
+2023-12-12 15:03:31 - INFO - Response rate between productcatalogservice and cartservice is 0
+2023-12-12 15:03:31 - INFO - Inserting data productcatalogservice cartservice 0.0 31
+2023-12-12 15:03:31 - INFO - request rate between productcatalogservice and checkoutservice is 0
+2023-12-12 15:03:32 - INFO - Response rate between productcatalogservice and checkoutservice is 0
+2023-12-12 15:03:32 - INFO - Inserting data productcatalogservice checkoutservice 0.0 31
+2023-12-12 15:03:32 - INFO - request rate between productcatalogservice and loadgenerator is 0
+2023-12-12 15:03:32 - INFO - Response rate between productcatalogservice and loadgenerator is 0
+2023-12-12 15:03:32 - INFO - Inserting data productcatalogservice loadgenerator 0.0 31
+2023-12-12 15:03:32 - INFO - request rate between productcatalogservice and emailservice is 0
+2023-12-12 15:03:32 - INFO - Response rate between productcatalogservice and emailservice is 0
+2023-12-12 15:03:32 - INFO - Inserting data productcatalogservice emailservice 0.0 31
+2023-12-12 15:03:32 - INFO - request rate between emailservice and frontend is 0
+2023-12-12 15:03:33 - INFO - Response rate between emailservice and frontend is 0
+2023-12-12 15:03:33 - INFO - Inserting data emailservice frontend 0.0 31
+2023-12-12 15:03:33 - INFO - request rate between emailservice and adservice is 0
+2023-12-12 15:03:33 - INFO - Response rate between emailservice and adservice is 0
+2023-12-12 15:03:33 - INFO - Inserting data emailservice adservice 0.0 31
+2023-12-12 15:03:33 - INFO - request rate between emailservice and paymentservice is 0
+2023-12-12 15:03:33 - INFO - Response rate between emailservice and paymentservice is 0
+2023-12-12 15:03:33 - INFO - Inserting data emailservice paymentservice 0.0 31
+2023-12-12 15:03:33 - INFO - request rate between emailservice and recommendationservice is 0
+2023-12-12 15:03:34 - INFO - Response rate between emailservice and recommendationservice is 0
+2023-12-12 15:03:34 - INFO - Inserting data emailservice recommendationservice 0.0 31
+2023-12-12 15:03:34 - INFO - request rate between emailservice and redis-cart is 0
+2023-12-12 15:03:34 - INFO - Response rate between emailservice and redis-cart is 0
+2023-12-12 15:03:34 - INFO - Inserting data emailservice redis-cart 0.0 31
+2023-12-12 15:03:35 - INFO - request rate between emailservice and shippingservice is 0
+2023-12-12 15:03:35 - INFO - Response rate between emailservice and shippingservice is 0
+2023-12-12 15:03:35 - INFO - Inserting data emailservice shippingservice 0.0 31
+2023-12-12 15:03:35 - INFO - request rate between emailservice and currencyservice is 0
+2023-12-12 15:03:35 - INFO - Response rate between emailservice and currencyservice is 0
+2023-12-12 15:03:35 - INFO - Inserting data emailservice currencyservice 0.0 31
+2023-12-12 15:03:35 - INFO - request rate between emailservice and cartservice is 0
+2023-12-12 15:03:35 - INFO - Response rate between emailservice and cartservice is 0
+2023-12-12 15:03:35 - INFO - Inserting data emailservice cartservice 0.0 31
+2023-12-12 15:03:36 - INFO - request rate between emailservice and checkoutservice is 0
+2023-12-12 15:03:36 - INFO - Response rate between emailservice and checkoutservice is 0
+2023-12-12 15:03:36 - INFO - Inserting data emailservice checkoutservice 0.0 31
+2023-12-12 15:03:36 - INFO - request rate between emailservice and loadgenerator is 0
+2023-12-12 15:03:36 - INFO - Response rate between emailservice and loadgenerator is 0
+2023-12-12 15:03:36 - INFO - Inserting data emailservice loadgenerator 0.0 31
+2023-12-12 15:03:36 - INFO - request rate between emailservice and productcatalogservice is 0
+2023-12-12 15:03:36 - INFO - Response rate between emailservice and productcatalogservice is 0
+2023-12-12 15:03:36 - INFO - Inserting data emailservice productcatalogservice 0.0 31
