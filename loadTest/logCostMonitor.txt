@@ -1,128 +1,132 @@
-2023-12-19 15:32:59 - INFO  [costMonitor.py:66] - Total Cost: 0.5 at Time: 10 sec
-2023-12-19 15:32:59 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:33:09 - INFO  [costMonitor.py:66] - Total Cost: 1.0 at Time: 20 sec
-2023-12-19 15:33:09 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:33:19 - INFO  [costMonitor.py:66] - Total Cost: 1.5 at Time: 30 sec
-2023-12-19 15:33:19 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:33:30 - INFO  [costMonitor.py:66] - Total Cost: 2.0 at Time: 40 sec
-2023-12-19 15:33:30 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:33:40 - INFO  [costMonitor.py:66] - Total Cost: 2.5 at Time: 50 sec
-2023-12-19 15:33:40 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:33:50 - INFO  [costMonitor.py:66] - Total Cost: 3.0 at Time: 60 sec
-2023-12-19 15:33:50 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:34:00 - INFO  [costMonitor.py:66] - Total Cost: 3.5 at Time: 70 sec
-2023-12-19 15:34:00 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:34:10 - INFO  [costMonitor.py:66] - Total Cost: 4.0 at Time: 80 sec
-2023-12-19 15:34:10 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:34:20 - INFO  [costMonitor.py:66] - Total Cost: 4.5 at Time: 90 sec
-2023-12-19 15:34:20 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:34:30 - INFO  [costMonitor.py:66] - Total Cost: 5.0 at Time: 100 sec
-2023-12-19 15:34:30 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:34:40 - INFO  [costMonitor.py:66] - Total Cost: 5.5 at Time: 110 sec
-2023-12-19 15:34:40 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:34:50 - INFO  [costMonitor.py:66] - Total Cost: 6.0 at Time: 120 sec
-2023-12-19 15:34:50 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:35:00 - INFO  [costMonitor.py:66] - Total Cost: 6.5 at Time: 130 sec
-2023-12-19 15:35:00 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:35:10 - INFO  [costMonitor.py:66] - Total Cost: 7.0 at Time: 140 sec
-2023-12-19 15:35:10 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:35:21 - INFO  [costMonitor.py:66] - Total Cost: 7.5 at Time: 150 sec
-2023-12-19 15:35:21 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:35:31 - INFO  [costMonitor.py:66] - Total Cost: 8.0 at Time: 160 sec
-2023-12-19 15:35:31 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:35:41 - INFO  [costMonitor.py:66] - Total Cost: 8.5 at Time: 170 sec
-2023-12-19 15:35:41 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:35:51 - INFO  [costMonitor.py:66] - Total Cost: 9.0 at Time: 180 sec
-2023-12-19 15:35:51 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:36:01 - INFO  [costMonitor.py:66] - Total Cost: 9.5 at Time: 190 sec
-2023-12-19 15:36:01 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:36:11 - INFO  [costMonitor.py:66] - Total Cost: 10.0 at Time: 200 sec
-2023-12-19 15:36:11 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:36:21 - INFO  [costMonitor.py:66] - Total Cost: 10.5 at Time: 210 sec
-2023-12-19 15:36:21 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:36:31 - INFO  [costMonitor.py:66] - Total Cost: 11.0 at Time: 220 sec
-2023-12-19 15:36:31 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:36:41 - INFO  [costMonitor.py:66] - Total Cost: 11.5 at Time: 230 sec
-2023-12-19 15:36:41 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:36:51 - INFO  [costMonitor.py:66] - Total Cost: 12.0 at Time: 240 sec
-2023-12-19 15:36:51 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:37:01 - INFO  [costMonitor.py:66] - Total Cost: 12.5 at Time: 250 sec
-2023-12-19 15:37:01 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:37:11 - INFO  [costMonitor.py:66] - Total Cost: 13.0 at Time: 260 sec
-2023-12-19 15:37:11 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:37:22 - INFO  [costMonitor.py:66] - Total Cost: 13.5 at Time: 270 sec
-2023-12-19 15:37:22 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:37:32 - INFO  [costMonitor.py:66] - Total Cost: 14.0 at Time: 280 sec
-2023-12-19 15:37:32 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:37:42 - INFO  [costMonitor.py:66] - Total Cost: 14.5 at Time: 290 sec
-2023-12-19 15:37:42 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:37:52 - INFO  [costMonitor.py:66] - Total Cost: 15.0 at Time: 300 sec
-2023-12-19 15:37:52 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:38:02 - INFO  [costMonitor.py:66] - Total Cost: 15.5 at Time: 310 sec
-2023-12-19 15:38:02 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:38:13 - INFO  [costMonitor.py:66] - Total Cost: 16.0 at Time: 320 sec
-2023-12-19 15:38:13 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:38:23 - INFO  [costMonitor.py:66] - Total Cost: 16.5 at Time: 330 sec
-2023-12-19 15:38:23 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:38:33 - INFO  [costMonitor.py:66] - Total Cost: 17.0 at Time: 340 sec
-2023-12-19 15:38:33 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:38:43 - INFO  [costMonitor.py:66] - Total Cost: 17.5 at Time: 350 sec
-2023-12-19 15:38:43 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:38:53 - INFO  [costMonitor.py:66] - Total Cost: 18.0 at Time: 360 sec
-2023-12-19 15:38:53 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:39:03 - INFO  [costMonitor.py:66] - Total Cost: 18.5 at Time: 370 sec
-2023-12-19 15:39:03 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:39:13 - INFO  [costMonitor.py:66] - Total Cost: 19.0 at Time: 380 sec
-2023-12-19 15:39:13 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:39:23 - INFO  [costMonitor.py:66] - Total Cost: 19.5 at Time: 390 sec
-2023-12-19 15:39:23 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:39:34 - INFO  [costMonitor.py:66] - Total Cost: 20.0 at Time: 400 sec
-2023-12-19 15:39:34 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:39:44 - INFO  [costMonitor.py:66] - Total Cost: 20.5 at Time: 410 sec
-2023-12-19 15:39:44 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:39:54 - INFO  [costMonitor.py:66] - Total Cost: 21.0 at Time: 420 sec
-2023-12-19 15:39:54 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:40:04 - INFO  [costMonitor.py:66] - Total Cost: 21.5 at Time: 430 sec
-2023-12-19 15:40:04 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:40:14 - INFO  [costMonitor.py:66] - Total Cost: 22.0 at Time: 440 sec
-2023-12-19 15:40:14 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:40:24 - INFO  [costMonitor.py:66] - Total Cost: 22.5 at Time: 450 sec
-2023-12-19 15:40:24 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:40:34 - INFO  [costMonitor.py:66] - Total Cost: 23.0 at Time: 460 sec
-2023-12-19 15:40:34 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:40:44 - INFO  [costMonitor.py:66] - Total Cost: 23.5 at Time: 470 sec
-2023-12-19 15:40:44 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:40:54 - INFO  [costMonitor.py:66] - Total Cost: 24.0 at Time: 480 sec
-2023-12-19 15:40:54 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:41:04 - INFO  [costMonitor.py:66] - Total Cost: 24.5 at Time: 490 sec
-2023-12-19 15:41:04 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:41:14 - INFO  [costMonitor.py:66] - Total Cost: 25.0 at Time: 500 sec
-2023-12-19 15:41:14 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:41:25 - INFO  [costMonitor.py:66] - Total Cost: 25.5 at Time: 510 sec
-2023-12-19 15:41:25 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:41:35 - INFO  [costMonitor.py:66] - Total Cost: 26.0 at Time: 520 sec
-2023-12-19 15:41:35 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:41:45 - INFO  [costMonitor.py:66] - Total Cost: 26.5 at Time: 530 sec
-2023-12-19 15:41:45 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:41:55 - INFO  [costMonitor.py:66] - Total Cost: 27.0 at Time: 540 sec
-2023-12-19 15:41:55 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:42:05 - INFO  [costMonitor.py:66] - Total Cost: 27.5 at Time: 550 sec
-2023-12-19 15:42:05 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:42:15 - INFO  [costMonitor.py:66] - Total Cost: 28.0 at Time: 560 sec
-2023-12-19 15:42:15 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:42:25 - INFO  [costMonitor.py:66] - Total Cost: 28.5 at Time: 570 sec
-2023-12-19 15:42:25 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:42:35 - INFO  [costMonitor.py:66] - Total Cost: 29.0 at Time: 580 sec
-2023-12-19 15:42:35 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:42:46 - INFO  [costMonitor.py:66] - Total Cost: 29.5 at Time: 590 sec
-2023-12-19 15:42:46 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:42:56 - INFO  [costMonitor.py:66] - Total Cost: 30.0 at Time: 600 sec
-2023-12-19 15:42:56 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:43:06 - INFO  [costMonitor.py:66] - Total Cost: 30.5 at Time: 610 sec
-2023-12-19 15:43:06 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:43:16 - INFO  [costMonitor.py:66] - Total Cost: 31.0 at Time: 620 sec
-2023-12-19 15:43:16 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:43:26 - INFO  [costMonitor.py:66] - Total Cost: 31.5 at Time: 630 sec
-2023-12-19 15:43:26 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
-2023-12-19 15:43:36 - INFO  [costMonitor.py:66] - Total Cost: 32.0 at Time: 640 sec
-2023-12-19 15:43:36 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 3.0
+2023-12-20 06:53:44 - INFO  [costMonitor.py:66] - Total Cost: 0.16666666666666666 at Time: 10 sec
+2023-12-20 06:53:44 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:53:54 - INFO  [costMonitor.py:66] - Total Cost: 0.3333333333333333 at Time: 20 sec
+2023-12-20 06:53:54 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:54:04 - INFO  [costMonitor.py:66] - Total Cost: 0.5 at Time: 30 sec
+2023-12-20 06:54:04 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:54:14 - INFO  [costMonitor.py:66] - Total Cost: 0.6666666666666666 at Time: 40 sec
+2023-12-20 06:54:14 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:54:24 - INFO  [costMonitor.py:66] - Total Cost: 0.8333333333333333 at Time: 50 sec
+2023-12-20 06:54:24 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:54:34 - INFO  [costMonitor.py:66] - Total Cost: 0.9999999999999999 at Time: 60 sec
+2023-12-20 06:54:34 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:54:44 - INFO  [costMonitor.py:66] - Total Cost: 1.1666666666666665 at Time: 70 sec
+2023-12-20 06:54:44 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999998
+2023-12-20 06:54:54 - INFO  [costMonitor.py:66] - Total Cost: 1.3333333333333333 at Time: 80 sec
+2023-12-20 06:54:54 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:55:05 - INFO  [costMonitor.py:66] - Total Cost: 1.5 at Time: 90 sec
+2023-12-20 06:55:05 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:55:15 - INFO  [costMonitor.py:66] - Total Cost: 1.6666666666666667 at Time: 100 sec
+2023-12-20 06:55:15 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:55:25 - INFO  [costMonitor.py:66] - Total Cost: 1.8333333333333335 at Time: 110 sec
+2023-12-20 06:55:25 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:55:35 - INFO  [costMonitor.py:66] - Total Cost: 2.0 at Time: 120 sec
+2023-12-20 06:55:35 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:55:45 - INFO  [costMonitor.py:66] - Total Cost: 2.1666666666666665 at Time: 130 sec
+2023-12-20 06:55:45 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:55:55 - INFO  [costMonitor.py:66] - Total Cost: 2.333333333333333 at Time: 140 sec
+2023-12-20 06:55:55 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999998
+2023-12-20 06:56:05 - INFO  [costMonitor.py:66] - Total Cost: 2.4999999999999996 at Time: 150 sec
+2023-12-20 06:56:05 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999998
+2023-12-20 06:56:15 - INFO  [costMonitor.py:66] - Total Cost: 2.666666666666666 at Time: 160 sec
+2023-12-20 06:56:15 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999998
+2023-12-20 06:56:25 - INFO  [costMonitor.py:66] - Total Cost: 2.8333333333333326 at Time: 170 sec
+2023-12-20 06:56:25 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999998
+2023-12-20 06:56:35 - INFO  [costMonitor.py:66] - Total Cost: 2.999999999999999 at Time: 180 sec
+2023-12-20 06:56:35 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999998
+2023-12-20 06:56:45 - INFO  [costMonitor.py:66] - Total Cost: 3.1666666666666656 at Time: 190 sec
+2023-12-20 06:56:45 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999996
+2023-12-20 06:56:55 - INFO  [costMonitor.py:66] - Total Cost: 3.333333333333332 at Time: 200 sec
+2023-12-20 06:56:55 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999996
+2023-12-20 06:57:06 - INFO  [costMonitor.py:66] - Total Cost: 3.4999999999999987 at Time: 210 sec
+2023-12-20 06:57:06 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999996
+2023-12-20 06:57:16 - INFO  [costMonitor.py:66] - Total Cost: 3.666666666666665 at Time: 220 sec
+2023-12-20 06:57:16 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999996
+2023-12-20 06:57:26 - INFO  [costMonitor.py:66] - Total Cost: 3.8333333333333317 at Time: 230 sec
+2023-12-20 06:57:26 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999996
+2023-12-20 06:57:36 - INFO  [costMonitor.py:66] - Total Cost: 3.9999999999999982 at Time: 240 sec
+2023-12-20 06:57:36 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999996
+2023-12-20 06:57:46 - INFO  [costMonitor.py:66] - Total Cost: 4.166666666666665 at Time: 250 sec
+2023-12-20 06:57:46 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999996
+2023-12-20 06:57:56 - INFO  [costMonitor.py:66] - Total Cost: 4.333333333333332 at Time: 260 sec
+2023-12-20 06:57:56 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999998
+2023-12-20 06:58:06 - INFO  [costMonitor.py:66] - Total Cost: 4.499999999999999 at Time: 270 sec
+2023-12-20 06:58:06 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999998
+2023-12-20 06:58:16 - INFO  [costMonitor.py:66] - Total Cost: 4.666666666666666 at Time: 280 sec
+2023-12-20 06:58:16 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999998
+2023-12-20 06:58:26 - INFO  [costMonitor.py:66] - Total Cost: 4.833333333333333 at Time: 290 sec
+2023-12-20 06:58:26 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:58:36 - INFO  [costMonitor.py:66] - Total Cost: 5.0 at Time: 300 sec
+2023-12-20 06:58:36 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:58:46 - INFO  [costMonitor.py:66] - Total Cost: 5.166666666666667 at Time: 310 sec
+2023-12-20 06:58:46 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 06:58:57 - INFO  [costMonitor.py:66] - Total Cost: 5.333333333333334 at Time: 320 sec
+2023-12-20 06:58:57 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000002
+2023-12-20 06:59:07 - INFO  [costMonitor.py:66] - Total Cost: 5.500000000000001 at Time: 330 sec
+2023-12-20 06:59:07 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000002
+2023-12-20 06:59:17 - INFO  [costMonitor.py:66] - Total Cost: 5.666666666666668 at Time: 340 sec
+2023-12-20 06:59:17 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000002
+2023-12-20 06:59:27 - INFO  [costMonitor.py:66] - Total Cost: 5.833333333333335 at Time: 350 sec
+2023-12-20 06:59:27 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000002
+2023-12-20 06:59:37 - INFO  [costMonitor.py:66] - Total Cost: 6.000000000000002 at Time: 360 sec
+2023-12-20 06:59:37 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000002
+2023-12-20 06:59:47 - INFO  [costMonitor.py:66] - Total Cost: 6.166666666666669 at Time: 370 sec
+2023-12-20 06:59:47 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000004
+2023-12-20 06:59:57 - INFO  [costMonitor.py:66] - Total Cost: 6.333333333333336 at Time: 380 sec
+2023-12-20 06:59:57 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000004
+2023-12-20 07:00:07 - INFO  [costMonitor.py:66] - Total Cost: 6.500000000000003 at Time: 390 sec
+2023-12-20 07:00:07 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000004
+2023-12-20 07:00:17 - INFO  [costMonitor.py:66] - Total Cost: 6.66666666666667 at Time: 400 sec
+2023-12-20 07:00:17 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000004
+2023-12-20 07:00:27 - INFO  [costMonitor.py:66] - Total Cost: 6.833333333333337 at Time: 410 sec
+2023-12-20 07:00:27 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000004
+2023-12-20 07:00:37 - INFO  [costMonitor.py:66] - Total Cost: 7.0000000000000036 at Time: 420 sec
+2023-12-20 07:00:37 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000007
+2023-12-20 07:00:48 - INFO  [costMonitor.py:66] - Total Cost: 7.1666666666666705 at Time: 430 sec
+2023-12-20 07:00:48 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000007
+2023-12-20 07:00:58 - INFO  [costMonitor.py:66] - Total Cost: 7.3333333333333375 at Time: 440 sec
+2023-12-20 07:00:58 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000007
+2023-12-20 07:01:08 - INFO  [costMonitor.py:66] - Total Cost: 7.500000000000004 at Time: 450 sec
+2023-12-20 07:01:08 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000007
+2023-12-20 07:01:18 - INFO  [costMonitor.py:66] - Total Cost: 7.666666666666671 at Time: 460 sec
+2023-12-20 07:01:18 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000007
+2023-12-20 07:01:28 - INFO  [costMonitor.py:66] - Total Cost: 7.833333333333338 at Time: 470 sec
+2023-12-20 07:01:28 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000007
+2023-12-20 07:01:38 - INFO  [costMonitor.py:66] - Total Cost: 8.000000000000005 at Time: 480 sec
+2023-12-20 07:01:38 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000007
+2023-12-20 07:01:48 - INFO  [costMonitor.py:66] - Total Cost: 8.166666666666671 at Time: 490 sec
+2023-12-20 07:01:48 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000007
+2023-12-20 07:01:58 - INFO  [costMonitor.py:66] - Total Cost: 8.333333333333337 at Time: 500 sec
+2023-12-20 07:01:58 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000004
+2023-12-20 07:02:08 - INFO  [costMonitor.py:66] - Total Cost: 8.500000000000004 at Time: 510 sec
+2023-12-20 07:02:08 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000004
+2023-12-20 07:02:18 - INFO  [costMonitor.py:66] - Total Cost: 8.66666666666667 at Time: 520 sec
+2023-12-20 07:02:18 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000004
+2023-12-20 07:02:28 - INFO  [costMonitor.py:66] - Total Cost: 8.833333333333336 at Time: 530 sec
+2023-12-20 07:02:28 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000002
+2023-12-20 07:02:38 - INFO  [costMonitor.py:66] - Total Cost: 9.000000000000002 at Time: 540 sec
+2023-12-20 07:02:38 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000002
+2023-12-20 07:02:49 - INFO  [costMonitor.py:66] - Total Cost: 9.166666666666668 at Time: 550 sec
+2023-12-20 07:02:49 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0000000000000002
+2023-12-20 07:02:59 - INFO  [costMonitor.py:66] - Total Cost: 9.333333333333334 at Time: 560 sec
+2023-12-20 07:02:59 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 07:03:09 - INFO  [costMonitor.py:66] - Total Cost: 9.5 at Time: 570 sec
+2023-12-20 07:03:09 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 07:03:19 - INFO  [costMonitor.py:66] - Total Cost: 9.666666666666666 at Time: 580 sec
+2023-12-20 07:03:19 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.0
+2023-12-20 07:03:29 - INFO  [costMonitor.py:66] - Total Cost: 9.833333333333332 at Time: 590 sec
+2023-12-20 07:03:29 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999998
+2023-12-20 07:03:39 - INFO  [costMonitor.py:66] - Total Cost: 9.999999999999998 at Time: 600 sec
+2023-12-20 07:03:39 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999998
+2023-12-20 07:03:49 - INFO  [costMonitor.py:66] - Total Cost: 10.166666666666664 at Time: 610 sec
+2023-12-20 07:03:49 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999998
+2023-12-20 07:03:59 - INFO  [costMonitor.py:66] - Total Cost: 10.33333333333333 at Time: 620 sec
+2023-12-20 07:03:59 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999998
+2023-12-20 07:04:09 - INFO  [costMonitor.py:66] - Total Cost: 10.499999999999996 at Time: 630 sec
+2023-12-20 07:04:09 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999996
+2023-12-20 07:04:19 - INFO  [costMonitor.py:66] - Total Cost: 10.666666666666663 at Time: 640 sec
+2023-12-20 07:04:19 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999996
+2023-12-20 07:04:29 - INFO  [costMonitor.py:66] - Total Cost: 10.833333333333329 at Time: 650 sec
+2023-12-20 07:04:29 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999996
+2023-12-20 07:04:40 - INFO  [costMonitor.py:66] - Total Cost: 10.999999999999995 at Time: 660 sec
+2023-12-20 07:04:40 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 0.9999999999999996

@@ -2,12 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 dfs = []
-files = ['1-costMonitor.csv',
-         '2-costMonitor.csv', 
-         '3-costMonitor.csv', 
-         '4-costMonitor.csv',
-         '5-costMonitor.csv']
-labels = ['default','.25', '.5', '.75', '1']
+files = ['8-costMonitor.csv',
+         '6-costMonitor.csv', 
+         '7-costMonitor.csv']
+labels = ['.2', '.33', '.5']
 
 for file in files:
     dfs.append(pd.read_csv('data/'+file))
@@ -18,5 +16,5 @@ for df in dfs:
 
 
 plt.bar(labels, cost)
-plt.title("Cost on avg - CPU Usage Incorporated")
-plt.savefig("images/Cost on avg - CPU Usage Incorporated.png")
+plt.title("Cost on avg - Cost Incorporated")
+plt.savefig("images/Cost on avg - Cost Incorporated.png")
