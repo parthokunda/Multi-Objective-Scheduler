@@ -2,9 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 dfs = []
-files = ['1-v1_load_2500_8m_stats_history.csv','2-v1_load_2500_8m_stats_history.csv', '3-v1_load_2500_8m_stats_history.csv', '4-v1_load_2500_8m_stats_history.csv',
-         '5-v1_load_2500_8m_stats_history.csv']
-labels = ['default','.25', '.5', '.75', '1']
+files = ['8-v2_load_2500_8m_stats_history.csv',
+         '6-v2_load_2500_8m_stats_history.csv', 
+         '7-v2_load_2500_8m_stats_history.csv']
+labels = ['.2', '.33', '.5']
 
 for file in files:
     dfs.append(pd.read_csv('data/'+file))
@@ -36,5 +37,5 @@ plot(axs, dfs, labels, axis=(1,0), y = 'Total Median Response Time')
 plotBar(axs, labels, request, axis=(1,1), y='Request Count')
 
 
-fig.suptitle("Net Stats - 2500user 100spawn 5minute - .25 means 25% network weight")
-plt.savefig('images/Net Stats - Incorporating CPU Stats.png')
+fig.suptitle("Net Stats - 2500user 100spawn 8minute - .2 means 20% cost weight, rest divided equally between CPU and Network")
+plt.savefig('images/Net Stats - Incorporating Cost.png')

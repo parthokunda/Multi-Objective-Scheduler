@@ -3,3 +3,11 @@
 3 - v1 with .5 net weight, 2500 100 8m locust, load 2cores, cost calculation
 4 - v1 with .75 net weight, 2500 100 8m locust, load 2cores, cost calculation
 5 - v1 with 1 net weight, 2500 100 8m locust, load 2cores, cost calculation
+
+------
+
+with cost added 
+
+6 - v2, .33 .33 .33, load 2 cores
+7 - v2, .25, .25, .5 load 2 cores
+8 - v2, .4, .4. .2 load 2 cores

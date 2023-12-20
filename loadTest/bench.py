@@ -21,7 +21,7 @@ def run_scheduler():
     os.system(f'kubectl delete -f /root/microservices-demo/release/kubernetes-extra-netMarks.yaml') 
     os.system(f'kubectl apply -f /root/microservices-demo/release/kubernetes-extra-netMarks.yaml') 
     time.sleep(5)
-    os.system(f"python3 /root/netMarks/v1Scheduler.py {net_weight}")
+    os.system(f"python3 /root/netMarks/v2Scheduler.py {net_weight} {cpu_weight} {cost_weight}")
     
 def runCostMonitor():
     os.system(f"python3 /root/loadTest/costMonitor.py {locustFile}")
@@ -32,16 +32,18 @@ def runCPUusage():
 
 def runWebLoad():
     print(f"Running locust filename {locustFile}")
-    os.system(f"locust --csv {locustFile}-v1_load_2500_8m --csv-full-history -u 2500 -r 100 -t 8m -H http://$(kubectl get svc | grep frontend | grep Cluster | awk '{{print $3}}'):80 --headless --only-summary")
+    os.system(f"locust --csv {locustFile}-v2_load_2500_8m --csv-full-history -u 2500 -r 100 -t 8m -H http://$(kubectl get svc | grep frontend | grep Cluster | awk '{{print $3}}'):80 --headless --only-summary")
     print(f'Done Locust File')
 
-net_weight = 0.25
-locustFile = "1"
+net_weight = 0.4
+cpu_weight = 0.4
+cost_weight = 0.2
+locustFile = "8"
 
 if __name__ == "__main__":
     thread_exec = ThreadPoolExecutor()
-    # sched = thread_exec.submit(run_scheduler)
-    # time.sleep(30)
+    sched = thread_exec.submit(run_scheduler)
+    time.sleep(30)
 
 
     thread_exec.submit(runCostMonitor)
