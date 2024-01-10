@@ -144,10 +144,12 @@ def scheduler(name, node, namespace="default"):
     return v1.create_namespaced_binding(namespace, body, _preload_content=False)
 
 if __name__ == "__main__":
-    if len(sys.argv) == 2:
+    if len(sys.argv) >= 3:
         NET_WEIGHT = float(sys.argv[1])
+        CPU_WEIGHT = float(sys.argv[2])
     
     logs.debug(f'net weight : {NET_WEIGHT}')
+    print(f"Scheduler with net weight = {NET_WEIGHT} cpu weight = {CPU_WEIGHT}")
     w = watch.Watch()
     scheduledId = [] # gonna hold the uid inside event, to avoid multiple schedule try of same pod
     for event in w.stream(v1.list_namespaced_pod, "default"):

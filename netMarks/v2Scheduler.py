@@ -180,6 +180,7 @@ if __name__ == "__main__":
         COST_WEIGHT = float(sys.argv[3])
     
     logs.debug(f'weights net : {NET_WEIGHT} cpu: {CPU_WEIGHT} cost: {COST_WEIGHT}')
+    print(f'weights net : {NET_WEIGHT} cpu: {CPU_WEIGHT} cost: {COST_WEIGHT}')
     w = watch.Watch()
     scheduledId = [] # gonna hold the uid inside event, to avoid multiple schedule try of same pod
     for event in w.stream(v1.list_namespaced_pod, "default"):

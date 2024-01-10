@@ -1,0 +1,9 @@
+1 - without cost, 2500 100 8m, network weight vary from 0 to 1
+2 - 
+3 - v1, 500 100 3m, network from 0 to 1
+4 - v1, 50 100 3m, network from 0 to 1
+5 - v2, 2500 100 3m, cost from 0 to 1, rest divided equally, data(26-33)
+6 - v2, 500 100 3m, cost from 0 to 1, rest divided equally, data(34-40)
+7 - v2, 50 100 3m, cost from 0 to 1, rest divided equally, data(41-47)
+8 - v2, 500 100 3m, cost = .25, net cpu varied, data (48-52)
+9 - v2, 2500 100 3m, cost = .25, net cpu varied, data (53-57)
