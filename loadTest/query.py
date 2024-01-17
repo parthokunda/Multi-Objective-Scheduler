@@ -34,19 +34,17 @@ def queryProm(query: str) :
         print('error in query '+query)
         return None
 
-def queryRange(query, minCount = 30):
+def queryRange(query, secondsCount = 600):
     ip = run_shell_command("kubectl  get svc -A | grep prometheus | grep 9090 | awk '{print $4 \":\" $6}'")
     ip = ip.split('/')[0]
     url = f"http://{ip}/api/v1/query_range"
 
     params = {
         'query': query,
-        'start': (datetime.utcnow() - timedelta(minutes=minCount)).timestamp(),
+        'start': (datetime.utcnow() - timedelta(seconds=secondsCount)).timestamp(),
         'end': (datetime.utcnow()).timestamp(),
         'step': '15s'
     }
-    # print((datetime.utcnow() - timedelta(hours=1)).timestamp())
-    # print( datetime.utcnow().timestamp())
 
     response = requests.get(url, params)
     if response.status_code == 200 :
@@ -54,27 +52,5 @@ def queryRange(query, minCount = 30):
     else:
         print('error in query '+query)
         return None
-
-    if response.status_code == 200:
-        json_data = response.json()
-        # print(json_data)
-        if 'data' in json_data and 'result' in json_data['data'] and len(json_data['data']['result']) > 0:
-
-            values = json_data['data']['result'][0]['values']
-
-            with open(csvFileName+".csv", 'w', newline='') as csvfile:
-                csv_writer = csv.writer(csvfile)
-                
-                csv_writer.writerow(["timestamp", 'value'])
-
-                for value in values:
-                    csv_writer.writerow(value)
-            
-            print(f"Values successfully saved to {query}.csv")
-        else:
-            print(json_data)
-            print("No data found for "+query)
-    else:
-        print(f"Error: Unable to retrieve data. Status code: {response.status_code}")
 
 # queryProm('istio_request_bytes_sum{source_app="frontend", destination_app="cartservice"}')

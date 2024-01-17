@@ -8,8 +8,8 @@ logs.basicConfig(filename="logCPUScrapper.txt", level=logs.DEBUG,
                     format='%(asctime)s - %(levelname)s  [%(filename)s:%(lineno)d] - %(message)s', 
                     datefmt='%Y-%m-%d %H:%M:%S')
 
-def queryCPUUsage(filename = "cpuUsage.csv"):
-    result = queryRange(f'sum(rate(node_cpu_seconds_total{{mode="user"}}[30s])) by (node)', 10)
+def queryCPUUsage(filename = "cpuUsage.csv", secondsToRun = 600):
+    result = queryRange(f'sum(rate(node_cpu_seconds_total{{mode="user"}}[30s])) by (node)', secondsToRun)
     if 'data' in result and 'result' in result['data'] and len(result['data']['result']) > 0:
         datas = result['data']['result']
         with open(filename, 'w', newline='') as csvfile:
@@ -25,7 +25,8 @@ def queryCPUUsage(filename = "cpuUsage.csv"):
 
 if __name__ == "__main__":
     filename = "cpuUsage.csv"
-    if len(sys.argv) > 1:
+    if len(sys.argv) == 3:
         filename = str(sys.argv[1]) + '-' + filename
-    queryCPUUsage(filename)
+        seconds = int(sys.argv[2])
+    queryCPUUsage(filename, seconds)
     
