@@ -7,3 +7,10 @@
 7 - v2, 50 100 3m, cost from 0 to 1, rest divided equally, data(41-47)
 8 - v2, 500 100 3m, cost = .25, net cpu varied, data (48-52)
 9 - v2, 2500 100 3m, cost = .25, net cpu varied, data (53-57)
+10 - 1000 100 3m cost = 0, net cpu varied with baseline (67-70)
+11 - cost = .125 (71-74)
+12 - cost = .25 (75-78)
+13 - cost = .375 (79-82)
+14 - User = 50, Cost = 0.375, Net Weight = .25(relative) CPU Weight .75(relative) with baseLine [61, 58, 64, 83]
+15 - User = 1000, Cost = 0.375, Net Weight = .25(relative) CPU Weight .75(relative) with baseLine [62, 59, 65, 81]
+16 - User = 2000, Cost = 0.375, Net Weight = .25(relative) CPU Weight .75(relative) with baseLine [63, 60, 66, 84]
