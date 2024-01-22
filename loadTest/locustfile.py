@@ -69,12 +69,16 @@ class WebsiteUser(HttpUser):
     wait_time = constant(0)
 
 csvfile = None
+ErrorMsgCount = 0
 
 @events.request.add_listener
 def my_request_handler(request_type, name, response_time, response_length, response,
                        context, exception, start_time, url, **kwargs):
     if exception:
-        print('Could not reach')
+        global ErrorMsgCount
+        if ErrorMsgCount == 0:
+            print('Could not reach')
+            ErrorMsgCount += 1
     else:
         csvfile.write(f'{str(request_type)},{str(context["type"])},{str(name)},{str(response_time)}\n')
 

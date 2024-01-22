@@ -1,0 +1,6 @@
+{'fileNum': 601, 'baseline': 'default', 'user': 50}
+{'fileNum': 602, 'baseline': 'default', 'user': 1000}
+{'fileNum': 603, 'baseline': 'default', 'user': 2000}
+{'fileNum': 701, 'baseline': 'netmarks', 'user': 50}
+{'fileNum': 702, 'baseline': 'netmarks', 'user': 1000}
+{'fileNum': 703, 'baseline': 'netmarks', 'user': 2000}

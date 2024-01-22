@@ -14,3 +14,10 @@
 14 - User = 50, Cost = 0.375, Net Weight = .25(relative) CPU Weight .75(relative) with baseLine [61, 58, 64, 83]
 15 - User = 1000, Cost = 0.375, Net Weight = .25(relative) CPU Weight .75(relative) with baseLine [62, 59, 65, 81]
 16 - User = 2000, Cost = 0.375, Net Weight = .25(relative) CPU Weight .75(relative) with baseLine [63, 60, 66, 84]
+17 - User 1000, cost = 0, v1 weights vary with baseline [62, 59, 65, 67, 68, 69, 70, 118, 119, 120, 121, 122]
+files = [62, 59, 65, 67, 68, 69, 70, 118, 119, 120, 121, 122]
+labels = [ 'default', 'binPack', 'netMarks', '0', '.125', '.25', '.375', '.5', '.625', '.75', '.875', '1.0']
+18 - same but for cost = .125
+19 cost = .25
+20 cost = .375
+21 - baselines only 
