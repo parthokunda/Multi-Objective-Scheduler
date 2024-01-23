@@ -95,7 +95,7 @@ REST_PERIOD = 15
 LOCUSTFILE = None
 
 def benchV2():
-    data_start = 301
+    data_start = 401
     file = open('entries.txt','a')
     data = []
     remove_stress()
@@ -143,7 +143,7 @@ def benchV2():
 def bench_default():
     file = open('entries_baselines.txt','a')
     data = []
-    data_start = 611
+    data_start = 621
     remove_stress()
     # create_stress()
     for user in [50, 1000, 2000]:
@@ -183,7 +183,7 @@ def bench_default():
 def bench_netMarks():
     file = open('entries_baselines.txt','a')
     data = []
-    data_start = 711
+    data_start = 721
     remove_stress()
     # create_stress()
     for user in [50, 1000, 2000]:
@@ -220,6 +220,46 @@ def bench_netMarks():
     file.close()
     print(data)
 
+
+def bench_binPack():
+    file = open('entries_baselines.txt','a')
+    data = []
+    data_start = 801
+    remove_stress()
+    # create_stress()
+    for user in [50, 1000, 2000]:
+        global LOCUSTFILE
+        global USERCOUNT
+        LOCUSTFILE = data_start
+        data_start+=1
+        USERCOUNT = user
+        data.append({'fileNum': LOCUSTFILE, 'baseline': 'binpack', 'user': USERCOUNT})
+        file.write(str(data[-1]))
+        file.write('\n')
+        file.flush()
+
+        thread_exec = ThreadPoolExecutor()
+        run_bin_packing_scheduler()
+        time.sleep(5)
+        while check_pods_deployed() != True:
+            time.sleep(3)
+        print('Pods are running')
+        print('The output is: ', check_pods_deployed())
+
+        thread_exec.submit(runCostMonitor)
+        time.sleep(REST_PERIOD)
+        thread_exec.submit(runWebLoad)
+        time.sleep(WEBLOADTIME + REST_PERIOD)
+        thread_exec.submit(runCPUusage)
+
+        time.sleep(30)
+        # os.system(f"rm {LOCUSTFILE}_exceptions.csv {LOCUSTFILE}_failures.csv {LOCUSTFILE}_stats.csv")
+        # os.system(f"mv *.csv data/")
+
+        print("DONE")
+    remove_stress()
+    file.close()
+    print(data)
+
 if __name__ == "__main__":
-    bench_default()
-    bench_netMarks()
+    bench_binPack()

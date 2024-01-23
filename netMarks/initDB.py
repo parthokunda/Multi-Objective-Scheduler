@@ -30,7 +30,6 @@ app_list = set([
     "currencyservice", 
     "emailservice", 
     "frontend", 
-    "loadgenerator", 
     "paymentservice", 
     "productcatalogservice", 
     "recommendationservice", 

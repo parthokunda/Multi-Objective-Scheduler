@@ -91,7 +91,7 @@ ax2.bar(labels, request)
 # plotCost(axs, labels, axis=(0,1))
 # plot(axs, dfs, labels, axis=(1,0), y = 'Total Median Response Time')
 # plotBar( labels, request, y='Request Count')
-plotSLA2( slas, labels, y=f'SLA ({slaLimit}ms) Violated %')
+plotSLA2(slas, labels, y=f'SLA ({slaLimit}ms) Violated %')
 
 
 # fig.tight_layout(pad=4)

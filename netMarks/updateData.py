@@ -1,3 +1,4 @@
+import os
 from concurrent.futures import ThreadPoolExecutor
 from kubernetes import client, config, watch
 import sqlite3
@@ -23,7 +24,6 @@ all_app_list = set([
     "currencyservice", 
     "emailservice", 
     "frontend", 
-    "loadgenerator", 
     "paymentservice", 
     "productcatalogservice", 
     "recommendationservice", 
@@ -116,6 +116,24 @@ def update():
     print('Thread Done')
     logging.debug('Update Done')
 
+def runWebLoad(usercount):
+    print(f'Web load with {usercount} users')
+    os.system(f"locust -f /root/loadTest/locustfile.py -u {usercount} -r 100 -t {LOADTIME}s -H http://$(kubectl get svc | grep frontend | grep Cluster | awk '{{print $3}}'):80 --headless --only-summary")
+    print(f'Done Locust File')
+
+MINUTES = 60 # give multiple of three for three user count
+TOTALUPDATETIME = MINUTES * 60 + 3 * 60 # seconds the database will take input
+LOADTIME = (MINUTES // 3) * 60 # in seconds each load runtime
+USERCOUNTS = [50, 1000, 2000]
+USERINDEX = 0 
+TIMESTAMP = 0
+
+### USAGE -> for paper benchmark. 
+### FRESHLY INSTALL MICROSERVICE PODS, ensure RUNNING status (TODO)
+### python initDB.py
+### set MINUTES and USERCOUNTS and run
+### for normal usage, remove MINUTES break, and load generator if needed
+
 if __name__ == "__main__":
     for pod in pods.items:
         if 'app' in pod.metadata.labels:
@@ -124,7 +142,14 @@ if __name__ == "__main__":
             
     logging.debug(podToApp)
 
-    while True:
-        with ThreadPoolExecutor() as thread_executor:
+    with ThreadPoolExecutor() as thread_executor:
+        while True:
+            if(TIMESTAMP == 60 * (USERINDEX+1) + LOADTIME * USERINDEX):
+                thread_executor.submit(runWebLoad, USERCOUNTS[USERINDEX])
+                USERINDEX += 1
+                sleep(5)
             thread_executor.submit(update)
             sleep(60)
+            TIMESTAMP += 60
+            if(TIMESTAMP > TOTALUPDATETIME):
+                break
