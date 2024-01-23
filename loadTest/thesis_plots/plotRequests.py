@@ -92,6 +92,8 @@ print(net_weights)
 
 palette = sns.color_palette("tab10")
 fig, ax = plt.subplots()
+plt.subplots_adjust(bottom=0.2)  # Adjust the bottom space
+legend_entries = []
 bar_width = .2  # Width of individual bars
 group_width = bar_width * len(cost_weights)  # The total width of a group
 gap_width = 0.3 # Width of the gap between groups
@@ -102,6 +104,7 @@ baselineLoader = BaseLineLoader()
 # ax.bar(bar_width+gap_width, 60000, bar_width, label='netMarks', color=palette[-2])
 
 filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks'],user=[1000])
+print(filteredBaselines)
 baselinesRequest = baselineLoader.getTotalRequests(filteredBaselines)
 print('baselineReq\n', baselinesRequest)
 ax.bar(0, baselinesRequest[('default',1000)], bar_width, label='default', color=palette[-1])
@@ -113,7 +116,8 @@ for i, cw in enumerate(cost_weights):
         for key, value in requests.items():
             if key[0] == nw and key[2] == cw:
                 sameNetRequests.append(value)
-    ax.bar(baselines * (bar_width+gap_width) + index + i * bar_width, sameNetRequests, bar_width, label=f'Cost Weight {cw}', color=palette[i])
+    bar = ax.bar(baselines * (bar_width+gap_width) + index + i * bar_width, sameNetRequests, bar_width, label=f'Cost Weight {cw}', color=palette[i])
+    legend_entries.append(bar)
 
 ax.set_xlabel('Net Weight(Relative)')
 ax.set_ylabel('Total Requests')
@@ -124,7 +128,7 @@ print(xticks)
 ax.set_xticks(xticks)
 ax.set_xticklabels(['default', 'netMarks'] + [f'{weight}' for weight in net_weights])
 ax.tick_params(axis='x', labelrotation=45)
-ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.2), ncol=len(cost_weights), fontsize='x-small')
+ax.legend(handles=legend_entries, loc='upper center', bbox_to_anchor=(0.5, -0.3), ncol=len(cost_weights), fontsize='x-small')
 
 plt.tight_layout()
 plt.savefig('thesis_plots/images/Total_Requests_1000user.png')
