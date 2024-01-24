@@ -94,172 +94,181 @@ USERCOUNT = 1000
 REST_PERIOD = 15
 LOCUSTFILE = None
 
-def benchV2():
-    data_start = 401
-    file = open('entries.txt','a')
+def benchV2(start, times=1):
+    data_start = start
+    file = open('entries2.txt','a')
     data = []
     remove_stress()
-    # create_stress()
-    for user in [1000, 50, 2000]:
-        for cost in [0, .25, .5, .75, 1]:
-            for i, w in enumerate(jobs):
-                global LOCUSTFILE
-                global USERCOUNT
-                LOCUSTFILE = data_start
-                data_start+=1
-                USERCOUNT = user
-                cost_weight = cost
-                net_weight = w * (1 - cost_weight)
-                cpu_weight = (1-w) * (1 - cost_weight)
-                data.append({'fileNum': LOCUSTFILE, 'net_weight': net_weight, 'cpu_weight': cpu_weight, 
-                             'cost_weight': cost_weight, 'userCount': USERCOUNT})
-                file.write(str(data[-1]))
-                file.write('\n')
-                file.flush()
+    create_stress()
+    for t in range(times):
+        for user in [1000, 50, 2000]:
+            for cost in [0, .25, .5, .75, 1]:
+                for i, w in enumerate(jobs):
+                    global LOCUSTFILE
+                    global USERCOUNT
+                    LOCUSTFILE = data_start
+                    data_start+=1
+                    USERCOUNT = user
+                    cost_weight = cost
+                    net_weight = w * (1 - cost_weight)
+                    cpu_weight = (1-w) * (1 - cost_weight)
+                    data.append({'fileNum': LOCUSTFILE, 'net_weight': net_weight, 'cpu_weight': cpu_weight, 
+                                'cost_weight': cost_weight, 'userCount': USERCOUNT})
+                    file.write(str(data[-1]))
+                    file.write('\n')
+                    file.flush()
 
-                thread_exec = ThreadPoolExecutor()
-                run_scheduler(net_weight, cpu_weight, cost_weight)
-                time.sleep(5)
-                while check_pods_deployed() != True:
-                    time.sleep(3)
-                print('Pods are running')
-                print('The output is: ', check_pods_deployed())
+                    thread_exec = ThreadPoolExecutor()
+                    run_scheduler(net_weight, cpu_weight, cost_weight)
+                    time.sleep(5)
+                    while check_pods_deployed() != True:
+                        time.sleep(3)
+                    print('Pods are running')
+                    print('The output is: ', check_pods_deployed())
 
-                thread_exec.submit(runCostMonitor)
-                time.sleep(REST_PERIOD)
-                thread_exec.submit(runWebLoad)
-                time.sleep(WEBLOADTIME + REST_PERIOD)
-                thread_exec.submit(runCPUusage)
+                    thread_exec.submit(runCostMonitor)
+                    time.sleep(REST_PERIOD)
+                    thread_exec.submit(runWebLoad)
+                    time.sleep(WEBLOADTIME + REST_PERIOD)
+                    thread_exec.submit(runCPUusage)
 
-                time.sleep(30)
-                # os.system(f"rm {LOCUSTFILE}_exceptions.csv {LOCUSTFILE}_failures.csv {LOCUSTFILE}_stats.csv")
-                # os.system(f"mv *.csv data/")
+                    time.sleep(30)
+                    # os.system(f"rm {LOCUSTFILE}_exceptions.csv {LOCUSTFILE}_failures.csv {LOCUSTFILE}_stats.csv")
+                    # os.system(f"mv *.csv data/")
 
-                print("DONE")
+                    print("DONE")
     remove_stress()
     file.close()
     print(data)
 
-def bench_default():
-    file = open('entries_baselines.txt','a')
+def bench_default(start, times = 1):
+    file = open('entries_baselines2.txt','a')
     data = []
-    data_start = 621
+    data_start = start
     remove_stress()
-    # create_stress()
-    for user in [50, 1000, 2000]:
-        global LOCUSTFILE
-        global USERCOUNT
-        LOCUSTFILE = data_start
-        data_start+=1
-        USERCOUNT = user
-        data.append({'fileNum': LOCUSTFILE, 'baseline': 'default', 'user': USERCOUNT})
-        file.write(str(data[-1]))
-        file.write('\n')
-        file.flush()
+    create_stress()
+    for t in range(times):
+        for user in [5, 50, 1000, 2000]:
+            global LOCUSTFILE
+            global USERCOUNT
+            LOCUSTFILE = data_start
+            data_start+=1
+            USERCOUNT = user
+            data.append({'fileNum': LOCUSTFILE, 'baseline': 'default', 'user': USERCOUNT})
+            file.write(str(data[-1]))
+            file.write('\n')
+            file.flush()
 
-        thread_exec = ThreadPoolExecutor()
-        run_default_scheduler()
-        time.sleep(5)
-        while check_pods_deployed() != True:
-            time.sleep(3)
-        print('Pods are running')
-        print('The output is: ', check_pods_deployed())
+            thread_exec = ThreadPoolExecutor()
+            run_default_scheduler()
+            time.sleep(5)
+            while check_pods_deployed() != True:
+                time.sleep(3)
+            print('Pods are running')
+            print('The output is: ', check_pods_deployed())
 
-        thread_exec.submit(runCostMonitor)
-        time.sleep(REST_PERIOD)
-        thread_exec.submit(runWebLoad)
-        time.sleep(WEBLOADTIME + REST_PERIOD)
-        thread_exec.submit(runCPUusage)
+            thread_exec.submit(runCostMonitor)
+            time.sleep(REST_PERIOD)
+            thread_exec.submit(runWebLoad)
+            time.sleep(WEBLOADTIME + REST_PERIOD)
+            thread_exec.submit(runCPUusage)
 
-        time.sleep(30)
-        # os.system(f"rm {LOCUSTFILE}_exceptions.csv {LOCUSTFILE}_failures.csv {LOCUSTFILE}_stats.csv")
-        # os.system(f"mv *.csv data/")
+            time.sleep(30)
+            # os.system(f"rm {LOCUSTFILE}_exceptions.csv {LOCUSTFILE}_failures.csv {LOCUSTFILE}_stats.csv")
+            # os.system(f"mv *.csv data/")
 
-        print("DONE")
+            print("DONE")
     remove_stress()
     file.close()
     print(data)
 
-def bench_netMarks():
-    file = open('entries_baselines.txt','a')
+def bench_netMarks(start, times):
+    file = open('entries_baselines2.txt','a')
     data = []
-    data_start = 721
+    data_start = start
     remove_stress()
-    # create_stress()
-    for user in [50, 1000, 2000]:
-        global LOCUSTFILE
-        global USERCOUNT
-        LOCUSTFILE = data_start
-        data_start+=1
-        USERCOUNT = user
-        data.append({'fileNum': LOCUSTFILE, 'baseline': 'netmarks', 'user': USERCOUNT})
-        file.write(str(data[-1]))
-        file.write('\n')
-        file.flush()
+    create_stress()
+    for t in range(times):
+        for user in [5, 50, 1000, 2000]:
+            global LOCUSTFILE
+            global USERCOUNT
+            LOCUSTFILE = data_start
+            data_start+=1
+            USERCOUNT = user
+            data.append({'fileNum': LOCUSTFILE, 'baseline': 'netmarks', 'user': USERCOUNT})
+            file.write(str(data[-1]))
+            file.write('\n')
+            file.flush()
 
-        thread_exec = ThreadPoolExecutor()
-        run_netMarks_scheduler()
-        time.sleep(5)
-        while check_pods_deployed() != True:
-            time.sleep(3)
-        print('Pods are running')
-        print('The output is: ', check_pods_deployed())
+            thread_exec = ThreadPoolExecutor()
+            run_netMarks_scheduler()
+            time.sleep(5)
+            while check_pods_deployed() != True:
+                time.sleep(3)
+            print('Pods are running')
+            print('The output is: ', check_pods_deployed())
 
-        thread_exec.submit(runCostMonitor)
-        time.sleep(REST_PERIOD)
-        thread_exec.submit(runWebLoad)
-        time.sleep(WEBLOADTIME + REST_PERIOD)
-        thread_exec.submit(runCPUusage)
+            thread_exec.submit(runCostMonitor)
+            time.sleep(REST_PERIOD)
+            thread_exec.submit(runWebLoad)
+            time.sleep(WEBLOADTIME + REST_PERIOD)
+            thread_exec.submit(runCPUusage)
 
-        time.sleep(30)
-        # os.system(f"rm {LOCUSTFILE}_exceptions.csv {LOCUSTFILE}_failures.csv {LOCUSTFILE}_stats.csv")
-        # os.system(f"mv *.csv data/")
+            time.sleep(30)
+            # os.system(f"rm {LOCUSTFILE}_exceptions.csv {LOCUSTFILE}_failures.csv {LOCUSTFILE}_stats.csv")
+            # os.system(f"mv *.csv data/")
 
-        print("DONE")
+            print("DONE")
     remove_stress()
     file.close()
     print(data)
 
-
-def bench_binPack():
-    file = open('entries_baselines.txt','a')
+def bench_binPack(start, times=1):
+    file = open('entries_baselines2.txt','a')
     data = []
-    data_start = 801
+    data_start = start
     remove_stress()
-    # create_stress()
-    for user in [50, 1000, 2000]:
-        global LOCUSTFILE
-        global USERCOUNT
-        LOCUSTFILE = data_start
-        data_start+=1
-        USERCOUNT = user
-        data.append({'fileNum': LOCUSTFILE, 'baseline': 'binpack', 'user': USERCOUNT})
-        file.write(str(data[-1]))
-        file.write('\n')
-        file.flush()
+    create_stress()
+    for t in range(times):
+        for user in [5, 50, 1000, 2000]:
+            global LOCUSTFILE
+            global USERCOUNT
+            LOCUSTFILE = data_start
+            data_start+=1
+            USERCOUNT = user
+            data.append({'fileNum': LOCUSTFILE, 'baseline': 'binpack', 'user': USERCOUNT})
+            file.write(str(data[-1]))
+            file.write('\n')
+            file.flush()
 
-        thread_exec = ThreadPoolExecutor()
-        run_bin_packing_scheduler()
-        time.sleep(5)
-        while check_pods_deployed() != True:
-            time.sleep(3)
-        print('Pods are running')
-        print('The output is: ', check_pods_deployed())
+            thread_exec = ThreadPoolExecutor()
+            run_bin_packing_scheduler()
+            time.sleep(5)
+            while check_pods_deployed() != True:
+                time.sleep(3)
+            print('Pods are running')
+            print('The output is: ', check_pods_deployed())
 
-        thread_exec.submit(runCostMonitor)
-        time.sleep(REST_PERIOD)
-        thread_exec.submit(runWebLoad)
-        time.sleep(WEBLOADTIME + REST_PERIOD)
-        thread_exec.submit(runCPUusage)
+            thread_exec.submit(runCostMonitor)
+            time.sleep(REST_PERIOD)
+            thread_exec.submit(runWebLoad)
+            time.sleep(WEBLOADTIME + REST_PERIOD)
+            thread_exec.submit(runCPUusage)
 
-        time.sleep(30)
-        # os.system(f"rm {LOCUSTFILE}_exceptions.csv {LOCUSTFILE}_failures.csv {LOCUSTFILE}_stats.csv")
-        # os.system(f"mv *.csv data/")
+            time.sleep(30)
+            # os.system(f"rm {LOCUSTFILE}_exceptions.csv {LOCUSTFILE}_failures.csv {LOCUSTFILE}_stats.csv")
+            # os.system(f"mv *.csv data/")
 
-        print("DONE")
+            print("DONE")
     remove_stress()
     file.close()
     print(data)
 
 if __name__ == "__main__":
-    bench_binPack()
+    remove_stress()
+    create_stress()
+    time.sleep(60)
+    bench_default(2001, 3)
+    bench_binPack(3001, 3)
+    bench_netMarks(4001, 3)
+    # benchV2(1101, 1)

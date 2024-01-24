@@ -1,0 +1,43 @@
+Method,Name,Error,Occurrences
+GET,/product/1YMWWN1N4O,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",17
+GET,/product/L9ECAV7KIM,HTTPError('503 Server Error: Service Unavailable for url: /product/L9ECAV7KIM'),91
+GET,/product/2ZYFJ3GM2N,"ConnectionRefusedError(111, 'Connection refused')",67
+GET,/product/0PUK6V6EV0,"ConnectionRefusedError(111, 'Connection refused')",60
+GET,/product/LS4PSXUNUM,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",24
+GET,/product/9SIQT8TOJO,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",19
+GET,/product/1YMWWN1N4O,"ConnectionRefusedError(111, 'Connection refused')",58
+GET,/product/OLJCESPC7Z,"ConnectionRefusedError(111, 'Connection refused')",69
+POST,/cart,"ConnectionRefusedError(111, 'Connection refused')",113
+GET,/,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",4
+GET,/,"ConnectionRefusedError(111, 'Connection refused')",44
+GET,/product/1YMWWN1N4O,HTTPError('503 Server Error: Service Unavailable for url: /product/1YMWWN1N4O'),104
+POST,/setCurrency,"ConnectionRefusedError(111, 'Connection refused')",89
+GET,/product/66VCHSJNUP,HTTPError('503 Server Error: Service Unavailable for url: /product/66VCHSJNUP'),82
+GET,/product/0PUK6V6EV0,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",14
+GET,/cart,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",57
+POST,/cart,HTTPError('503 Server Error: Service Unavailable for url: /cart'),307
+GET,/product/L9ECAV7KIM,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",15
+GET,/product/LS4PSXUNUM,HTTPError('503 Server Error: Service Unavailable for url: /product/LS4PSXUNUM'),92
+POST,/setCurrency,HTTPError('503 Server Error: Service Unavailable for url: /setCurrency'),168
+POST,/cart/checkout,"ConnectionRefusedError(111, 'Connection refused')",57
+POST,/setCurrency,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",23
+GET,/product/OLJCESPC7Z,HTTPError('503 Server Error: Service Unavailable for url: /product/OLJCESPC7Z'),92
+GET,/product/9SIQT8TOJO,HTTPError('503 Server Error: Service Unavailable for url: /product/9SIQT8TOJO'),91
+GET,/product/66VCHSJNUP,"ConnectionRefusedError(111, 'Connection refused')",68
+GET,/product/0PUK6V6EV0,HTTPError('503 Server Error: Service Unavailable for url: /product/0PUK6V6EV0'),95
+POST,/cart/checkout,HTTPError('503 Server Error: Service Unavailable for url: /cart/checkout'),42
+POST,/cart,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",104
+GET,/product/66VCHSJNUP,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",15
+GET,/,HTTPError('503 Server Error: Service Unavailable for url: /'),71
+GET,/cart,"ConnectionRefusedError(111, 'Connection refused')",149
+POST,/cart/checkout,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",9
+GET,/product/2ZYFJ3GM2N,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",25
+GET,/product/2ZYFJ3GM2N,HTTPError('503 Server Error: Service Unavailable for url: /product/2ZYFJ3GM2N'),96
+GET,/cart,HTTPError('503 Server Error: Service Unavailable for url: /cart'),207
+GET,/product/OLJCESPC7Z,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",25
+GET,/product/9SIQT8TOJO,"ConnectionRefusedError(111, 'Connection refused')",76
+GET,/product/6E92ZMYYFZ,HTTPError('503 Server Error: Service Unavailable for url: /product/6E92ZMYYFZ'),99
+GET,/product/6E92ZMYYFZ,"ChunkedEncodingError(ProtocolError(""Connection broken: InvalidChunkLength(got length b'', 0 bytes read)"", InvalidChunkLength(got length b'', 0 bytes read)))",25
+GET,/product/6E92ZMYYFZ,"ConnectionRefusedError(111, 'Connection refused')",60
+GET,/product/L9ECAV7KIM,"ConnectionRefusedError(111, 'Connection refused')",64
+GET,/product/LS4PSXUNUM,"ConnectionRefusedError(111, 'Connection refused')",89
