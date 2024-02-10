@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
 import seaborn as sns
 import numpy as np
 import pandas as pd
@@ -73,6 +74,7 @@ class BaseLineLoader :
             costDict[(key[0])] = cost # removed user count
         return costDict
 
+USERFILTER = 2000
 entries = EntryLoader()
 filteredDatas = entries.filter(cost_weight=[0,.25,.5])
 costs = entries.getCost(filteredDatas)
@@ -92,16 +94,17 @@ group_width = bar_width * len(cost_weights)  # The total width of a group
 gap_width = 0.3 # Width of the gap between groups
 index = np.arange(len(net_weights)) * (group_width + gap_width) 
 
-baselines = 2
+baselines = 0
 baselineLoader = BaseLineLoader()
 # ax.bar(bar_width+gap_width, 60000, bar_width, label='netMarks', color=palette[-2])
 
-filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks'])
-print(filteredBaselines)
-baselinesCosts = baselineLoader.getCost(filteredBaselines)
-print('baselineReq\n', baselinesCosts)
-ax.bar(0, baselinesCosts[('default')], bar_width, label='default', color=palette[-1])
-ax.bar(bar_width+gap_width, baselinesCosts[('netmarks')], bar_width, label='netMarks', color=palette[-2])
+# filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks', 'binpack'])
+# print(filteredBaselines)
+# baselinesCosts = baselineLoader.getCost(filteredBaselines)
+# print('baselineReq\n', baselinesCosts)
+# ax.bar(0, baselinesCosts[('default')], bar_width, label='default', color=palette[-1])
+# ax.bar(bar_width+gap_width, baselinesCosts[('netmarks')], bar_width, label='netMarks', color=palette[-2])
+# ax.bar((bar_width+gap_width)*2, baselinesCosts[('binpack')], bar_width, label='binpack', color=palette[-3])
 
 for i, cw in enumerate(cost_weights):
     sameNetRequests = []
@@ -109,19 +112,15 @@ for i, cw in enumerate(cost_weights):
         for key, value in costs.items():
             if key[0] == nw and key[2] == cw:
                 sameNetRequests.append(value)
-    bar = ax.bar(baselines * (bar_width+gap_width) + index + i * bar_width, sameNetRequests, bar_width, label=f'Cost Weight {cw}', color=palette[i])
+    bar = ax.bar(baselines * (bar_width+gap_width) + index + i * bar_width, sameNetRequests, bar_width, label=f'γ = {cw}', color=palette[i])
     legend_entries.append(bar)
 
-ax.set_xlabel('Net Weight(Relative)')
-ax.set_ylabel('Cost/min')
-ax.set_title('Cost Comparison by Net Weight and Cost Weight')
+ax.set_ylabel('$C$')
 xticks = [i * (bar_width+gap_width) for i in range(baselines)]
 xticks.extend(baselines * (bar_width+gap_width) + index + group_width / 2 - bar_width / 2)
-print(xticks)
 ax.set_xticks(xticks)
-ax.set_xticklabels(['default', 'netMarks'] + [f'{weight}' for weight in net_weights], fontsize=10)
-ax.tick_params(axis='x', labelrotation=45)
-ax.legend(handles=legend_entries,loc='upper center', bbox_to_anchor=(0.5, -0.3), ncol=len(cost_weights), fontsize='x-small')
+ax.set_xticklabels([f'$𝛼_R$ = {weight}' for weight in net_weights], fontsize=10)
+ax.legend(handles=legend_entries,loc='upper center', bbox_to_anchor=(0.5, -0.12), ncol=len(cost_weights), fontsize='medium')
 
 plt.tight_layout()
-plt.savefig('thesis_plots/images/Total_Costs.png')
+plt.savefig(f'thesis_plots/images/v2Total_Costs.png')

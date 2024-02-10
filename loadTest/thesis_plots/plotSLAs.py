@@ -54,8 +54,6 @@ class BaseLineLoader :
         lines = file.readlines()
         self.datas = defaultdict(list)
         for i, line in enumerate(lines):
-            if i >= 12:
-                break
             line = eval(line)
             self.datas[line['baseline'], line['user']].append(line['fileNum'])
     
@@ -82,32 +80,38 @@ class BaseLineLoader :
         return slaPercents
 
 
-markers = ['o', 's', '^', 'D', '*', 'p', 'v', '<', '>', 'H', '+', 'x']
 plt.rcParams.update({'font.size': 14})
 fig, axs = plt.subplots(1,5, figsize=(50,10))
 palette = sns.color_palette("tab10")
-slaLimits = np.linspace(1000, 5000, 100)
+# slaLimits = np.linspace(1000, 5000, 100)
+# USERFILTER = 1000
+slaLimits = np.linspace(2000, 6000, 100)
+USERFILTER = 2000
 
 entries = EntryLoader()
-filteredDatas = entries.filter(userCount=[1000])
+filteredDatas = entries.filter(userCount=[USERFILTER])
 slaDict = entries.getSLA(filteredDatas, slaLimits)
 for i,nw in enumerate([0, .25, .5, .75, 1]):
     cost_weights = sorted(set(key[0] for key in slaDict.keys() if key[0] <= .51))
     for cwindex, cw in enumerate(cost_weights):
-        axs[i].plot(slaLimits, slaDict[(nw, 1-nw, cw, 1000)], label=cw, color=palette[cwindex], linewidth=3)
+        axs[i].plot(slaLimits, slaDict[(nw, 1-nw, cw, USERFILTER)], label=cw, color=palette[cwindex], linewidth=3)
         axs[i].set_ylabel("Violation (in %)", fontsize='xx-large')
         axs[i].tick_params(axis='x', labelrotation=45, labelsize='xx-large')
         axs[i].tick_params(axis='y', labelsize='xx-large')
     axs[i].legend(fontsize='xx-large')
     axs[i].set_xlabel(f'Network Weight = {nw}', fontsize='xx-large')
 
-baselineLoader = BaseLineLoader()
-filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks'],user=[1000])
-slaDict = baselineLoader.getSLA(filteredBaselines, slaLimits)
+# baselineLoader = BaseLineLoader()
+# print(baselineLoader.datas)
+# filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks', 'binpack'],user=[USERFILTER])
+# print(filteredBaselines)
+# slaDict = baselineLoader.getSLA(filteredBaselines, slaLimits)
 
+# print(len(slaLimits), len(slaDict[('netmarks', USERFILTER)]), len(slaDict[('default', USERFILTER)]))
 for ax in axs:
-    ax.plot(slaLimits, slaDict[('default', 1000)], label='default', linewidth=3, color=palette[-1])
-    ax.plot(slaLimits, slaDict[('netmarks', 1000)], label='netmarks', linewidth=3, color=palette[-2])
+    # ax.plot(slaLimits, slaDict[('default', USERFILTER)], label='default', linewidth=3, color=palette[-1])
+    # ax.plot(slaLimits, slaDict[('netmarks', USERFILTER)], label='netmarks', linewidth=3, color=palette[-2])
+    # ax.plot(slaLimits, slaDict[('binpack', USERFILTER)], label='binpack', linewidth=3, color=palette[-3])
     ax.set_ylabel("Violation (in %)", fontsize="xx-large")
     ax.tick_params(axis='x', labelrotation=45, labelsize="xx-large")
     ax.tick_params(axis='y', labelsize="xx-large")
@@ -122,4 +126,4 @@ for ax in axs:
     ax.xaxis.set_major_formatter(FuncFormatter(add_ms))
 fig.suptitle("SLA Violation Graph", fontsize=28)
 plt.tight_layout()
-plt.savefig('thesis_plots/images/SLAs_1000userV1.png')
+plt.savefig(f'thesis_plots/images/v2SLAs_{USERFILTER}user.png')

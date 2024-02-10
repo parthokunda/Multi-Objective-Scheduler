@@ -88,7 +88,7 @@ def remove_stress():
         os.system(f'ssh {server} sudo pkill -9 stress')
 
 # jobs = [.5, .625, .75, .875, 1]
-jobs = [0, .25, .5, .75, 1]
+jobs = [0, 0.25, .5, .75, 1]
 WEBLOADTIME = 180
 USERCOUNT = 1000
 REST_PERIOD = 15
@@ -96,13 +96,13 @@ LOCUSTFILE = None
 
 def benchV2(start, times=1):
     data_start = start
-    file = open('entries2.txt','a')
+    file = open(FILENAME,'a')
     data = []
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [1000, 50, 2000]:
-            for cost in [0, .25, .5, .75, 1]:
+        for user in [500]:
+            for cost in [0]:
                 for i, w in enumerate(jobs):
                     global LOCUSTFILE
                     global USERCOUNT
@@ -142,13 +142,13 @@ def benchV2(start, times=1):
     print(data)
 
 def bench_default(start, times = 1):
-    file = open('entries_baselines2.txt','a')
+    file = open(BASEFILENAME,'a')
     data = []
     data_start = start
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [5, 50, 1000, 2000]:
+        for user in [500]:
             global LOCUSTFILE
             global USERCOUNT
             LOCUSTFILE = data_start
@@ -183,13 +183,13 @@ def bench_default(start, times = 1):
     print(data)
 
 def bench_netMarks(start, times):
-    file = open('entries_baselines2.txt','a')
+    file = open(BASEFILENAME,'a')
     data = []
     data_start = start
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [5, 50, 1000, 2000]:
+        for user in [500]:
             global LOCUSTFILE
             global USERCOUNT
             LOCUSTFILE = data_start
@@ -224,13 +224,13 @@ def bench_netMarks(start, times):
     print(data)
 
 def bench_binPack(start, times=1):
-    file = open('entries_baselines2.txt','a')
+    file = open(BASEFILENAME,'a')
     data = []
     data_start = start
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [5, 50, 1000, 2000]:
+        for user in [500]:
             global LOCUSTFILE
             global USERCOUNT
             LOCUSTFILE = data_start
@@ -264,11 +264,14 @@ def bench_binPack(start, times=1):
     file.close()
     print(data)
 
+FILENAME = 'entries.txt'
+BASEFILENAME = 'entries_baselines.txt'
+
 if __name__ == "__main__":
     remove_stress()
     create_stress()
     time.sleep(60)
-    bench_default(2001, 3)
     bench_binPack(3001, 3)
     bench_netMarks(4001, 3)
-    # benchV2(1101, 1)
+    benchV2(1, 3)
+    bench_default(2001, 3)

@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
 import seaborn as sns
 import numpy as np
 import pandas as pd
@@ -81,8 +82,10 @@ class BaseLineLoader :
             requestDict[key] = request
         return requestDict
 
+USERFILTER =  50
 entries = EntryLoader()
-filteredDatas = entries.filter(userCount=[1000], cost_weight=[0,.25,.5])
+filteredDatas = entries.filter(userCount=[USERFILTER], cost_weight=[0,.25,.5])
+print(filteredDatas)
 requests = entries.getTotalRequests(filteredDatas)
 print(requests)
 
@@ -99,16 +102,18 @@ group_width = bar_width * len(cost_weights)  # The total width of a group
 gap_width = 0.3 # Width of the gap between groups
 index = np.arange(len(net_weights)) * (group_width + gap_width) 
 
-baselines = 2
+baselines = 0
 baselineLoader = BaseLineLoader()
 # ax.bar(bar_width+gap_width, 60000, bar_width, label='netMarks', color=palette[-2])
 
-filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks'],user=[1000])
-print(filteredBaselines)
-baselinesRequest = baselineLoader.getTotalRequests(filteredBaselines)
-print('baselineReq\n', baselinesRequest)
-ax.bar(0, baselinesRequest[('default',1000)], bar_width, label='default', color=palette[-1])
-ax.bar(bar_width+gap_width, baselinesRequest[('netmarks',1000)], bar_width, label='netMarks', color=palette[-2])
+# filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks', 'binpack'])
+# print(filteredBaselines)
+# baselinesRequest = baselineLoader.getTotalRequests(filteredBaselines)
+# print('baselineReq\n', baselinesRequest)
+# ax.bar(0, baselinesRequest[('default',USERFILTER)], bar_width, label='default', color=palette[-1])
+# ax.bar(bar_width+gap_width, baselinesRequest[('netmarks',USERFILTER)], bar_width, label='netMarks', color=palette[-2])
+# ax.bar((bar_width+gap_width) * 2, baselinesRequest[('binpack',USERFILTER)], bar_width, label='binpack', color=palette[-3])
+
 
 for i, cw in enumerate(cost_weights):
     sameNetRequests = []
@@ -116,19 +121,20 @@ for i, cw in enumerate(cost_weights):
         for key, value in requests.items():
             if key[0] == nw and key[2] == cw:
                 sameNetRequests.append(value)
-    bar = ax.bar(baselines * (bar_width+gap_width) + index + i * bar_width, sameNetRequests, bar_width, label=f'Cost Weight {cw}', color=palette[i])
+    bar = ax.bar(baselines * (bar_width+gap_width) + index + i * bar_width, sameNetRequests, bar_width, label=f'γ = {cw}', color=palette[i])
     legend_entries.append(bar)
 
-ax.set_xlabel('Net Weight(Relative)')
-ax.set_ylabel('Total Requests')
-ax.set_title('Total Requests by Net Weight and Cost Weight')
+def RtToK(x,pos):
+    return f'{int(x//1000)}K'
+ax.yaxis.set_major_formatter(FuncFormatter(RtToK))
+ax.set_ylabel('$R_t$')
 xticks = [i * (bar_width+gap_width) for i in range(baselines)]
 xticks.extend(baselines * (bar_width+gap_width) + index + group_width / 2 - bar_width / 2)
 print(xticks)
 ax.set_xticks(xticks)
-ax.set_xticklabels(['default', 'netMarks'] + [f'{weight}' for weight in net_weights])
-ax.tick_params(axis='x', labelrotation=45)
-ax.legend(handles=legend_entries, loc='upper center', bbox_to_anchor=(0.5, -0.3), ncol=len(cost_weights), fontsize='x-small')
+# ax.set_xticklabels(['default', 'netMarks', 'binpack'] + [f'{weight}' for weight in net_weights])
+ax.set_xticklabels([f'$𝛼_R$ = {weight}' for weight in net_weights])
+ax.legend(handles=legend_entries, loc='upper center', bbox_to_anchor=(0.5, -0.12), ncol=len(cost_weights), fontsize='medium')
 
 plt.tight_layout()
-plt.savefig('thesis_plots/images/Total_Requests_1000user.png')
+plt.savefig(f'thesis_plots/images/v2Total_Requests_{USERFILTER}user.png')
