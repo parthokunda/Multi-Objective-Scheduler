@@ -1,2 +1,2 @@
-2024-01-23 02:31:11 - DEBUG  [connectionpool.py:244] - Starting new HTTP connection (1): 10.96.1.39:9090
-2024-01-23 02:31:11 - DEBUG  [connectionpool.py:546] - http://10.96.1.39:9090 "GET /api/v1/query_range?query=sum%28rate%28node_cpu_seconds_total%7Bmode%3D%22user%22%7D%5B30s%5D%29%29+by+%28node%29&start=1705976851.236832&end=1705977071.236851&step=15s HTTP/1.1" 200 712
+2024-01-25 11:06:30 - DEBUG  [connectionpool.py:244] - Starting new HTTP connection (1): 10.96.1.39:9090
+2024-01-25 11:06:30 - DEBUG  [connectionpool.py:546] - http://10.96.1.39:9090 "GET /api/v1/query_range?query=sum%28rate%28node_cpu_seconds_total%7Bmode%3D%22user%22%7D%5B30s%5D%29%29+by+%28node%29&start=1706180570.504953&end=1706180790.504972&step=15s HTTP/1.1" 200 742
