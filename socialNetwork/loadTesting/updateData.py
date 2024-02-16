@@ -192,7 +192,7 @@ if __name__ == "__main__":
     # while check_pods_deployed() != True:
     #     time.sleep(3)
     os.system('cd /root/DeathStarBench/socialNetwork')
-    os.system('''python3 init_social_graph.py --graph=socfb-Reed98 --ip=$(kubectl get svc | grep nginx | grep Cluster | awk '{{print $3}}')''')
+    os.system('''python3 scripts/init_social_graph.py --graph=socfb-Reed98 --ip=$(kubectl get svc | grep nginx | grep Cluster | awk '{{print $3}}')''')
     os.system('cd /root/socialNetwork/loadTesting')
 
     for pod in pods.items:

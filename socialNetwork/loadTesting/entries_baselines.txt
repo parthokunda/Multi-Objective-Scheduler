@@ -1,0 +1,4 @@
+{'fileNum': 3001, 'baseline': 'binpack', 'user': 2000}
+{'fileNum': 3002, 'baseline': 'binpack', 'user': 50}
+{'fileNum': 4001, 'baseline': 'netmarks', 'user': 2000}
+{'fileNum': 4002, 'baseline': 'netmarks', 'user': 50}
