@@ -5501,11 +5501,11 @@ spec:
         - ComposePostService
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: compose-post-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -5549,11 +5549,11 @@ spec:
         - /social-network-microservices/config/redis.conf
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: home-timeline-redis-config
           mountPath: /social-network-microservices/config/redis.conf
@@ -5594,11 +5594,11 @@ spec:
         - HomeTimelineService
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: home-timeline-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -5650,11 +5650,11 @@ spec:
         
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: jaeger-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -5700,11 +5700,11 @@ spec:
         
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: media-frontend-config
           mountPath: /usr/local/openresty/nginx/conf/nginx.conf
@@ -5766,11 +5766,11 @@ spec:
         - containerPort: 11211
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: media-memcached-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -5815,11 +5815,11 @@ spec:
         - /social-network-microservices/config/mongod.conf
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: media-mongodb-config
           mountPath: /social-network-microservices/config/mongod.conf
@@ -5860,11 +5860,11 @@ spec:
         - MediaService
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: media-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -5910,11 +5910,11 @@ spec:
         
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: nginx-thrift-config
           mountPath: /usr/local/openresty/nginx/jaeger-config.json
@@ -5997,11 +5997,11 @@ spec:
         - containerPort: 11211
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: post-storage-memcached-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6046,11 +6046,11 @@ spec:
         - /social-network-microservices/config/mongod.conf
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: post-storage-mongodb-config
           mountPath: /social-network-microservices/config/mongod.conf
@@ -6091,11 +6091,11 @@ spec:
         - PostStorageService
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: post-storage-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6140,11 +6140,11 @@ spec:
         - /social-network-microservices/config/mongod.conf
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: social-graph-mongodb-config
           mountPath: /social-network-microservices/config/mongod.conf
@@ -6185,11 +6185,11 @@ spec:
         - /social-network-microservices/config/redis.conf
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: social-graph-redis-config
           mountPath: /social-network-microservices/config/redis.conf
@@ -6230,11 +6230,11 @@ spec:
         - SocialGraphService
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: social-graph-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6278,11 +6278,11 @@ spec:
         - TextService
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: text-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6326,11 +6326,11 @@ spec:
         - UniqueIdService
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: unique-id-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6372,11 +6372,11 @@ spec:
         - containerPort: 11211
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: url-shorten-memcached-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6421,11 +6421,11 @@ spec:
         - /social-network-microservices/config/mongod.conf
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: url-shorten-mongodb-config
           mountPath: /social-network-microservices/config/mongod.conf
@@ -6466,11 +6466,11 @@ spec:
         - UrlShortenService
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: url-shorten-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6512,11 +6512,11 @@ spec:
         - containerPort: 11211
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: user-memcached-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6560,11 +6560,11 @@ spec:
         - UserMentionService
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: user-mention-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6609,11 +6609,11 @@ spec:
         - /social-network-microservices/config/mongod.conf
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: user-mongodb-config
           mountPath: /social-network-microservices/config/mongod.conf
@@ -6654,11 +6654,11 @@ spec:
         - UserService
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: user-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6703,11 +6703,11 @@ spec:
         - /social-network-microservices/config/mongod.conf
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: user-timeline-mongodb-config
           mountPath: /social-network-microservices/config/mongod.conf
@@ -6748,11 +6748,11 @@ spec:
         - /social-network-microservices/config/redis.conf
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: user-timeline-redis-config
           mountPath: /social-network-microservices/config/redis.conf
@@ -6793,11 +6793,11 @@ spec:
         - UserTimelineService
         resources:
           requests:
-            cpu: 100m
+            cpu: 50m
             memory: 128Mi
           limits:
-            cpu : 500m
-            memory: 512Mi        
+            cpu : 200m
+            memory: 256Mi        
         volumeMounts:
         - name: user-timeline-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
