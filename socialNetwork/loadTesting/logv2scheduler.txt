@@ -1,715 +1,445 @@
-2024-02-17 03:06:46 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-qhtqv', 'media-service-745bc6d9d5-9j7ts', 'post-storage-service-54b6778744-w652q', 'social-graph-service-5485b8b694-f4mmv', 'text-service-6f495cf886-jz9xn', 'unique-id-service-54d6c97bb5-rw7xx', 'url-shorten-service-5ff8c45dd5-km7d6', 'user-service-6858dc4978-84vt9', 'user-timeline-service-5fffffff59-xxj9q']
-2024-02-17 03:06:46 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-qhtqv to list_pod
-2024-02-17 03:06:46 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-9j7ts to list_pod
-2024-02-17 03:06:46 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-w652q to list_pod
-2024-02-17 03:06:46 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-f4mmv to list_pod
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-jz9xn to list_pod
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-rw7xx to list_pod
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-km7d6 to list_pod
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-84vt9 to list_pod
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-xxj9q to list_pod
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'media-service', 'post-storage-service', 'social-graph-service', 'text-service', 'unique-id-service', 'url-shorten-service', 'user-service', 'user-timeline-service']
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-service-dcdd768dc-mxmzr', 'user-mention-service-859556df7b-j7xgg']
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-mxmzr to list_pod
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-j7xgg to list_pod
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-service', 'user-mention-service']
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.9470967802944769, 'k8s-vm3': 0.9999999999905699, 'k8s-vm5': 0.9999999999905699}
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.9999984691353793, 'k8s-vm2': 0.2744615441242856, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:06:47 - INFO  [v2Scheduler.py:167] - Scheduled compose-post-service to k8s-vm1
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-qhtqv', 'compose-post-service-d8576b57-w9x9t', 'media-service-745bc6d9d5-9j7ts', 'post-storage-service-54b6778744-w652q', 'social-graph-service-5485b8b694-f4mmv', 'text-service-6f495cf886-jz9xn', 'unique-id-service-54d6c97bb5-rw7xx', 'url-shorten-service-5ff8c45dd5-km7d6', 'user-service-6858dc4978-84vt9', 'user-timeline-service-5fffffff59-xxj9q']
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-qhtqv to list_pod
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-9j7ts to list_pod
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-w652q to list_pod
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-f4mmv to list_pod
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-jz9xn to list_pod
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-rw7xx to list_pod
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-km7d6 to list_pod
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-84vt9 to list_pod
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-xxj9q to list_pod
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'compose-post-service', 'media-service', 'post-storage-service', 'social-graph-service', 'text-service', 'unique-id-service', 'url-shorten-service', 'user-service', 'user-timeline-service']
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-service-dcdd768dc-mxmzr', 'user-mention-service-859556df7b-j7xgg']
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-mxmzr to list_pod
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-j7xgg to list_pod
-2024-02-17 03:06:48 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-service', 'user-mention-service']
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.9999999999927627, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999999999927627, 'k8s-vm5': 0.9999999999927627}
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.9999984691353793, 'k8s-vm2': 0.2744615441242856, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:167] - Scheduled home-timeline-redis to k8s-vm2
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'media-service-745bc6d9d5-9j7ts', 'post-storage-service-54b6778744-w652q', 'social-graph-service-5485b8b694-f4mmv', 'text-service-6f495cf886-jz9xn', 'unique-id-service-54d6c97bb5-rw7xx', 'url-shorten-service-5ff8c45dd5-km7d6', 'user-service-6858dc4978-84vt9', 'user-timeline-service-5fffffff59-xxj9q']
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-9j7ts to list_pod
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-w652q to list_pod
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-f4mmv to list_pod
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-jz9xn to list_pod
-2024-02-17 03:06:49 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-rw7xx to list_pod
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-km7d6 to list_pod
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-84vt9 to list_pod
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-xxj9q to list_pod
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'media-service', 'post-storage-service', 'social-graph-service', 'text-service', 'unique-id-service', 'url-shorten-service', 'user-service', 'user-timeline-service']
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-mxmzr', 'user-mention-service-859556df7b-j7xgg']
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-mxmzr to list_pod
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-j7xgg to list_pod
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'user-mention-service']
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.5215948102842551, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999999999996373, 'k8s-vm5': 0.9999999999996373}
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.9999984691353793, 'k8s-vm2': 0.6677354638963194, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:06:50 - INFO  [v2Scheduler.py:167] - Scheduled home-timeline-service to k8s-vm2
-2024-02-17 03:06:51 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'media-service-745bc6d9d5-9j7ts', 'post-storage-service-54b6778744-w652q', 'social-graph-service-5485b8b694-f4mmv', 'text-service-6f495cf886-jz9xn', 'unique-id-service-54d6c97bb5-rw7xx', 'url-shorten-service-5ff8c45dd5-km7d6', 'user-service-6858dc4978-84vt9', 'user-timeline-service-5fffffff59-xxj9q']
-2024-02-17 03:06:51 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:06:51 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-9j7ts to list_pod
-2024-02-17 03:06:51 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-w652q to list_pod
-2024-02-17 03:06:51 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-f4mmv to list_pod
-2024-02-17 03:06:51 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-jz9xn to list_pod
-2024-02-17 03:06:51 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-rw7xx to list_pod
-2024-02-17 03:06:51 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-km7d6 to list_pod
-2024-02-17 03:06:51 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-84vt9 to list_pod
-2024-02-17 03:06:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-xxj9q to list_pod
-2024-02-17 03:06:51 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'media-service', 'post-storage-service', 'social-graph-service', 'text-service', 'unique-id-service', 'url-shorten-service', 'user-service', 'user-timeline-service']
-2024-02-17 03:06:51 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt']
-2024-02-17 03:06:51 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service']
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.9999984691353793, 'k8s-vm2': 0.6095586888764613, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:167] - Scheduled jaeger to k8s-vm1
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7']
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger']
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt']
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service']
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.18326827078047866, 'k8s-vm2': 0.9999974885752531, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:06:52 - INFO  [v2Scheduler.py:167] - Scheduled media-frontend to k8s-vm1
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq']
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend']
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt']
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service']
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.1883626086403647, 'k8s-vm2': 0.9999974885752531, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:06:53 - INFO  [v2Scheduler.py:167] - Scheduled media-memcached to k8s-vm1
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48']
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached']
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt']
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service']
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.1932560991178008, 'k8s-vm2': 0.9999974885752531, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:06:54 - INFO  [v2Scheduler.py:167] - Scheduled media-mongodb to k8s-vm1
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq']
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb']
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt']
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service']
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.9999999998411142, 'k8s-vm3': 0.9999999998411142, 'k8s-vm5': 0.9999999998411142}
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.2038936524668381, 'k8s-vm2': 0.9999974885752531, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:06:55 - INFO  [v2Scheduler.py:167] - Scheduled media-service to k8s-vm1
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn']
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service']
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt']
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service']
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.9860283949426651, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999999999992305, 'k8s-vm5': 0.9999999999992305}
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.22399841398425863, 'k8s-vm2': 0.9999974885752531, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:06:56 - INFO  [v2Scheduler.py:167] - Scheduled nginx-thrift to k8s-vm2
-2024-02-17 03:06:57 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn']
-2024-02-17 03:06:57 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:06:57 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:06:57 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:06:57 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:06:57 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:06:57 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:06:57 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service']
-2024-02-17 03:06:57 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx']
-2024-02-17 03:06:57 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:06:57 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:06:57 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:06:57 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift']
-2024-02-17 03:06:58 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:06:58 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:58 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:06:58 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:06:58 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:58 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.10098836916013752, 'k8s-vm2': 0.9999988677389051, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:06:58 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:06:58 - INFO  [v2Scheduler.py:167] - Scheduled post-storage-memcached to k8s-vm2
-2024-02-17 03:06:58 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn']
-2024-02-17 03:06:58 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:06:59 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:06:59 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:06:59 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:06:59 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:06:59 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:06:59 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service']
-2024-02-17 03:06:59 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs']
-2024-02-17 03:06:59 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:06:59 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:06:59 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:00 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:00 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached']
-2024-02-17 03:07:00 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:00 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:00 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:00 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:00 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:00 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.0765136822375975, 'k8s-vm2': 0.9999991421441268, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:00 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:00 - INFO  [v2Scheduler.py:167] - Scheduled post-storage-mongodb to k8s-vm1
-2024-02-17 03:07:01 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln']
-2024-02-17 03:07:01 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:01 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:01 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:01 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:01 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:01 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:01 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:01 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb']
-2024-02-17 03:07:01 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs']
-2024-02-17 03:07:01 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached']
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.9366558879747805, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999999999997335, 'k8s-vm5': 0.9999999999997335}
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.10222356025223484, 'k8s-vm2': 0.9999991421441268, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:167] - Scheduled post-storage-service to k8s-vm2
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln']
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:02 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb']
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x']
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service']
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.07642853776971036, 'k8s-vm2': 0.9999993586148844, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:03 - INFO  [v2Scheduler.py:167] - Scheduled social-graph-mongodb to k8s-vm2
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln']
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb']
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k']
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:04 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb']
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.0760188167833063, 'k8s-vm2': 0.9999993620532459, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:167] - Scheduled social-graph-redis to k8s-vm1
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln', 'social-graph-redis-6db7bfb997-ssdn6']
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:05 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-ssdn6 to list_pod
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb', 'social-graph-redis']
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k']
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb']
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.8048190981566249, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999999999824952, 'k8s-vm5': 0.9999999999824952}
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.08795388970763511, 'k8s-vm2': 0.9999993620532459, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:06 - INFO  [v2Scheduler.py:167] - Scheduled social-graph-service to k8s-vm2
-2024-02-17 03:07:07 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln', 'social-graph-redis-6db7bfb997-ssdn6']
-2024-02-17 03:07:07 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:07 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:07 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:07 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:07 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:07 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-ssdn6 to list_pod
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb', 'social-graph-redis']
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k', 'social-graph-service-5485b8b694-qhhbd']
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-qhhbd to list_pod
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb', 'social-graph-service']
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.9999999999711714, 'k8s-vm3': 0.9999999999711714, 'k8s-vm5': 0.9999999999711714}
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.0863625710115177, 'k8s-vm2': 0.9999993735953915, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:08 - INFO  [v2Scheduler.py:167] - Scheduled text-service to k8s-vm1
-2024-02-17 03:07:09 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln', 'social-graph-redis-6db7bfb997-ssdn6', 'text-service-6f495cf886-587tn']
-2024-02-17 03:07:09 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:09 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:09 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:09 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:09 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:09 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:09 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:09 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-ssdn6 to list_pod
-2024-02-17 03:07:09 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-587tn to list_pod
-2024-02-17 03:07:09 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb', 'social-graph-redis', 'text-service']
-2024-02-17 03:07:09 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k', 'social-graph-service-5485b8b694-qhhbd']
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-qhhbd to list_pod
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb', 'social-graph-service']
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.9999999997746585, 'k8s-vm3': 0.9999999997746585, 'k8s-vm5': 0.9999999997746585}
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.10354599058348497, 'k8s-vm2': 0.9999993735953915, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:10 - INFO  [v2Scheduler.py:167] - Scheduled unique-id-service to k8s-vm1
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln', 'social-graph-redis-6db7bfb997-ssdn6', 'text-service-6f495cf886-587tn', 'unique-id-service-54d6c97bb5-trb5w']
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-ssdn6 to list_pod
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-587tn to list_pod
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-trb5w to list_pod
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb', 'social-graph-redis', 'text-service', 'unique-id-service']
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k', 'social-graph-service-5485b8b694-qhhbd']
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:11 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-qhhbd to list_pod
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb', 'social-graph-service']
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.10818616897729286, 'k8s-vm2': 0.9999993735953915, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:167] - Scheduled url-shorten-memcached to k8s-vm2
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln', 'social-graph-redis-6db7bfb997-ssdn6', 'text-service-6f495cf886-587tn', 'unique-id-service-54d6c97bb5-trb5w']
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:12 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-ssdn6 to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-587tn to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-trb5w to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb', 'social-graph-redis', 'text-service', 'unique-id-service']
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k', 'social-graph-service-5485b8b694-qhhbd', 'url-shorten-memcached-7fd69cb6d7-t4jfl']
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-qhhbd to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-t4jfl to list_pod
-2024-02-17 03:07:13 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb', 'social-graph-service', 'url-shorten-memcached']
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.10806262784728263, 'k8s-vm2': 0.9999993743107022, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:167] - Scheduled url-shorten-mongodb to k8s-vm1
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln', 'social-graph-redis-6db7bfb997-ssdn6', 'text-service-6f495cf886-587tn', 'unique-id-service-54d6c97bb5-trb5w', 'url-shorten-mongodb-78cf58d5d7-cxkgj']
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-ssdn6 to list_pod
-2024-02-17 03:07:14 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-587tn to list_pod
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-trb5w to list_pod
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-cxkgj to list_pod
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb', 'social-graph-redis', 'text-service', 'unique-id-service', 'url-shorten-mongodb']
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k', 'social-graph-service-5485b8b694-qhhbd', 'url-shorten-memcached-7fd69cb6d7-t4jfl']
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-qhhbd to list_pod
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-t4jfl to list_pod
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb', 'social-graph-service', 'url-shorten-memcached']
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.9999999999667344, 'k8s-vm3': 0.9999999999667344, 'k8s-vm5': 0.9999999999667344}
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.11714574267221196, 'k8s-vm2': 0.9999993743107022, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:15 - INFO  [v2Scheduler.py:167] - Scheduled url-shorten-service to k8s-vm1
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln', 'social-graph-redis-6db7bfb997-ssdn6', 'text-service-6f495cf886-587tn', 'unique-id-service-54d6c97bb5-trb5w', 'url-shorten-mongodb-78cf58d5d7-cxkgj', 'url-shorten-service-5ff8c45dd5-mhfbl']
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-ssdn6 to list_pod
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-587tn to list_pod
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-trb5w to list_pod
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-cxkgj to list_pod
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-mhfbl to list_pod
-2024-02-17 03:07:16 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb', 'social-graph-redis', 'text-service', 'unique-id-service', 'url-shorten-mongodb', 'url-shorten-service']
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k', 'social-graph-service-5485b8b694-qhhbd', 'url-shorten-memcached-7fd69cb6d7-t4jfl']
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-qhhbd to list_pod
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-t4jfl to list_pod
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb', 'social-graph-service', 'url-shorten-memcached']
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.12646025684804013, 'k8s-vm2': 0.9999993743107022, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:167] - Scheduled user-memcached to k8s-vm2
-2024-02-17 03:07:17 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln', 'social-graph-redis-6db7bfb997-ssdn6', 'text-service-6f495cf886-587tn', 'unique-id-service-54d6c97bb5-trb5w', 'url-shorten-mongodb-78cf58d5d7-cxkgj', 'url-shorten-service-5ff8c45dd5-mhfbl']
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-ssdn6 to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-587tn to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-trb5w to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-cxkgj to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-mhfbl to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb', 'social-graph-redis', 'text-service', 'unique-id-service', 'url-shorten-mongodb', 'url-shorten-service']
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k', 'social-graph-service-5485b8b694-qhhbd', 'url-shorten-memcached-7fd69cb6d7-t4jfl', 'user-memcached-5f4f76c55f-gcmrj']
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:18 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-qhhbd to list_pod
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-t4jfl to list_pod
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:49] - appended user-memcached, user-memcached-5f4f76c55f-gcmrj to list_pod
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb', 'social-graph-service', 'url-shorten-memcached', 'user-memcached']
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.06476680856214458, 'k8s-vm2': 0.0, 'k8s-vm3': 0.999999999876194, 'k8s-vm5': 0.999999999876194}
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.12367845583293299, 'k8s-vm2': 0.9999993880742606, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:167] - Scheduled user-mention-service to k8s-vm2
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln', 'social-graph-redis-6db7bfb997-ssdn6', 'text-service-6f495cf886-587tn', 'unique-id-service-54d6c97bb5-trb5w', 'url-shorten-mongodb-78cf58d5d7-cxkgj', 'url-shorten-service-5ff8c45dd5-mhfbl']
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:19 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-ssdn6 to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-587tn to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-trb5w to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-cxkgj to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-mhfbl to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb', 'social-graph-redis', 'text-service', 'unique-id-service', 'url-shorten-mongodb', 'url-shorten-service']
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k', 'social-graph-service-5485b8b694-qhhbd', 'url-shorten-memcached-7fd69cb6d7-t4jfl', 'user-memcached-5f4f76c55f-gcmrj', 'user-mention-service-859556df7b-nr2ml']
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:20 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-qhhbd to list_pod
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-t4jfl to list_pod
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:49] - appended user-memcached, user-memcached-5f4f76c55f-gcmrj to list_pod
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-nr2ml to list_pod
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb', 'social-graph-service', 'url-shorten-memcached', 'user-memcached', 'user-mention-service']
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.12086770812604715, 'k8s-vm2': 0.9999994019810389, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:21 - INFO  [v2Scheduler.py:167] - Scheduled user-mongodb to k8s-vm1
-2024-02-17 03:07:22 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln', 'social-graph-redis-6db7bfb997-ssdn6', 'text-service-6f495cf886-587tn', 'unique-id-service-54d6c97bb5-trb5w', 'url-shorten-mongodb-78cf58d5d7-cxkgj', 'url-shorten-service-5ff8c45dd5-mhfbl', 'user-mongodb-6c85d766bf-lskz9']
-2024-02-17 03:07:22 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:22 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:22 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:22 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:22 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:22 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:22 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:22 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-ssdn6 to list_pod
-2024-02-17 03:07:22 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-587tn to list_pod
-2024-02-17 03:07:22 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-trb5w to list_pod
-2024-02-17 03:07:22 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-cxkgj to list_pod
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-mhfbl to list_pod
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:49] - appended user-mongodb, user-mongodb-6c85d766bf-lskz9 to list_pod
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb', 'social-graph-redis', 'text-service', 'unique-id-service', 'url-shorten-mongodb', 'url-shorten-service', 'user-mongodb']
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k', 'social-graph-service-5485b8b694-qhhbd', 'url-shorten-memcached-7fd69cb6d7-t4jfl', 'user-memcached-5f4f76c55f-gcmrj', 'user-mention-service-859556df7b-nr2ml']
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-qhhbd to list_pod
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-t4jfl to list_pod
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:49] - appended user-memcached, user-memcached-5f4f76c55f-gcmrj to list_pod
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-nr2ml to list_pod
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb', 'social-graph-service', 'url-shorten-memcached', 'user-memcached', 'user-mention-service']
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.5721957097285351, 'k8s-vm3': 0.9999999998363143, 'k8s-vm5': 0.9999999998363143}
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.12369773898207855, 'k8s-vm2': 0.9999994019810389, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:23 - INFO  [v2Scheduler.py:167] - Scheduled user-service to k8s-vm1
-2024-02-17 03:07:24 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln', 'social-graph-redis-6db7bfb997-ssdn6', 'text-service-6f495cf886-587tn', 'unique-id-service-54d6c97bb5-trb5w', 'url-shorten-mongodb-78cf58d5d7-cxkgj', 'url-shorten-service-5ff8c45dd5-mhfbl', 'user-mongodb-6c85d766bf-lskz9', 'user-service-6858dc4978-wsq8p']
-2024-02-17 03:07:24 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:24 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:24 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:24 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:24 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:24 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:24 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:24 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-ssdn6 to list_pod
-2024-02-17 03:07:24 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-587tn to list_pod
-2024-02-17 03:07:24 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-trb5w to list_pod
-2024-02-17 03:07:24 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-cxkgj to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-mhfbl to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:49] - appended user-mongodb, user-mongodb-6c85d766bf-lskz9 to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-wsq8p to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb', 'social-graph-redis', 'text-service', 'unique-id-service', 'url-shorten-mongodb', 'url-shorten-service', 'user-mongodb', 'user-service']
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k', 'social-graph-service-5485b8b694-qhhbd', 'url-shorten-memcached-7fd69cb6d7-t4jfl', 'user-memcached-5f4f76c55f-gcmrj', 'user-mention-service-859556df7b-nr2ml']
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-qhhbd to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-t4jfl to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:49] - appended user-memcached, user-memcached-5f4f76c55f-gcmrj to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-nr2ml to list_pod
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb', 'social-graph-service', 'url-shorten-memcached', 'user-memcached', 'user-mention-service']
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.1320572032027909, 'k8s-vm2': 0.9999994019810389, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:25 - INFO  [v2Scheduler.py:167] - Scheduled user-timeline-mongodb to k8s-vm1
-2024-02-17 03:07:26 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln', 'social-graph-redis-6db7bfb997-ssdn6', 'text-service-6f495cf886-587tn', 'unique-id-service-54d6c97bb5-trb5w', 'url-shorten-mongodb-78cf58d5d7-cxkgj', 'url-shorten-service-5ff8c45dd5-mhfbl', 'user-mongodb-6c85d766bf-lskz9', 'user-service-6858dc4978-wsq8p', 'user-timeline-mongodb-cccfc5879-wfpmd']
-2024-02-17 03:07:26 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:26 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:26 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:26 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:26 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:26 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:26 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:26 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-ssdn6 to list_pod
-2024-02-17 03:07:26 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-587tn to list_pod
-2024-02-17 03:07:26 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-trb5w to list_pod
-2024-02-17 03:07:26 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-cxkgj to list_pod
-2024-02-17 03:07:26 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-mhfbl to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:49] - appended user-mongodb, user-mongodb-6c85d766bf-lskz9 to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-wsq8p to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:49] - appended user-timeline-mongodb, user-timeline-mongodb-cccfc5879-wfpmd to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb', 'social-graph-redis', 'text-service', 'unique-id-service', 'url-shorten-mongodb', 'url-shorten-service', 'user-mongodb', 'user-service', 'user-timeline-mongodb']
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k', 'social-graph-service-5485b8b694-qhhbd', 'url-shorten-memcached-7fd69cb6d7-t4jfl', 'user-memcached-5f4f76c55f-gcmrj', 'user-mention-service-859556df7b-nr2ml']
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-qhhbd to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-t4jfl to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:49] - appended user-memcached, user-memcached-5f4f76c55f-gcmrj to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-nr2ml to list_pod
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb', 'social-graph-service', 'url-shorten-memcached', 'user-memcached', 'user-mention-service']
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:27 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.150240387478829, 'k8s-vm2': 0.9999994019810389, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:167] - Scheduled user-timeline-redis to k8s-vm2
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-w9x9t', 'jaeger-6ff4fdf4b4-lggn7', 'media-frontend-97c8b6457-cxwxq', 'media-memcached-8f5749ff5-lcw48', 'media-mongodb-84f954484-c9shq', 'media-service-745bc6d9d5-74vkn', 'post-storage-mongodb-64bbcf4996-97rln', 'social-graph-redis-6db7bfb997-ssdn6', 'text-service-6f495cf886-587tn', 'unique-id-service-54d6c97bb5-trb5w', 'url-shorten-mongodb-78cf58d5d7-cxkgj', 'url-shorten-service-5ff8c45dd5-mhfbl', 'user-mongodb-6c85d766bf-lskz9', 'user-service-6858dc4978-wsq8p', 'user-timeline-mongodb-cccfc5879-wfpmd']
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-w9x9t to list_pod
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-lggn7 to list_pod
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-cxwxq to list_pod
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-lcw48 to list_pod
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-c9shq to list_pod
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-74vkn to list_pod
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-97rln to list_pod
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-ssdn6 to list_pod
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-587tn to list_pod
-2024-02-17 03:07:28 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-trb5w to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-cxkgj to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-mhfbl to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended user-mongodb, user-mongodb-6c85d766bf-lskz9 to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-wsq8p to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended user-timeline-mongodb, user-timeline-mongodb-cccfc5879-wfpmd to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'post-storage-mongodb', 'social-graph-redis', 'text-service', 'unique-id-service', 'url-shorten-mongodb', 'url-shorten-service', 'user-mongodb', 'user-service', 'user-timeline-mongodb']
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 ['home-timeline-redis-c669c75db-swf5c', 'home-timeline-service-dcdd768dc-csdgt', 'nginx-thrift-7d6dcdd64-j9pcx', 'post-storage-memcached-777f9c647-qs5bs', 'post-storage-service-54b6778744-cmv5x', 'social-graph-mongodb-7c8769786d-t7p2k', 'social-graph-service-5485b8b694-qhhbd', 'url-shorten-memcached-7fd69cb6d7-t4jfl', 'user-memcached-5f4f76c55f-gcmrj', 'user-mention-service-859556df7b-nr2ml', 'user-timeline-redis-7f66c9744b-nxr5b']
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-swf5c to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-csdgt to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-j9pcx to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-qs5bs to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-cmv5x to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-t7p2k to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-qhhbd to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-t4jfl to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended user-memcached, user-memcached-5f4f76c55f-gcmrj to list_pod
-2024-02-17 03:07:29 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-nr2ml to list_pod
-2024-02-17 03:07:30 - INFO  [v2Scheduler.py:49] - appended user-timeline-redis, user-timeline-redis-7f66c9744b-nxr5b to list_pod
-2024-02-17 03:07:30 - INFO  [v2Scheduler.py:68] - app on Node list ['home-timeline-redis', 'home-timeline-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-service', 'social-graph-mongodb', 'social-graph-service', 'url-shorten-memcached', 'user-memcached', 'user-mention-service', 'user-timeline-redis']
-2024-02-17 03:07:30 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
-2024-02-17 03:07:30 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:30 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
-2024-02-17 03:07:30 - INFO  [v2Scheduler.py:68] - app on Node list []
-2024-02-17 03:07:30 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.7819954129269351, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999999999986579, 'k8s-vm5': 0.9999999999986579}
-2024-02-17 03:07:30 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.12939702580331303, 'k8s-vm2': 0.9999994849462502, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
-2024-02-17 03:07:30 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
-2024-02-17 03:07:30 - INFO  [v2Scheduler.py:167] - Scheduled user-timeline-service to k8s-vm2
+2024-02-17 09:05:26 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-xcz2n', 'home-timeline-redis-c669c75db-dhhkc', 'home-timeline-service-dcdd768dc-p9r6c', 'jaeger-6ff4fdf4b4-wn8qk', 'media-frontend-97c8b6457-dpjsm', 'media-memcached-8f5749ff5-mtkpx', 'media-mongodb-84f954484-v26vm', 'media-service-745bc6d9d5-8ml7j', 'nginx-thrift-7d6dcdd64-wpsxt', 'post-storage-memcached-777f9c647-6jpjp', 'post-storage-mongodb-64bbcf4996-h8grj', 'post-storage-service-54b6778744-8vcl9', 'social-graph-mongodb-7c8769786d-9q6qm', 'social-graph-redis-6db7bfb997-wj865', 'social-graph-service-5485b8b694-8cnqt', 'text-service-6f495cf886-hk42g', 'unique-id-service-54d6c97bb5-hrpl9', 'url-shorten-memcached-7fd69cb6d7-ccdzd', 'url-shorten-mongodb-78cf58d5d7-8phfh', 'url-shorten-service-5ff8c45dd5-vxg79', 'user-memcached-5f4f76c55f-dclts', 'user-mention-service-859556df7b-q2m6k', 'user-mongodb-6c85d766bf-8w9ps', 'user-service-6858dc4978-xbvl4', 'user-timeline-mongodb-cccfc5879-jm8qk', 'user-timeline-redis-7f66c9744b-hgkx8', 'user-timeline-service-5fffffff59-2rk55', 'user-timeline-service-5fffffff59-4ngg8', 'user-timeline-service-5fffffff59-6n876', 'user-timeline-service-5fffffff59-774j4', 'user-timeline-service-5fffffff59-c8fxb', 'user-timeline-service-5fffffff59-dfh98', 'user-timeline-service-5fffffff59-hd94w', 'user-timeline-service-5fffffff59-jrd4j', 'user-timeline-service-5fffffff59-kjxh5', 'user-timeline-service-5fffffff59-kldbq', 'user-timeline-service-5fffffff59-kr5pf', 'user-timeline-service-5fffffff59-lz68q', 'user-timeline-service-5fffffff59-m5dp8', 'user-timeline-service-5fffffff59-nszm7', 'user-timeline-service-5fffffff59-nvrt4', 'user-timeline-service-5fffffff59-p45fb', 'user-timeline-service-5fffffff59-q875f', 'user-timeline-service-5fffffff59-sd4tl', 'user-timeline-service-5fffffff59-t6nss', 'user-timeline-service-5fffffff59-wckz8', 'user-timeline-service-5fffffff59-xczm7']
+2024-02-17 09:05:26 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-xcz2n to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-dhhkc to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-p9r6c to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-wn8qk to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-dpjsm to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-mtkpx to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-v26vm to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-8ml7j to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-wpsxt to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-6jpjp to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-h8grj to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-8vcl9 to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-9q6qm to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-wj865 to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-8cnqt to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-hk42g to list_pod
+2024-02-17 09:05:27 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-hrpl9 to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-ccdzd to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-8phfh to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-vxg79 to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended user-memcached, user-memcached-5f4f76c55f-dclts to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-q2m6k to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended user-mongodb, user-mongodb-6c85d766bf-8w9ps to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-xbvl4 to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended user-timeline-mongodb, user-timeline-mongodb-cccfc5879-jm8qk to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended user-timeline-redis, user-timeline-redis-7f66c9744b-hgkx8 to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-2rk55 to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-4ngg8 to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-6n876 to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-774j4 to list_pod
+2024-02-17 09:05:28 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-c8fxb to list_pod
+2024-02-17 09:05:29 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-dfh98 to list_pod
+2024-02-17 09:05:29 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-hd94w to list_pod
+2024-02-17 09:05:29 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-jrd4j to list_pod
+2024-02-17 09:05:29 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kjxh5 to list_pod
+2024-02-17 09:05:29 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kldbq to list_pod
+2024-02-17 09:05:29 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kr5pf to list_pod
+2024-02-17 09:05:29 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-lz68q to list_pod
+2024-02-17 09:05:29 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-m5dp8 to list_pod
+2024-02-17 09:05:29 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nszm7 to list_pod
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nvrt4 to list_pod
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-p45fb to list_pod
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-q875f to list_pod
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-sd4tl to list_pod
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-t6nss to list_pod
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-wckz8 to list_pod
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-xczm7 to list_pod
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'home-timeline-redis', 'home-timeline-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-mongodb', 'post-storage-service', 'social-graph-mongodb', 'social-graph-redis', 'social-graph-service', 'text-service', 'unique-id-service', 'url-shorten-memcached', 'url-shorten-mongodb', 'url-shorten-service', 'user-memcached', 'user-mention-service', 'user-mongodb', 'user-service', 'user-timeline-mongodb', 'user-timeline-redis', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service']
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 []
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.9999999999988981, 'k8s-vm3': 0.9999999999988981, 'k8s-vm5': 0.9999999999988981}
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.9999995625445971, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.49999500004999947, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
+2024-02-17 09:05:30 - INFO  [v2Scheduler.py:167] - Scheduled user-timeline-service to k8s-vm1
+2024-02-17 09:05:31 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-xcz2n', 'home-timeline-redis-c669c75db-dhhkc', 'home-timeline-service-dcdd768dc-p9r6c', 'jaeger-6ff4fdf4b4-wn8qk', 'media-frontend-97c8b6457-dpjsm', 'media-memcached-8f5749ff5-mtkpx', 'media-mongodb-84f954484-v26vm', 'media-service-745bc6d9d5-8ml7j', 'nginx-thrift-7d6dcdd64-wpsxt', 'post-storage-memcached-777f9c647-6jpjp', 'post-storage-mongodb-64bbcf4996-h8grj', 'post-storage-service-54b6778744-8vcl9', 'social-graph-mongodb-7c8769786d-9q6qm', 'social-graph-redis-6db7bfb997-wj865', 'social-graph-service-5485b8b694-8cnqt', 'text-service-6f495cf886-hk42g', 'unique-id-service-54d6c97bb5-hrpl9', 'url-shorten-memcached-7fd69cb6d7-ccdzd', 'url-shorten-mongodb-78cf58d5d7-8phfh', 'url-shorten-service-5ff8c45dd5-vxg79', 'user-memcached-5f4f76c55f-dclts', 'user-mention-service-859556df7b-q2m6k', 'user-mongodb-6c85d766bf-8w9ps', 'user-service-6858dc4978-xbvl4', 'user-timeline-mongodb-cccfc5879-jm8qk', 'user-timeline-redis-7f66c9744b-hgkx8', 'user-timeline-service-5fffffff59-2rk55', 'user-timeline-service-5fffffff59-4ngg8', 'user-timeline-service-5fffffff59-6n876', 'user-timeline-service-5fffffff59-774j4', 'user-timeline-service-5fffffff59-c8fxb', 'user-timeline-service-5fffffff59-dfh98', 'user-timeline-service-5fffffff59-hd94w', 'user-timeline-service-5fffffff59-jrd4j', 'user-timeline-service-5fffffff59-kjxh5', 'user-timeline-service-5fffffff59-kldbq', 'user-timeline-service-5fffffff59-kr5pf', 'user-timeline-service-5fffffff59-lz68q', 'user-timeline-service-5fffffff59-m5dp8', 'user-timeline-service-5fffffff59-nszm7', 'user-timeline-service-5fffffff59-nvrt4', 'user-timeline-service-5fffffff59-p45fb', 'user-timeline-service-5fffffff59-q875f', 'user-timeline-service-5fffffff59-qfz5p', 'user-timeline-service-5fffffff59-sd4tl', 'user-timeline-service-5fffffff59-t6nss', 'user-timeline-service-5fffffff59-wckz8', 'user-timeline-service-5fffffff59-xczm7']
+2024-02-17 09:05:31 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-xcz2n to list_pod
+2024-02-17 09:05:31 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-dhhkc to list_pod
+2024-02-17 09:05:31 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-p9r6c to list_pod
+2024-02-17 09:05:31 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-wn8qk to list_pod
+2024-02-17 09:05:31 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-dpjsm to list_pod
+2024-02-17 09:05:31 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-mtkpx to list_pod
+2024-02-17 09:05:31 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-v26vm to list_pod
+2024-02-17 09:05:31 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-8ml7j to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-wpsxt to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-6jpjp to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-h8grj to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-8vcl9 to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-9q6qm to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-wj865 to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-8cnqt to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-hk42g to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-hrpl9 to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-ccdzd to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-8phfh to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-vxg79 to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended user-memcached, user-memcached-5f4f76c55f-dclts to list_pod
+2024-02-17 09:05:32 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-q2m6k to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-mongodb, user-mongodb-6c85d766bf-8w9ps to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-xbvl4 to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-timeline-mongodb, user-timeline-mongodb-cccfc5879-jm8qk to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-timeline-redis, user-timeline-redis-7f66c9744b-hgkx8 to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-2rk55 to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-4ngg8 to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-6n876 to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-774j4 to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-c8fxb to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-dfh98 to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-hd94w to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-jrd4j to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kjxh5 to list_pod
+2024-02-17 09:05:33 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kldbq to list_pod
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kr5pf to list_pod
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-lz68q to list_pod
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-m5dp8 to list_pod
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nszm7 to list_pod
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nvrt4 to list_pod
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-p45fb to list_pod
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-q875f to list_pod
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-qfz5p to list_pod
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-sd4tl to list_pod
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-t6nss to list_pod
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-wckz8 to list_pod
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-xczm7 to list_pod
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'home-timeline-redis', 'home-timeline-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-mongodb', 'post-storage-service', 'social-graph-mongodb', 'social-graph-redis', 'social-graph-service', 'text-service', 'unique-id-service', 'url-shorten-memcached', 'url-shorten-mongodb', 'url-shorten-service', 'user-memcached', 'user-mention-service', 'user-mongodb', 'user-service', 'user-timeline-mongodb', 'user-timeline-redis', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service']
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 []
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.9999999999988981, 'k8s-vm3': 0.9999999999988981, 'k8s-vm5': 0.9999999999988981}
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.9999995625445971, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.49999500004999947, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
+2024-02-17 09:05:34 - INFO  [v2Scheduler.py:167] - Scheduled user-timeline-service to k8s-vm1
+2024-02-17 09:05:35 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-xcz2n', 'home-timeline-redis-c669c75db-dhhkc', 'home-timeline-service-dcdd768dc-p9r6c', 'jaeger-6ff4fdf4b4-wn8qk', 'media-frontend-97c8b6457-dpjsm', 'media-memcached-8f5749ff5-mtkpx', 'media-mongodb-84f954484-v26vm', 'media-service-745bc6d9d5-8ml7j', 'nginx-thrift-7d6dcdd64-wpsxt', 'post-storage-memcached-777f9c647-6jpjp', 'post-storage-mongodb-64bbcf4996-h8grj', 'post-storage-service-54b6778744-8vcl9', 'social-graph-mongodb-7c8769786d-9q6qm', 'social-graph-redis-6db7bfb997-wj865', 'social-graph-service-5485b8b694-8cnqt', 'text-service-6f495cf886-hk42g', 'unique-id-service-54d6c97bb5-hrpl9', 'url-shorten-memcached-7fd69cb6d7-ccdzd', 'url-shorten-mongodb-78cf58d5d7-8phfh', 'url-shorten-service-5ff8c45dd5-vxg79', 'user-memcached-5f4f76c55f-dclts', 'user-mention-service-859556df7b-q2m6k', 'user-mongodb-6c85d766bf-8w9ps', 'user-service-6858dc4978-xbvl4', 'user-timeline-mongodb-cccfc5879-jm8qk', 'user-timeline-redis-7f66c9744b-hgkx8', 'user-timeline-service-5fffffff59-2rk55', 'user-timeline-service-5fffffff59-4ngg8', 'user-timeline-service-5fffffff59-6n876', 'user-timeline-service-5fffffff59-774j4', 'user-timeline-service-5fffffff59-9vxxq', 'user-timeline-service-5fffffff59-c8fxb', 'user-timeline-service-5fffffff59-dfh98', 'user-timeline-service-5fffffff59-hd94w', 'user-timeline-service-5fffffff59-jrd4j', 'user-timeline-service-5fffffff59-kjxh5', 'user-timeline-service-5fffffff59-kldbq', 'user-timeline-service-5fffffff59-kr5pf', 'user-timeline-service-5fffffff59-lz68q', 'user-timeline-service-5fffffff59-m5dp8', 'user-timeline-service-5fffffff59-nszm7', 'user-timeline-service-5fffffff59-nvrt4', 'user-timeline-service-5fffffff59-p45fb', 'user-timeline-service-5fffffff59-q875f', 'user-timeline-service-5fffffff59-qfz5p', 'user-timeline-service-5fffffff59-sd4tl', 'user-timeline-service-5fffffff59-t6nss', 'user-timeline-service-5fffffff59-wckz8', 'user-timeline-service-5fffffff59-xczm7']
+2024-02-17 09:05:35 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-xcz2n to list_pod
+2024-02-17 09:05:35 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-dhhkc to list_pod
+2024-02-17 09:05:35 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-p9r6c to list_pod
+2024-02-17 09:05:35 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-wn8qk to list_pod
+2024-02-17 09:05:35 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-dpjsm to list_pod
+2024-02-17 09:05:36 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-mtkpx to list_pod
+2024-02-17 09:05:36 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-v26vm to list_pod
+2024-02-17 09:05:36 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-8ml7j to list_pod
+2024-02-17 09:05:36 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-wpsxt to list_pod
+2024-02-17 09:05:36 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-6jpjp to list_pod
+2024-02-17 09:05:36 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-h8grj to list_pod
+2024-02-17 09:05:36 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-8vcl9 to list_pod
+2024-02-17 09:05:36 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-9q6qm to list_pod
+2024-02-17 09:05:36 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-wj865 to list_pod
+2024-02-17 09:05:37 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-8cnqt to list_pod
+2024-02-17 09:05:37 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-hk42g to list_pod
+2024-02-17 09:05:37 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-hrpl9 to list_pod
+2024-02-17 09:05:37 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-ccdzd to list_pod
+2024-02-17 09:05:37 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-8phfh to list_pod
+2024-02-17 09:05:37 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-vxg79 to list_pod
+2024-02-17 09:05:37 - INFO  [v2Scheduler.py:49] - appended user-memcached, user-memcached-5f4f76c55f-dclts to list_pod
+2024-02-17 09:05:37 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-q2m6k to list_pod
+2024-02-17 09:05:37 - INFO  [v2Scheduler.py:49] - appended user-mongodb, user-mongodb-6c85d766bf-8w9ps to list_pod
+2024-02-17 09:05:37 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-xbvl4 to list_pod
+2024-02-17 09:05:37 - INFO  [v2Scheduler.py:49] - appended user-timeline-mongodb, user-timeline-mongodb-cccfc5879-jm8qk to list_pod
+2024-02-17 09:05:37 - INFO  [v2Scheduler.py:49] - appended user-timeline-redis, user-timeline-redis-7f66c9744b-hgkx8 to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-2rk55 to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-4ngg8 to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-6n876 to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-774j4 to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-9vxxq to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-c8fxb to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-dfh98 to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-hd94w to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-jrd4j to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kjxh5 to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kldbq to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kr5pf to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-lz68q to list_pod
+2024-02-17 09:05:38 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-m5dp8 to list_pod
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nszm7 to list_pod
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nvrt4 to list_pod
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-p45fb to list_pod
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-q875f to list_pod
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-qfz5p to list_pod
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-sd4tl to list_pod
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-t6nss to list_pod
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-wckz8 to list_pod
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-xczm7 to list_pod
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'home-timeline-redis', 'home-timeline-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-mongodb', 'post-storage-service', 'social-graph-mongodb', 'social-graph-redis', 'social-graph-service', 'text-service', 'unique-id-service', 'url-shorten-memcached', 'url-shorten-mongodb', 'url-shorten-service', 'user-memcached', 'user-mention-service', 'user-mongodb', 'user-service', 'user-timeline-mongodb', 'user-timeline-redis', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service']
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 []
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.9999999999988981, 'k8s-vm3': 0.9999999999988981, 'k8s-vm5': 0.9999999999988981}
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.9999995625445971, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.49999500004999947, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
+2024-02-17 09:05:39 - INFO  [v2Scheduler.py:167] - Scheduled user-timeline-service to k8s-vm1
+2024-02-17 09:05:40 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-xcz2n', 'home-timeline-redis-c669c75db-dhhkc', 'home-timeline-service-dcdd768dc-p9r6c', 'jaeger-6ff4fdf4b4-wn8qk', 'media-frontend-97c8b6457-dpjsm', 'media-memcached-8f5749ff5-mtkpx', 'media-mongodb-84f954484-v26vm', 'media-service-745bc6d9d5-8ml7j', 'nginx-thrift-7d6dcdd64-wpsxt', 'post-storage-memcached-777f9c647-6jpjp', 'post-storage-mongodb-64bbcf4996-h8grj', 'post-storage-service-54b6778744-8vcl9', 'social-graph-mongodb-7c8769786d-9q6qm', 'social-graph-redis-6db7bfb997-wj865', 'social-graph-service-5485b8b694-8cnqt', 'text-service-6f495cf886-hk42g', 'unique-id-service-54d6c97bb5-hrpl9', 'url-shorten-memcached-7fd69cb6d7-ccdzd', 'url-shorten-mongodb-78cf58d5d7-8phfh', 'url-shorten-service-5ff8c45dd5-vxg79', 'user-memcached-5f4f76c55f-dclts', 'user-mention-service-859556df7b-q2m6k', 'user-mongodb-6c85d766bf-8w9ps', 'user-service-6858dc4978-xbvl4', 'user-timeline-mongodb-cccfc5879-jm8qk', 'user-timeline-redis-7f66c9744b-hgkx8', 'user-timeline-service-5fffffff59-2rk55', 'user-timeline-service-5fffffff59-4ngg8', 'user-timeline-service-5fffffff59-6n876', 'user-timeline-service-5fffffff59-774j4', 'user-timeline-service-5fffffff59-9vxxq', 'user-timeline-service-5fffffff59-c8fxb', 'user-timeline-service-5fffffff59-dfh98', 'user-timeline-service-5fffffff59-hd94w', 'user-timeline-service-5fffffff59-jrd4j', 'user-timeline-service-5fffffff59-kjxh5', 'user-timeline-service-5fffffff59-kldbq', 'user-timeline-service-5fffffff59-kr5pf', 'user-timeline-service-5fffffff59-lz68q', 'user-timeline-service-5fffffff59-m5dp8', 'user-timeline-service-5fffffff59-nszm7', 'user-timeline-service-5fffffff59-nvrt4', 'user-timeline-service-5fffffff59-p45fb', 'user-timeline-service-5fffffff59-q875f', 'user-timeline-service-5fffffff59-qfz5p', 'user-timeline-service-5fffffff59-sd4tl', 'user-timeline-service-5fffffff59-t6nss', 'user-timeline-service-5fffffff59-wckz8', 'user-timeline-service-5fffffff59-wzbj8', 'user-timeline-service-5fffffff59-xczm7']
+2024-02-17 09:05:40 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-xcz2n to list_pod
+2024-02-17 09:05:40 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-dhhkc to list_pod
+2024-02-17 09:05:40 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-p9r6c to list_pod
+2024-02-17 09:05:40 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-wn8qk to list_pod
+2024-02-17 09:05:40 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-dpjsm to list_pod
+2024-02-17 09:05:40 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-mtkpx to list_pod
+2024-02-17 09:05:40 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-v26vm to list_pod
+2024-02-17 09:05:40 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-8ml7j to list_pod
+2024-02-17 09:05:40 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-wpsxt to list_pod
+2024-02-17 09:05:40 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-6jpjp to list_pod
+2024-02-17 09:05:40 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-h8grj to list_pod
+2024-02-17 09:05:40 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-8vcl9 to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-9q6qm to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-wj865 to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-8cnqt to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-hk42g to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-hrpl9 to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-ccdzd to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-8phfh to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-vxg79 to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended user-memcached, user-memcached-5f4f76c55f-dclts to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-q2m6k to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended user-mongodb, user-mongodb-6c85d766bf-8w9ps to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-xbvl4 to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended user-timeline-mongodb, user-timeline-mongodb-cccfc5879-jm8qk to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended user-timeline-redis, user-timeline-redis-7f66c9744b-hgkx8 to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-2rk55 to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-4ngg8 to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-6n876 to list_pod
+2024-02-17 09:05:41 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-774j4 to list_pod
+2024-02-17 09:05:42 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-9vxxq to list_pod
+2024-02-17 09:05:42 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-c8fxb to list_pod
+2024-02-17 09:05:42 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-dfh98 to list_pod
+2024-02-17 09:05:42 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-hd94w to list_pod
+2024-02-17 09:05:42 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-jrd4j to list_pod
+2024-02-17 09:05:42 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kjxh5 to list_pod
+2024-02-17 09:05:42 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kldbq to list_pod
+2024-02-17 09:05:42 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kr5pf to list_pod
+2024-02-17 09:05:42 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-lz68q to list_pod
+2024-02-17 09:05:42 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-m5dp8 to list_pod
+2024-02-17 09:05:42 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nszm7 to list_pod
+2024-02-17 09:05:42 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nvrt4 to list_pod
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-p45fb to list_pod
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-q875f to list_pod
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-qfz5p to list_pod
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-sd4tl to list_pod
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-t6nss to list_pod
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-wckz8 to list_pod
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-wzbj8 to list_pod
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-xczm7 to list_pod
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'home-timeline-redis', 'home-timeline-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-mongodb', 'post-storage-service', 'social-graph-mongodb', 'social-graph-redis', 'social-graph-service', 'text-service', 'unique-id-service', 'url-shorten-memcached', 'url-shorten-mongodb', 'url-shorten-service', 'user-memcached', 'user-mention-service', 'user-mongodb', 'user-service', 'user-timeline-mongodb', 'user-timeline-redis', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service']
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 []
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.9999999999988981, 'k8s-vm3': 0.9999999999988981, 'k8s-vm5': 0.9999999999988981}
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.9999995625445971, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.49999500004999947, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
+2024-02-17 09:05:43 - INFO  [v2Scheduler.py:167] - Scheduled user-timeline-service to k8s-vm1
+2024-02-17 09:05:44 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-xcz2n', 'home-timeline-redis-c669c75db-dhhkc', 'home-timeline-service-dcdd768dc-p9r6c', 'jaeger-6ff4fdf4b4-wn8qk', 'media-frontend-97c8b6457-dpjsm', 'media-memcached-8f5749ff5-mtkpx', 'media-mongodb-84f954484-v26vm', 'media-service-745bc6d9d5-8ml7j', 'nginx-thrift-7d6dcdd64-wpsxt', 'post-storage-memcached-777f9c647-6jpjp', 'post-storage-mongodb-64bbcf4996-h8grj', 'post-storage-service-54b6778744-8vcl9', 'social-graph-mongodb-7c8769786d-9q6qm', 'social-graph-redis-6db7bfb997-wj865', 'social-graph-service-5485b8b694-8cnqt', 'text-service-6f495cf886-hk42g', 'unique-id-service-54d6c97bb5-hrpl9', 'url-shorten-memcached-7fd69cb6d7-ccdzd', 'url-shorten-mongodb-78cf58d5d7-8phfh', 'url-shorten-service-5ff8c45dd5-vxg79', 'user-memcached-5f4f76c55f-dclts', 'user-mention-service-859556df7b-q2m6k', 'user-mongodb-6c85d766bf-8w9ps', 'user-service-6858dc4978-xbvl4', 'user-timeline-mongodb-cccfc5879-jm8qk', 'user-timeline-redis-7f66c9744b-hgkx8', 'user-timeline-service-5fffffff59-2rk55', 'user-timeline-service-5fffffff59-4ngg8', 'user-timeline-service-5fffffff59-6n876', 'user-timeline-service-5fffffff59-774j4', 'user-timeline-service-5fffffff59-9vxxq', 'user-timeline-service-5fffffff59-c8fxb', 'user-timeline-service-5fffffff59-dfh98', 'user-timeline-service-5fffffff59-hd94w', 'user-timeline-service-5fffffff59-jrd4j', 'user-timeline-service-5fffffff59-kjxh5', 'user-timeline-service-5fffffff59-kldbq', 'user-timeline-service-5fffffff59-kr5pf', 'user-timeline-service-5fffffff59-lz68q', 'user-timeline-service-5fffffff59-m5dp8', 'user-timeline-service-5fffffff59-nszm7', 'user-timeline-service-5fffffff59-nvrt4', 'user-timeline-service-5fffffff59-p45fb', 'user-timeline-service-5fffffff59-q875f', 'user-timeline-service-5fffffff59-qfz5p', 'user-timeline-service-5fffffff59-sd4tl', 'user-timeline-service-5fffffff59-t6nss', 'user-timeline-service-5fffffff59-wckz8', 'user-timeline-service-5fffffff59-wzbj8', 'user-timeline-service-5fffffff59-xczm7', 'user-timeline-service-5fffffff59-z6bpz']
+2024-02-17 09:05:44 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-xcz2n to list_pod
+2024-02-17 09:05:44 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-dhhkc to list_pod
+2024-02-17 09:05:44 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-p9r6c to list_pod
+2024-02-17 09:05:44 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-wn8qk to list_pod
+2024-02-17 09:05:44 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-dpjsm to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-mtkpx to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-v26vm to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-8ml7j to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-wpsxt to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-6jpjp to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-h8grj to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-8vcl9 to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-9q6qm to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-wj865 to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-8cnqt to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-hk42g to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-hrpl9 to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-ccdzd to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-8phfh to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-vxg79 to list_pod
+2024-02-17 09:05:45 - INFO  [v2Scheduler.py:49] - appended user-memcached, user-memcached-5f4f76c55f-dclts to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-q2m6k to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-mongodb, user-mongodb-6c85d766bf-8w9ps to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-xbvl4 to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-timeline-mongodb, user-timeline-mongodb-cccfc5879-jm8qk to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-timeline-redis, user-timeline-redis-7f66c9744b-hgkx8 to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-2rk55 to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-4ngg8 to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-6n876 to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-774j4 to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-9vxxq to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-c8fxb to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-dfh98 to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-hd94w to list_pod
+2024-02-17 09:05:46 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-jrd4j to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kjxh5 to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kldbq to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kr5pf to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-lz68q to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-m5dp8 to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nszm7 to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nvrt4 to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-p45fb to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-q875f to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-qfz5p to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-sd4tl to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-t6nss to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-wckz8 to list_pod
+2024-02-17 09:05:47 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-wzbj8 to list_pod
+2024-02-17 09:05:48 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-xczm7 to list_pod
+2024-02-17 09:05:48 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-z6bpz to list_pod
+2024-02-17 09:05:48 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'home-timeline-redis', 'home-timeline-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-mongodb', 'post-storage-service', 'social-graph-mongodb', 'social-graph-redis', 'social-graph-service', 'text-service', 'unique-id-service', 'url-shorten-memcached', 'url-shorten-mongodb', 'url-shorten-service', 'user-memcached', 'user-mention-service', 'user-mongodb', 'user-service', 'user-timeline-mongodb', 'user-timeline-redis', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service']
+2024-02-17 09:05:48 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 []
+2024-02-17 09:05:48 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:48 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
+2024-02-17 09:05:48 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:48 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
+2024-02-17 09:05:48 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:48 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.9999999999988981, 'k8s-vm3': 0.9999999999988981, 'k8s-vm5': 0.9999999999988981}
+2024-02-17 09:05:48 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.9999995625445971, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-02-17 09:05:48 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.49999500004999947, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
+2024-02-17 09:05:48 - INFO  [v2Scheduler.py:167] - Scheduled user-timeline-service to k8s-vm1
+2024-02-17 09:05:49 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-xcz2n', 'home-timeline-redis-c669c75db-dhhkc', 'home-timeline-service-dcdd768dc-p9r6c', 'jaeger-6ff4fdf4b4-wn8qk', 'media-frontend-97c8b6457-dpjsm', 'media-memcached-8f5749ff5-mtkpx', 'media-mongodb-84f954484-v26vm', 'media-service-745bc6d9d5-8ml7j', 'nginx-thrift-7d6dcdd64-wpsxt', 'post-storage-memcached-777f9c647-6jpjp', 'post-storage-mongodb-64bbcf4996-h8grj', 'post-storage-service-54b6778744-8vcl9', 'social-graph-mongodb-7c8769786d-9q6qm', 'social-graph-redis-6db7bfb997-wj865', 'social-graph-service-5485b8b694-8cnqt', 'text-service-6f495cf886-hk42g', 'unique-id-service-54d6c97bb5-hrpl9', 'url-shorten-memcached-7fd69cb6d7-ccdzd', 'url-shorten-mongodb-78cf58d5d7-8phfh', 'url-shorten-service-5ff8c45dd5-vxg79', 'user-memcached-5f4f76c55f-dclts', 'user-mention-service-859556df7b-q2m6k', 'user-mongodb-6c85d766bf-8w9ps', 'user-service-6858dc4978-xbvl4', 'user-timeline-mongodb-cccfc5879-jm8qk', 'user-timeline-redis-7f66c9744b-hgkx8', 'user-timeline-service-5fffffff59-2rk55', 'user-timeline-service-5fffffff59-4ngg8', 'user-timeline-service-5fffffff59-6n876', 'user-timeline-service-5fffffff59-774j4', 'user-timeline-service-5fffffff59-9vxxq', 'user-timeline-service-5fffffff59-c8fxb', 'user-timeline-service-5fffffff59-dfh98', 'user-timeline-service-5fffffff59-gkg4h', 'user-timeline-service-5fffffff59-hd94w', 'user-timeline-service-5fffffff59-jrd4j', 'user-timeline-service-5fffffff59-kjxh5', 'user-timeline-service-5fffffff59-kldbq', 'user-timeline-service-5fffffff59-kr5pf', 'user-timeline-service-5fffffff59-lz68q', 'user-timeline-service-5fffffff59-m5dp8', 'user-timeline-service-5fffffff59-nszm7', 'user-timeline-service-5fffffff59-nvrt4', 'user-timeline-service-5fffffff59-p45fb', 'user-timeline-service-5fffffff59-q875f', 'user-timeline-service-5fffffff59-qfz5p', 'user-timeline-service-5fffffff59-sd4tl', 'user-timeline-service-5fffffff59-t6nss', 'user-timeline-service-5fffffff59-wckz8', 'user-timeline-service-5fffffff59-wzbj8', 'user-timeline-service-5fffffff59-xczm7', 'user-timeline-service-5fffffff59-z6bpz']
+2024-02-17 09:05:49 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-xcz2n to list_pod
+2024-02-17 09:05:49 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-dhhkc to list_pod
+2024-02-17 09:05:49 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-p9r6c to list_pod
+2024-02-17 09:05:49 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-wn8qk to list_pod
+2024-02-17 09:05:49 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-dpjsm to list_pod
+2024-02-17 09:05:49 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-mtkpx to list_pod
+2024-02-17 09:05:49 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-v26vm to list_pod
+2024-02-17 09:05:49 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-8ml7j to list_pod
+2024-02-17 09:05:49 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-wpsxt to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-6jpjp to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-h8grj to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-8vcl9 to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-9q6qm to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-wj865 to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-8cnqt to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-hk42g to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-hrpl9 to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-ccdzd to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-8phfh to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-vxg79 to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended user-memcached, user-memcached-5f4f76c55f-dclts to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-q2m6k to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended user-mongodb, user-mongodb-6c85d766bf-8w9ps to list_pod
+2024-02-17 09:05:50 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-xbvl4 to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-mongodb, user-timeline-mongodb-cccfc5879-jm8qk to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-redis, user-timeline-redis-7f66c9744b-hgkx8 to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-2rk55 to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-4ngg8 to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-6n876 to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-774j4 to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-9vxxq to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-c8fxb to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-dfh98 to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-gkg4h to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-hd94w to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-jrd4j to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kjxh5 to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kldbq to list_pod
+2024-02-17 09:05:51 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kr5pf to list_pod
+2024-02-17 09:05:52 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-lz68q to list_pod
+2024-02-17 09:05:52 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-m5dp8 to list_pod
+2024-02-17 09:05:52 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nszm7 to list_pod
+2024-02-17 09:05:52 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nvrt4 to list_pod
+2024-02-17 09:05:52 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-p45fb to list_pod
+2024-02-17 09:05:52 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-q875f to list_pod
+2024-02-17 09:05:52 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-qfz5p to list_pod
+2024-02-17 09:05:52 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-sd4tl to list_pod
+2024-02-17 09:05:52 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-t6nss to list_pod
+2024-02-17 09:05:52 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-wckz8 to list_pod
+2024-02-17 09:05:52 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-wzbj8 to list_pod
+2024-02-17 09:05:52 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-xczm7 to list_pod
+2024-02-17 09:05:53 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-z6bpz to list_pod
+2024-02-17 09:05:53 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'home-timeline-redis', 'home-timeline-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-mongodb', 'post-storage-service', 'social-graph-mongodb', 'social-graph-redis', 'social-graph-service', 'text-service', 'unique-id-service', 'url-shorten-memcached', 'url-shorten-mongodb', 'url-shorten-service', 'user-memcached', 'user-mention-service', 'user-mongodb', 'user-service', 'user-timeline-mongodb', 'user-timeline-redis', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service']
+2024-02-17 09:05:53 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 []
+2024-02-17 09:05:53 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:53 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
+2024-02-17 09:05:53 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:53 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
+2024-02-17 09:05:53 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:53 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.9999999999988981, 'k8s-vm3': 0.9999999999988981, 'k8s-vm5': 0.9999999999988981}
+2024-02-17 09:05:53 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.9999995625445971, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-02-17 09:05:53 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.49999500004999947, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
+2024-02-17 09:05:53 - INFO  [v2Scheduler.py:167] - Scheduled user-timeline-service to k8s-vm1
+2024-02-17 09:05:54 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-xcz2n', 'home-timeline-redis-c669c75db-dhhkc', 'home-timeline-service-dcdd768dc-p9r6c', 'jaeger-6ff4fdf4b4-wn8qk', 'media-frontend-97c8b6457-dpjsm', 'media-memcached-8f5749ff5-mtkpx', 'media-mongodb-84f954484-v26vm', 'media-service-745bc6d9d5-8ml7j', 'nginx-thrift-7d6dcdd64-wpsxt', 'post-storage-memcached-777f9c647-6jpjp', 'post-storage-mongodb-64bbcf4996-h8grj', 'post-storage-service-54b6778744-8vcl9', 'social-graph-mongodb-7c8769786d-9q6qm', 'social-graph-redis-6db7bfb997-wj865', 'social-graph-service-5485b8b694-8cnqt', 'text-service-6f495cf886-hk42g', 'unique-id-service-54d6c97bb5-hrpl9', 'url-shorten-memcached-7fd69cb6d7-ccdzd', 'url-shorten-mongodb-78cf58d5d7-8phfh', 'url-shorten-service-5ff8c45dd5-vxg79', 'user-memcached-5f4f76c55f-dclts', 'user-mention-service-859556df7b-q2m6k', 'user-mongodb-6c85d766bf-8w9ps', 'user-service-6858dc4978-xbvl4', 'user-timeline-mongodb-cccfc5879-jm8qk', 'user-timeline-redis-7f66c9744b-hgkx8', 'user-timeline-service-5fffffff59-2rk55', 'user-timeline-service-5fffffff59-4ngg8', 'user-timeline-service-5fffffff59-6n876', 'user-timeline-service-5fffffff59-774j4', 'user-timeline-service-5fffffff59-9vxxq', 'user-timeline-service-5fffffff59-c8fxb', 'user-timeline-service-5fffffff59-dfh98', 'user-timeline-service-5fffffff59-gkg4h', 'user-timeline-service-5fffffff59-hd94w', 'user-timeline-service-5fffffff59-jrd4j', 'user-timeline-service-5fffffff59-kjxh5', 'user-timeline-service-5fffffff59-kldbq', 'user-timeline-service-5fffffff59-kr5pf', 'user-timeline-service-5fffffff59-lz68q', 'user-timeline-service-5fffffff59-m5dp8', 'user-timeline-service-5fffffff59-ml5jm', 'user-timeline-service-5fffffff59-nszm7', 'user-timeline-service-5fffffff59-nvrt4', 'user-timeline-service-5fffffff59-p45fb', 'user-timeline-service-5fffffff59-q875f', 'user-timeline-service-5fffffff59-qfz5p', 'user-timeline-service-5fffffff59-sd4tl', 'user-timeline-service-5fffffff59-t6nss', 'user-timeline-service-5fffffff59-wckz8', 'user-timeline-service-5fffffff59-wzbj8', 'user-timeline-service-5fffffff59-xczm7', 'user-timeline-service-5fffffff59-z6bpz']
+2024-02-17 09:05:54 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-xcz2n to list_pod
+2024-02-17 09:05:54 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-dhhkc to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-p9r6c to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-wn8qk to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-dpjsm to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-mtkpx to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-v26vm to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-8ml7j to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-wpsxt to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-6jpjp to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended post-storage-mongodb, post-storage-mongodb-64bbcf4996-h8grj to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended post-storage-service, post-storage-service-54b6778744-8vcl9 to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended social-graph-mongodb, social-graph-mongodb-7c8769786d-9q6qm to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended social-graph-redis, social-graph-redis-6db7bfb997-wj865 to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended social-graph-service, social-graph-service-5485b8b694-8cnqt to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended text-service, text-service-6f495cf886-hk42g to list_pod
+2024-02-17 09:05:55 - INFO  [v2Scheduler.py:49] - appended unique-id-service, unique-id-service-54d6c97bb5-hrpl9 to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended url-shorten-memcached, url-shorten-memcached-7fd69cb6d7-ccdzd to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended url-shorten-mongodb, url-shorten-mongodb-78cf58d5d7-8phfh to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended url-shorten-service, url-shorten-service-5ff8c45dd5-vxg79 to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended user-memcached, user-memcached-5f4f76c55f-dclts to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended user-mention-service, user-mention-service-859556df7b-q2m6k to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended user-mongodb, user-mongodb-6c85d766bf-8w9ps to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended user-service, user-service-6858dc4978-xbvl4 to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended user-timeline-mongodb, user-timeline-mongodb-cccfc5879-jm8qk to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended user-timeline-redis, user-timeline-redis-7f66c9744b-hgkx8 to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-2rk55 to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-4ngg8 to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-6n876 to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-774j4 to list_pod
+2024-02-17 09:05:56 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-9vxxq to list_pod
+2024-02-17 09:05:57 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-c8fxb to list_pod
+2024-02-17 09:05:57 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-dfh98 to list_pod
+2024-02-17 09:05:57 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-gkg4h to list_pod
+2024-02-17 09:05:57 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-hd94w to list_pod
+2024-02-17 09:05:57 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-jrd4j to list_pod
+2024-02-17 09:05:57 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kjxh5 to list_pod
+2024-02-17 09:05:57 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kldbq to list_pod
+2024-02-17 09:05:57 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-kr5pf to list_pod
+2024-02-17 09:05:57 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-lz68q to list_pod
+2024-02-17 09:05:57 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-m5dp8 to list_pod
+2024-02-17 09:05:57 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-ml5jm to list_pod
+2024-02-17 09:05:57 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nszm7 to list_pod
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-nvrt4 to list_pod
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-p45fb to list_pod
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-q875f to list_pod
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-qfz5p to list_pod
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-sd4tl to list_pod
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-t6nss to list_pod
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-wckz8 to list_pod
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-wzbj8 to list_pod
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-xczm7 to list_pod
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:49] - appended user-timeline-service, user-timeline-service-5fffffff59-z6bpz to list_pod
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:68] - app on Node list ['compose-post-service', 'home-timeline-redis', 'home-timeline-service', 'jaeger', 'media-frontend', 'media-memcached', 'media-mongodb', 'media-service', 'nginx-thrift', 'post-storage-memcached', 'post-storage-mongodb', 'post-storage-service', 'social-graph-mongodb', 'social-graph-redis', 'social-graph-service', 'text-service', 'unique-id-service', 'url-shorten-memcached', 'url-shorten-mongodb', 'url-shorten-service', 'user-memcached', 'user-mention-service', 'user-mongodb', 'user-service', 'user-timeline-mongodb', 'user-timeline-redis', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service', 'user-timeline-service']
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm2 []
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm3 []
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm5 []
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:68] - app on Node list []
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:152] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.9999999999988981, 'k8s-vm3': 0.9999999999988981, 'k8s-vm5': 0.9999999999988981}
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:153] - scores cpu {'k8s-vm1': 0.9999995625445971, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:154] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.49999500004999947, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
+2024-02-17 09:05:58 - INFO  [v2Scheduler.py:167] - Scheduled user-timeline-service to k8s-vm1
+2024-02-17 09:06:00 - INFO  [v2Scheduler.py:42] - all pods on node k8s-vm1 ['compose-post-service-d8576b57-xcz2n', 'home-timeline-redis-c669c75db-dhhkc', 'home-timeline-service-dcdd768dc-p9r6c', 'jaeger-6ff4fdf4b4-wn8qk', 'media-frontend-97c8b6457-dpjsm', 'media-memcached-8f5749ff5-mtkpx', 'media-mongodb-84f954484-v26vm', 'media-service-745bc6d9d5-8ml7j', 'nginx-thrift-7d6dcdd64-wpsxt', 'post-storage-memcached-777f9c647-6jpjp', 'post-storage-mongodb-64bbcf4996-h8grj', 'post-storage-service-54b6778744-8vcl9', 'social-graph-mongodb-7c8769786d-9q6qm', 'social-graph-redis-6db7bfb997-wj865', 'social-graph-service-5485b8b694-8cnqt', 'text-service-6f495cf886-hk42g', 'unique-id-service-54d6c97bb5-hrpl9', 'url-shorten-memcached-7fd69cb6d7-ccdzd', 'url-shorten-mongodb-78cf58d5d7-8phfh', 'url-shorten-service-5ff8c45dd5-vxg79', 'user-memcached-5f4f76c55f-dclts', 'user-mention-service-859556df7b-q2m6k', 'user-mongodb-6c85d766bf-8w9ps', 'user-service-6858dc4978-xbvl4', 'user-timeline-mongodb-cccfc5879-jm8qk', 'user-timeline-redis-7f66c9744b-hgkx8', 'user-timeline-service-5fffffff59-2rk55', 'user-timeline-service-5fffffff59-4ngg8', 'user-timeline-service-5fffffff59-5gzw9', 'user-timeline-service-5fffffff59-6n876', 'user-timeline-service-5fffffff59-774j4', 'user-timeline-service-5fffffff59-9vxxq', 'user-timeline-service-5fffffff59-c8fxb', 'user-timeline-service-5fffffff59-dfh98', 'user-timeline-service-5fffffff59-gkg4h', 'user-timeline-service-5fffffff59-hd94w', 'user-timeline-service-5fffffff59-jrd4j', 'user-timeline-service-5fffffff59-kjxh5', 'user-timeline-service-5fffffff59-kldbq', 'user-timeline-service-5fffffff59-kr5pf', 'user-timeline-service-5fffffff59-lz68q', 'user-timeline-service-5fffffff59-m5dp8', 'user-timeline-service-5fffffff59-ml5jm', 'user-timeline-service-5fffffff59-nszm7', 'user-timeline-service-5fffffff59-nvrt4', 'user-timeline-service-5fffffff59-p45fb', 'user-timeline-service-5fffffff59-q875f', 'user-timeline-service-5fffffff59-qfz5p', 'user-timeline-service-5fffffff59-sd4tl', 'user-timeline-service-5fffffff59-t6nss', 'user-timeline-service-5fffffff59-wckz8', 'user-timeline-service-5fffffff59-wzbj8', 'user-timeline-service-5fffffff59-xczm7', 'user-timeline-service-5fffffff59-z6bpz']
+2024-02-17 09:06:00 - INFO  [v2Scheduler.py:49] - appended compose-post-service, compose-post-service-d8576b57-xcz2n to list_pod
+2024-02-17 09:06:00 - INFO  [v2Scheduler.py:49] - appended home-timeline-redis, home-timeline-redis-c669c75db-dhhkc to list_pod
+2024-02-17 09:06:00 - INFO  [v2Scheduler.py:49] - appended home-timeline-service, home-timeline-service-dcdd768dc-p9r6c to list_pod
+2024-02-17 09:06:01 - INFO  [v2Scheduler.py:49] - appended jaeger, jaeger-6ff4fdf4b4-wn8qk to list_pod
+2024-02-17 09:06:01 - INFO  [v2Scheduler.py:49] - appended media-frontend, media-frontend-97c8b6457-dpjsm to list_pod
+2024-02-17 09:06:01 - INFO  [v2Scheduler.py:49] - appended media-memcached, media-memcached-8f5749ff5-mtkpx to list_pod
+2024-02-17 09:06:01 - INFO  [v2Scheduler.py:49] - appended media-mongodb, media-mongodb-84f954484-v26vm to list_pod
+2024-02-17 09:06:01 - INFO  [v2Scheduler.py:49] - appended media-service, media-service-745bc6d9d5-8ml7j to list_pod
+2024-02-17 09:06:01 - INFO  [v2Scheduler.py:49] - appended nginx-thrift, nginx-thrift-7d6dcdd64-wpsxt to list_pod
+2024-02-17 09:06:01 - INFO  [v2Scheduler.py:49] - appended post-storage-memcached, post-storage-memcached-777f9c647-6jpjp to list_pod

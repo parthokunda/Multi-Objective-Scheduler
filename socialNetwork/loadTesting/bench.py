@@ -284,6 +284,6 @@ if __name__ == "__main__":
     create_stress()
     time.sleep(60)
     bench_binPack(3002, 2)
+    bench_default(2002, 2)
     bench_netMarks(4002, 2)
     benchV2(201, 2)
-    bench_default(2002, 2)
