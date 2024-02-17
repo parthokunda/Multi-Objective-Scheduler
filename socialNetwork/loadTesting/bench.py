@@ -42,28 +42,28 @@ def check_pods_deployed():
 
 def run_default_scheduler():
     os.system(f'kubectl delete -f {YAML_FILES_DIR}/socialDefault.yaml')
-    time.sleep(15)
+    time.sleep(5)
     os.system(f'kubectl apply -f {YAML_FILES_DIR}/socialDefault.yaml')
     time.sleep(5)
 
 def run_scheduler(net_weight, cpu_weight, cost_weight):
     os.system(f'kubectl delete -f {YAML_FILES_DIR}/socialNetMarks.yaml') 
-    time.sleep(15)
+    time.sleep(5)
     os.system(f'kubectl apply -f {YAML_FILES_DIR}/socialNetMarks.yaml') 
     time.sleep(5)
-    os.system(f"timeout 60 python3 {SCHEDULER_DIR}/v2Scheduler.py {net_weight} {cpu_weight} {cost_weight}")
+    os.system(f"timeout 120 python3 {SCHEDULER_DIR}/v2Scheduler.py {net_weight} {cpu_weight} {cost_weight}")
 
 def run_netMarks_scheduler():
     os.system(f'kubectl delete -f {YAML_FILES_DIR}/socialNetMarks.yaml') 
-    time.sleep(15)
+    time.sleep(5)
     os.system(f'kubectl apply -f {YAML_FILES_DIR}/socialNetMarks.yaml') 
     time.sleep(5)
-    os.system(f"timeout 60 python3 {SCHEDULER_DIR}/v1Scheduler.py 1.0 0") # all net weight, work like netmarks
+    os.system(f"timeout 120 python3 {SCHEDULER_DIR}/v1Scheduler.py 1.0 0") # all net weight, work like netmarks
 
 # uses my-scheduler using kube-scheduler with a NodeResourceFit set to MostAllocated profile
 def run_bin_packing_scheduler():
     os.system(f'kubectl delete -f {YAML_FILES_DIR}/socialBinPacking.yaml')
-    time.sleep(15)
+    time.sleep(5)
     os.system(f'kubectl apply -f {YAML_FILES_DIR}/socialBinPacking.yaml')
     time.sleep(5)
     
@@ -100,6 +100,7 @@ def remove_stress():
 
 # jobs = [.5, .625, .75, .875, 1]
 jobs = [0, 0.25, .5, .75, 1]
+# jobs = [0.25]
 WEBLOADTIME = 180
 USERCOUNT = 1000
 REST_PERIOD = 15
@@ -112,8 +113,8 @@ def benchV2(start, times=1):
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [2000, 50]:
-            for cost in [0, 0.25, 0.5]:
+        for user in [50]:
+            for cost in [0, 0.25, .5]:
                 for i, w in enumerate(jobs):
                     global LOCUSTFILE
                     global USERCOUNT
@@ -145,8 +146,6 @@ def benchV2(start, times=1):
                     thread_exec.submit(runCPUusage)
 
                     time.sleep(30)
-                    # os.system(f"rm {LOCUSTFILE}_exceptions.csv {LOCUSTFILE}_failures.csv {LOCUSTFILE}_stats.csv")
-                    # os.system(f"mv *.csv data/")
 
                     print("DONE")
     remove_stress()
@@ -160,7 +159,7 @@ def bench_default(start, times = 1):
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [2000, 50]:
+        for user in [50]:
             global LOCUSTFILE
             global USERCOUNT
             LOCUSTFILE = data_start
@@ -202,7 +201,7 @@ def bench_netMarks(start, times):
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [2000, 50]:
+        for user in [50]:
             global LOCUSTFILE
             global USERCOUNT
             LOCUSTFILE = data_start
@@ -244,7 +243,7 @@ def bench_binPack(start, times=1):
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [2000, 50]:
+        for user in [50]:
             global LOCUSTFILE
             global USERCOUNT
             LOCUSTFILE = data_start
@@ -281,10 +280,10 @@ def bench_binPack(start, times=1):
 
 
 if __name__ == "__main__":
-    # remove_stress()
-    # create_stress()
-    # time.sleep(60)
-    # bench_binPack(3001, 1)
-    # bench_netMarks(4001, 1)
-    benchV2(1, 1)
-    bench_default(2001, 1)
+    remove_stress()
+    create_stress()
+    time.sleep(60)
+    bench_binPack(3002, 2)
+    bench_netMarks(4002, 2)
+    benchV2(201, 2)
+    bench_default(2002, 2)
