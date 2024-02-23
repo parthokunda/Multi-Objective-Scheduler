@@ -70,7 +70,7 @@ class BaseLineLoader :
                 filterData[key] = values
         return filterData
     
-    def getTotalRequests(self, datas: defaultdict(list)):
+    def getTotalRequests(self, datas):
         requestDict = defaultdict(int)
         for key, values in datas.items():
             request = 0

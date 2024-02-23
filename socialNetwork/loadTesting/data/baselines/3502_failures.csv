@@ -1,0 +1,4 @@
+Method,Name,Error,Occurrences
+GET,read_home_timeline,HTTPError('500 Server Error: Internal Server Error for url: read_home_timeline'),26
+POST,compose_post,HTTPError('500 Server Error: Internal Server Error for url: compose_post'),5
+GET,read_user_timeline,HTTPError('500 Server Error: Internal Server Error for url: read_user_timeline'),9

@@ -42,20 +42,20 @@ def check_pods_deployed():
 
 def run_default_scheduler():
     os.system(f'kubectl delete -f {YAML_FILES_DIR}/socialDefault.yaml')
-    time.sleep(5)
+    time.sleep(15)
     os.system(f'kubectl apply -f {YAML_FILES_DIR}/socialDefault.yaml')
     time.sleep(5)
 
 def run_scheduler(net_weight, cpu_weight, cost_weight):
     os.system(f'kubectl delete -f {YAML_FILES_DIR}/socialNetMarks.yaml') 
-    time.sleep(5)
+    time.sleep(15)
     os.system(f'kubectl apply -f {YAML_FILES_DIR}/socialNetMarks.yaml') 
     time.sleep(5)
     os.system(f"timeout 120 python3 {SCHEDULER_DIR}/v2Scheduler.py {net_weight} {cpu_weight} {cost_weight}")
 
 def run_netMarks_scheduler():
     os.system(f'kubectl delete -f {YAML_FILES_DIR}/socialNetMarks.yaml') 
-    time.sleep(5)
+    time.sleep(15)
     os.system(f'kubectl apply -f {YAML_FILES_DIR}/socialNetMarks.yaml') 
     time.sleep(5)
     os.system(f"timeout 120 python3 {SCHEDULER_DIR}/v1Scheduler.py 1.0 0") # all net weight, work like netmarks
@@ -63,7 +63,7 @@ def run_netMarks_scheduler():
 # uses my-scheduler using kube-scheduler with a NodeResourceFit set to MostAllocated profile
 def run_bin_packing_scheduler():
     os.system(f'kubectl delete -f {YAML_FILES_DIR}/socialBinPacking.yaml')
-    time.sleep(5)
+    time.sleep(15)
     os.system(f'kubectl apply -f {YAML_FILES_DIR}/socialBinPacking.yaml')
     time.sleep(5)
     
@@ -86,6 +86,13 @@ def init_social_graph():
     os.system('''python3 scripts/init_social_graph.py --graph=socfb-Reed98 --ip=$(kubectl get svc | grep nginx | grep Cluster | awk '{{print $3}}')''')
     os.chdir(pwd)
 
+def checkOutOfCpu():
+    s = run_command("kubectl get pods | awk 'NR > 1 && tolower($3) == \"outofcpu\" { print $3 }' | wc -l")
+    if int(s) > 0:
+        print('OutOfCPU Pods detected. Aborting this test')
+        return 1
+    return 0
+
 servers = ['pc1', 'pc2', 'pc3', 'pc5']
 def create_stress(): # to make two core cpu from 4
     print("Creating server load of 2 core cpu")
@@ -99,8 +106,8 @@ def remove_stress():
         os.system(f'ssh {server} sudo pkill -9 stress')
 
 # jobs = [.5, .625, .75, .875, 1]
-jobs = [0, 0.25, .5, .75, 1]
-# jobs = [0.25]
+jobs = [0, .25, .5, .75, 1]
+# jobs = [1]
 WEBLOADTIME = 180
 USERCOUNT = 1000
 REST_PERIOD = 15
@@ -113,8 +120,8 @@ def benchV2(start, times=1):
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [50]:
-            for cost in [0, 0.25, .5]:
+        for user in [50,2000]:
+            for cost in [0,.25,.5]:
                 for i, w in enumerate(jobs):
                     global LOCUSTFILE
                     global USERCOUNT
@@ -124,20 +131,23 @@ def benchV2(start, times=1):
                     cost_weight = cost
                     net_weight = w * (1 - cost_weight)
                     cpu_weight = (1-w) * (1 - cost_weight)
-                    data.append({'fileNum': LOCUSTFILE, 'net_weight': net_weight, 'cpu_weight': cpu_weight, 
-                                'cost_weight': cost_weight, 'userCount': USERCOUNT})
-                    file.write(str(data[-1]))
-                    file.write('\n')
-                    file.flush()
 
                     thread_exec = ThreadPoolExecutor()
                     run_scheduler(net_weight, cpu_weight, cost_weight)
                     time.sleep(5)
+                    if checkOutOfCpu():
+                        continue
                     while check_pods_deployed() != True:
                         time.sleep(3)
                     print('Pods are running')
                     print('The output is: ', check_pods_deployed())
                     init_social_graph()
+
+                    data.append({'fileNum': LOCUSTFILE, 'net_weight': net_weight, 'cpu_weight': cpu_weight, 
+                                'cost_weight': cost_weight, 'userCount': USERCOUNT})
+                    file.write(str(data[-1]))
+                    file.write('\n')
+                    file.flush()
 
                     thread_exec.submit(runCostMonitor)
                     time.sleep(REST_PERIOD)
@@ -159,7 +169,7 @@ def bench_default(start, times = 1):
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [50]:
+        for user in [2000]:
             global LOCUSTFILE
             global USERCOUNT
             LOCUSTFILE = data_start
@@ -186,8 +196,6 @@ def bench_default(start, times = 1):
             thread_exec.submit(runCPUusage)
 
             time.sleep(30)
-            # os.system(f"rm {LOCUSTFILE}_exceptions.csv {LOCUSTFILE}_failures.csv {LOCUSTFILE}_stats.csv")
-            # os.system(f"mv *.csv data/")
 
             print("DONE")
     remove_stress()
@@ -201,7 +209,7 @@ def bench_netMarks(start, times):
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [50]:
+        for user in [2000]:
             global LOCUSTFILE
             global USERCOUNT
             LOCUSTFILE = data_start
@@ -243,7 +251,7 @@ def bench_binPack(start, times=1):
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [50]:
+        for user in [2000]:
             global LOCUSTFILE
             global USERCOUNT
             LOCUSTFILE = data_start
@@ -283,7 +291,7 @@ if __name__ == "__main__":
     remove_stress()
     create_stress()
     time.sleep(60)
-    bench_binPack(3002, 2)
-    bench_default(2002, 2)
-    bench_netMarks(4002, 2)
-    benchV2(201, 2)
+    bench_binPack(3502, 2)
+    bench_default(2502, 2)
+    benchV2(200, 1)
+    bench_netMarks(4503, 1)

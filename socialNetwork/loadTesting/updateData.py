@@ -99,7 +99,7 @@ def update():
     rate = updateRateForQuery(rate, f'rate(istio_tcp_sent_bytes_total{{reporter="source"}}[60s])')
     rate = updateRateForQuery(rate, f'rate(istio_tcp_received_bytes_total{{reporter="source"}}[60s])')
 
-    cpu = updateCPU(cpu, f'rate (container_cpu_usage_seconds_total{{image="", namespace="default"}}[1m])')
+    cpu = updateCPU(cpu, f'rate(container_cpu_usage_seconds_total{{image="", namespace="default"}}[1m])')
     
     logging.debug(f'Rate after Prom Query: {rate}')
     logging.debug(f'CPU after Prom Query: {cpu}')
