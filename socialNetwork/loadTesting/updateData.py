@@ -168,7 +168,7 @@ def check_pods_deployed():
         return False
     return True
 
-MINUTES = 60 # give multiple of three for three user count
+MINUTES = 30 # give multiple of three for three user count
 TOTALUPDATETIME = MINUTES * 60 + 3 * 60 # seconds the database will take input
 LOADTIME = (MINUTES // 3) * 60 # in seconds each load runtime
 USERCOUNTS = [50, 1000, 2000]
@@ -191,9 +191,7 @@ if __name__ == "__main__":
     #         ''')
     # while check_pods_deployed() != True:
     #     time.sleep(3)
-    os.system('cd /root/DeathStarBench/socialNetwork')
-    os.system('''python3 scripts/init_social_graph.py --graph=socfb-Reed98 --ip=$(kubectl get svc | grep nginx | grep Cluster | awk '{{print $3}}')''')
-    os.system('cd /root/socialNetwork/loadTesting')
+    os.system('''python3 /root/socialNetwork/loadTesting/init_social_graph.py --graph=socfb-Reed98 --ip=$(kubectl get svc | grep nginx | grep Cluster | awk '{{print $3}}')''')
 
     for pod in pods.items:
         if 'app' in pod.metadata.labels:
