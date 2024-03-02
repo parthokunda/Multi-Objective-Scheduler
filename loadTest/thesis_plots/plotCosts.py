@@ -35,7 +35,7 @@ class EntryLoader :
                     filteredDatas[key] = values
         return filteredDatas
     
-    def getCost(self, datas: defaultdict(list)):
+    def getCost(self, datas):
         costDict = defaultdict(list)
         for key,values in datas.items():
             cost = 0
@@ -63,7 +63,7 @@ class BaseLineLoader :
                 filterData[key] = values
         return filterData
     
-    def getCost(self, datas: defaultdict(list)):
+    def getCost(self, datas):
         costDict = defaultdict(list)
         for key,values in datas.items():
             cost = 0
@@ -96,15 +96,6 @@ index = np.arange(len(net_weights)) * (group_width + gap_width)
 
 baselines = 0
 baselineLoader = BaseLineLoader()
-# ax.bar(bar_width+gap_width, 60000, bar_width, label='netMarks', color=palette[-2])
-
-# filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks', 'binpack'])
-# print(filteredBaselines)
-# baselinesCosts = baselineLoader.getCost(filteredBaselines)
-# print('baselineReq\n', baselinesCosts)
-# ax.bar(0, baselinesCosts[('default')], bar_width, label='default', color=palette[-1])
-# ax.bar(bar_width+gap_width, baselinesCosts[('netmarks')], bar_width, label='netMarks', color=palette[-2])
-# ax.bar((bar_width+gap_width)*2, baselinesCosts[('binpack')], bar_width, label='binpack', color=palette[-3])
 
 for i, cw in enumerate(cost_weights):
     sameNetRequests = []
@@ -123,4 +114,4 @@ ax.set_xticklabels([f'$𝛼_R$ = {weight}' for weight in net_weights], fontsize=
 ax.legend(handles=legend_entries,loc='upper center', bbox_to_anchor=(0.5, -0.12), ncol=len(cost_weights), fontsize='medium')
 
 plt.tight_layout()
-plt.savefig(f'thesis_plots/images/v2Total_Costs.png')
+plt.savefig(f'thesis_plots/images/v2_Total_Costs.png')

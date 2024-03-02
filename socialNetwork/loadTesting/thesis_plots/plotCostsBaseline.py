@@ -5,8 +5,8 @@ import pandas as pd
 import os
 from collections import defaultdict
 os.chdir('/root/socialNetwork/loadTesting')
-FILENAME = 'entries.txt'
-BASEFILENAME = 'entries_baselines.txt'
+FILENAME = 'entries10min.txt'
+BASEFILENAME = 'entries_baselines10min.txt'
 
 class EntryLoader :
     def __init__(self):
@@ -94,14 +94,15 @@ group_width = bar_width * len(cost_weights)  # The total width of a group
 gap_width = 0.05 # Width of the gap between groups
 index = np.arange(len(net_weights)) * (group_width + gap_width) 
 
-baselines = 3
+baselines = 4
 baselineLoader = BaseLineLoader()
 
-filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks', 'binpack'])
+filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks', 'binpack', 'default2N'])
 baselinesCosts = baselineLoader.getCost(filteredBaselines)
 ax.bar(0, baselinesCosts[('default')], bar_width, label='default', color=palette[-1])
 ax.bar(bar_width+gap_width, baselinesCosts[('netmarks')], bar_width, label='netMarks', color=palette[-2])
 ax.bar((bar_width+gap_width)*2, baselinesCosts[('binpack')], bar_width, label='binpack', color=palette[-3])
+ax.bar((bar_width+gap_width)*3, baselinesCosts[('default2N')], bar_width, label='default2N', color=palette[-4])
 
 for i, cw in enumerate(cost_weights):
     sameNetRequests = []
@@ -117,8 +118,8 @@ xticks = [i * (bar_width+gap_width) for i in range(baselines)]
 xticks.extend(baselines * (bar_width+gap_width) + index + group_width / 2 - bar_width / 2)
 print(xticks)
 ax.set_xticks(xticks)
-ax.set_xticklabels(['default', 'netMarks', 'binPack'] + [f'CMAS' for weight in net_weights], fontsize=10)
+ax.set_xticklabels(['default', 'netMarks', 'binPack', 'default2N'] + [f'CMAS' for weight in net_weights], fontsize=10)
 ax.tick_params(axis='x', labelrotation=45)
 
 plt.tight_layout()
-plt.savefig(f'thesis_plots/images/v2_Baseline_Total_Costs.png', dpi=300, bbox_inches='tight')
+plt.savefig(f'thesis_plots/images/Social_Network_Baseline_Total_Costs.png', dpi=300, bbox_inches='tight')

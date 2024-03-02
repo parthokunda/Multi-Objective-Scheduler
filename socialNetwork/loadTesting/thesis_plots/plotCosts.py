@@ -96,22 +96,17 @@ index = np.arange(len(net_weights)) * (group_width + gap_width)
 
 baselines = 0
 baselineLoader = BaseLineLoader()
-# ax.bar(bar_width+gap_width, 60000, bar_width, label='netMarks', color=palette[-2])
-
-# filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks', 'binpack'])
-# print(filteredBaselines)
-# baselinesCosts = baselineLoader.getCost(filteredBaselines)
-# print('baselineReq\n', baselinesCosts)
-# ax.bar(0, baselinesCosts[('default')], bar_width, label='default', color=palette[-1])
-# ax.bar(bar_width+gap_width, baselinesCosts[('netmarks')], bar_width, label='netMarks', color=palette[-2])
-# ax.bar((bar_width+gap_width)*2, baselinesCosts[('binpack')], bar_width, label='binpack', color=palette[-3])
 
 for i, cw in enumerate(cost_weights):
     sameNetRequests = []
     for j, nw in enumerate(net_weights):
+        found = False
         for key, value in costs.items():
             if key[0] == nw and key[2] == cw:
                 sameNetRequests.append(value)
+                found = True
+        if not found:
+            sameNetRequests.append(0)
     bar = ax.bar(baselines * (bar_width+gap_width) + index + i * bar_width, sameNetRequests, bar_width, label=f'γ = {cw}', color=palette[i])
     legend_entries.append(bar)
 
@@ -123,4 +118,4 @@ ax.set_xticklabels([f'$𝛼_R$ = {weight}' for weight in net_weights], fontsize=
 ax.legend(handles=legend_entries,loc='upper center', bbox_to_anchor=(0.5, -0.12), ncol=len(cost_weights), fontsize='medium')
 
 plt.tight_layout()
-plt.savefig(f'thesis_plots/images/v2Total_Costs.png')
+plt.savefig(f'thesis_plots/images/Social_Network_Total_Costs.png')

@@ -6,8 +6,10 @@ import os
 from collections import defaultdict
 os.chdir('/root/socialNetwork/loadTesting')
 USERS = [50,2000]
-FILENAME = 'entries.txt'
-BASEFILENAME = 'entries_baselines.txt'
+FILENAME = 'entries10min.txt'
+BASEFILENAME = 'entries_baselines10min.txt'
+CMAS_COST_WEIGHT = 0.5
+CMAS_NET_WEIGHT = 0
 
 class EntryLoader :
     def __init__(self):
@@ -86,17 +88,16 @@ class BaseLineLoader :
         return requestDict
 
 entries = EntryLoader()
-print(entries.datas)
-filteredDatas = entries.filter(userCount=USERS, cost_weight=[0.5], net_weight=[.25])
-print(filteredDatas)
+filteredDatas = entries.filter(userCount=USERS, cost_weight=[CMAS_COST_WEIGHT], net_weight=[CMAS_NET_WEIGHT])
 requests = entries.getTotalRequests(filteredDatas)
 
 cw = sorted(set(key[2] for key in requests.keys()))[0]
 nw = sorted(set(key[0] for key in requests.keys()))[0]
+print(nw,cw)
 
 baselines = 3
 baselineLoader = BaseLineLoader()
-filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks', 'binpack'], user=USERS)
+filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks', 'binpack', 'default2N'], user=USERS)
 baselinesRequest = baselineLoader.getTotalRequests(filteredBaselines)
 
 palette = sns.color_palette("tab10")
@@ -104,7 +105,7 @@ fig, ax = plt.subplots()
 plt.subplots_adjust(bottom=0.2)  # Adjust the bottom space
 legend_entries = []
 bar_width = .2  # Width of individual bars
-group_width = bar_width * 4  # The total width of a group
+group_width = bar_width * 5  # The total width of a group
 gap_width = 0.3 # Width of the gap between groups
 index = np.arange(len(USERS)) * (group_width + gap_width) 
 print(index)
@@ -115,16 +116,17 @@ for i, user in enumerate(USERS):
     bardefault = ax.bar(index[i], baselinesRequest['default',user], bar_width, label='default', color=palette[-1])
     barNetMarks = ax.bar(index[i] + bar_width, baselinesRequest[('netmarks',user)], bar_width, label='netMarks', color=palette[-2])
     barBinPack = ax.bar(index[i] + 2 * bar_width, baselinesRequest[('binpack',user)], bar_width, label='binPack', color=palette[-3])
+    barDefault2N = ax.bar(index[i] + 3 * bar_width, baselinesRequest[('default2N',user)], bar_width, label='default2N', color=palette[-4])
 
     sameNetRequests = []
     for key, value in requests.items():
         if key[0] == nw and key[2] == cw and key[3] == user:
             sameNetRequests.append(value)
     print(user, sameNetRequests)
-    barCMAS = ax.bar(index[i] + 3 * bar_width, sameNetRequests, bar_width, label=f'CMAS', color=palette[0])
+    barCMAS = ax.bar(index[i] + 4 * bar_width, sameNetRequests, bar_width, label=f'CMAS', color=palette[0])
     
     if i == 0:
-        legend_entries = [bardefault, barNetMarks, barBinPack, barCMAS]
+        legend_entries = [bardefault, barNetMarks, barBinPack, barDefault2N, barCMAS]
 
 from matplotlib.ticker import FuncFormatter
 def convert_Request_count(x, pos):
@@ -136,13 +138,6 @@ ax.set_xticklabels(xLabels)
 ax.set_ylabel('R_t')
 ax.yaxis.set_major_formatter(FuncFormatter(convert_Request_count))
 ax.legend(handles=legend_entries,loc='upper center', bbox_to_anchor=(0.5, -0.12), ncol=4, fontsize='medium')
-# xticks = [i * (bar_width+gap_width) for i in range(baselines)]
-# xticks.extend(baselines * (bar_width+gap_width) + index + group_width / 2 - bar_width / 2)
-# ax.set_xticks(xticks)
-# ax.set_xticklabels(USERS)
-# # ax.set_xticklabels([f'{weight}' for weight in net_weights])
-# ax.tick_params(axis='x', labelrotation=45)
-# # ax.legend(handles=legend_entries, loc='upper center', bbox_to_anchor=(0.5, -0.3), ncol=len(cost_weights), fontsize='x-small')
 
 plt.tight_layout()
-plt.savefig(f'thesis_plots/images/v2_Baseline_Total_Requests_Combined_User.png', dpi=300, bbox_inches='tight')
+plt.savefig(f'thesis_plots/images/Social_Network_Baseline_Total_Requests_Combined_User.png', dpi=300, bbox_inches='tight')

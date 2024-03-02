@@ -35,7 +35,7 @@ class EntryLoader :
                     filteredDatas[key] = values
         return filteredDatas
     
-    def getTotalRequests(self, datas: defaultdict(list)):
+    def getTotalRequests(self, datas):
         requestDict = defaultdict(int)
         for key,values in datas.items():
             request = 0
@@ -67,7 +67,7 @@ class BaseLineLoader :
                 filterData[key] = values
         return filterData
     
-    def getTotalRequests(self, datas: defaultdict(list)):
+    def getTotalRequests(self, datas):
         requestDict = defaultdict(int)
         for key, values in datas.items():
             request = 0
@@ -82,7 +82,7 @@ class BaseLineLoader :
             requestDict[key] = request
         return requestDict
 
-USERFILTER =  50
+USERFILTER = 2000
 entries = EntryLoader()
 filteredDatas = entries.filter(userCount=[USERFILTER], cost_weight=[0,.25,.5])
 print(filteredDatas)
@@ -104,24 +104,20 @@ index = np.arange(len(net_weights)) * (group_width + gap_width)
 
 baselines = 0
 baselineLoader = BaseLineLoader()
-# ax.bar(bar_width+gap_width, 60000, bar_width, label='netMarks', color=palette[-2])
-
-# filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks', 'binpack'])
-# print(filteredBaselines)
-# baselinesRequest = baselineLoader.getTotalRequests(filteredBaselines)
-# print('baselineReq\n', baselinesRequest)
-# ax.bar(0, baselinesRequest[('default',USERFILTER)], bar_width, label='default', color=palette[-1])
-# ax.bar(bar_width+gap_width, baselinesRequest[('netmarks',USERFILTER)], bar_width, label='netMarks', color=palette[-2])
-# ax.bar((bar_width+gap_width) * 2, baselinesRequest[('binpack',USERFILTER)], bar_width, label='binpack', color=palette[-3])
-
 
 for i, cw in enumerate(cost_weights):
     sameNetRequests = []
     for j, nw in enumerate(net_weights):
+        found = False
         for key, value in requests.items():
             if key[0] == nw and key[2] == cw:
                 sameNetRequests.append(value)
-    bar = ax.bar(baselines * (bar_width+gap_width) + index + i * bar_width, sameNetRequests, bar_width, label=f'γ = {cw}', color=palette[i])
+                found = True
+        if not found:
+            sameNetRequests.append(0)
+    print(len(sameNetRequests), cost_weights, net_weights)
+    print(sameNetRequests)
+    bar = ax.bar(index + i * bar_width, sameNetRequests, bar_width, label=f'γ = {cw}', color=palette[i])
     legend_entries.append(bar)
 
 def RtToK(x,pos):
@@ -132,9 +128,8 @@ xticks = [i * (bar_width+gap_width) for i in range(baselines)]
 xticks.extend(baselines * (bar_width+gap_width) + index + group_width / 2 - bar_width / 2)
 print(xticks)
 ax.set_xticks(xticks)
-# ax.set_xticklabels(['default', 'netMarks', 'binpack'] + [f'{weight}' for weight in net_weights])
 ax.set_xticklabels([f'$𝛼_R$ = {weight}' for weight in net_weights])
 ax.legend(handles=legend_entries, loc='upper center', bbox_to_anchor=(0.5, -0.12), ncol=len(cost_weights), fontsize='medium')
 
 plt.tight_layout()
-plt.savefig(f'thesis_plots/images/v2Total_Requests_{USERFILTER}user.png')
+plt.savefig(f'thesis_plots/images/Social_Network_Total_Requests_{USERFILTER}user.png')

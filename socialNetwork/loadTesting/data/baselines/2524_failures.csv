@@ -1,0 +1,7 @@
+Method,Name,Error,Occurrences
+POST,compose_post,HTTPError('503 Server Error: Service Unavailable for url: compose_post'),3
+GET,read_home_timeline,HTTPError('500 Server Error: Internal Server Error for url: read_home_timeline'),693
+POST,compose_post,HTTPError('500 Server Error: Internal Server Error for url: compose_post'),133
+GET,read_home_timeline,HTTPError('503 Server Error: Service Unavailable for url: read_home_timeline'),20
+GET,read_user_timeline,HTTPError('503 Server Error: Service Unavailable for url: read_user_timeline'),9
+GET,read_user_timeline,HTTPError('500 Server Error: Internal Server Error for url: read_user_timeline'),250
