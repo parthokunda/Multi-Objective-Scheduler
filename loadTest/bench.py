@@ -89,8 +89,8 @@ def remove_stress():
 
 # jobs = [.5, .625, .75, .875, 1]
 jobs = [0, 0.25, .5, .75, 1]
-WEBLOADTIME = 180
-USERCOUNT = 1000
+WEBLOADTIME = 600
+USERCOUNT = 2000
 REST_PERIOD = 15
 LOCUSTFILE = None
 
@@ -148,7 +148,7 @@ def bench_default(start, times = 1):
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [500]:
+        for user in [2000]:
             global LOCUSTFILE
             global USERCOUNT
             LOCUSTFILE = data_start
@@ -270,8 +270,8 @@ BASEFILENAME = 'entries_baselines.txt'
 if __name__ == "__main__":
     remove_stress()
     create_stress()
-    time.sleep(60)
-    bench_binPack(3001, 3)
-    bench_netMarks(4001, 3)
-    benchV2(1, 3)
-    bench_default(2001, 3)
+    time.sleep(30)
+    # bench_binPack(3001, 3)
+    # bench_netMarks(4001, 3)
+    # benchV2(1, 3)
+    bench_default(2016, 1)

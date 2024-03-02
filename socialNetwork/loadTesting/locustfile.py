@@ -78,9 +78,9 @@ class UserBehavior(TaskSet):
     def on_start(self):
         index(self)
     tasks = {
-        read_home_timeline : 6,
-        read_user_timeline : 3,
-        compose_post : 1,
+        read_home_timeline : 1,
+        read_user_timeline : 0,
+        compose_post : 0,
     }
 
 class WebsiteUser(HttpUser):
