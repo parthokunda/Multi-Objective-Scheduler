@@ -119,4 +119,4 @@ plt.gca().set_xticklabels([])
 ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.12), ncol=len(net_weights)/2, fontsize='medium')
 
 plt.tight_layout()
-plt.savefig(f'thesis_plots/images/v2Total_CostsExceptCost.png', dpi=300, bbox_inches='tight')
+plt.savefig(f'thesis_plots/images/v2Total_CostsExceptCost2.png', dpi=300, bbox_inches='tight')
