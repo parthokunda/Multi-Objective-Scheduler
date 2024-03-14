@@ -125,4 +125,4 @@ ax.set_xticklabels( [f'N={user}' for user in USERS])
 ax.legend(handles=legend_entries, loc='upper center', bbox_to_anchor=(0.5, -0.12), ncol=len(net_weights)/2, fontsize='medium')
 
 plt.tight_layout()
-plt.savefig(f'thesis_plots/images/v2Total_Requests_ExceptCost.png', dpi=300, bbox_inches='tight')
+plt.savefig(f'thesis_plots/images/v2Total_Requests_ExceptCost2.png', dpi=300, bbox_inches='tight')

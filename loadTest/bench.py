@@ -26,11 +26,9 @@ def check_pods_deployed():
             ready = columns[1]
             parts = ready.split('/')
             if parts[0] != parts[1]:
-                # print(f"Pod {columns[0]} is not fully ready: {ready}")
                 return False
             pod_count += 1
 
-    # print("All pods are fully ready.")
     if pod_count == 0 :
         return False
     return True
