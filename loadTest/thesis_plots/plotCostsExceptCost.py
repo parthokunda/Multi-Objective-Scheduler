@@ -35,7 +35,7 @@ class EntryLoader :
                     filteredDatas[key] = values
         return filteredDatas
     
-    def getCost(self, datas: defaultdict(list)):
+    def getCost(self, datas):
         costDict = defaultdict(list)
         for key,values in datas.items():
             cost = 0
@@ -63,7 +63,7 @@ class BaseLineLoader :
                 filterData[key] = values
         return filterData
     
-    def getCost(self, datas: defaultdict(list)):
+    def getCost(self, datas):
         costDict = defaultdict(list)
         for key,values in datas.items():
             cost = 0
@@ -93,15 +93,6 @@ index = np.arange(len(net_weights)) * (bar_width + gap_width)
 
 baselines = 0
 baselineLoader = BaseLineLoader()
-# ax.bar(bar_width+gap_width, 60000, bar_width, label='netMarks', color=palette[-2])
-
-# filteredBaselines = baselineLoader.filter(baseline=['default', 'netmarks', 'binpack'])
-# print(filteredBaselines)
-# baselinesCosts = baselineLoader.getCost(filteredBaselines)
-# print('baselineReq\n', baselinesCosts)
-# ax.bar(0, baselinesCosts[('default')], bar_width, label='default', color=palette[-1])
-# ax.bar(bar_width+gap_width, baselinesCosts[('netmarks')], bar_width, label='netMarks', color=palette[-2])
-# ax.bar((bar_width+gap_width)*2, baselinesCosts[('binpack')], bar_width, label='binpack', color=palette[-3])
 
 for j, nw in enumerate(net_weights):
     for key, value in costs.items():
@@ -109,11 +100,6 @@ for j, nw in enumerate(net_weights):
             bar = ax.bar(index[j], value, bar_width, label=f'(α,β)=({nw},{1-nw})')
 
 ax.set_ylabel('Cost/min')
-# xticks= index - bar_width / 2
-# print(xticks)
-# ax.set_xticks(xticks)
-# ax.set_xticklabels([f'(α,β)=({nw},{1-nw})' for nw in net_weights])
-# ax.tick_params(axis='x')
 plt.gca().set_xticks([])
 plt.gca().set_xticklabels([])
 ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.12), ncol=len(net_weights)/2, fontsize='medium')

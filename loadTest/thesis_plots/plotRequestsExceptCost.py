@@ -38,7 +38,7 @@ class EntryLoader :
                     filteredDatas[key] = values
         return filteredDatas
     
-    def getTotalRequests(self, datas: defaultdict(list)):
+    def getTotalRequests(self, datas):
         requestDict = defaultdict(int)
         for key,values in datas.items():
             request = 0
@@ -70,7 +70,7 @@ class BaseLineLoader :
                 filterData[key] = values
         return filterData
     
-    def getTotalRequests(self, datas: defaultdict(list)):
+    def getTotalRequests(self, datas):
         requestDict = defaultdict(int)
         for key, values in datas.items():
             request = 0
@@ -111,18 +111,22 @@ for j, nw in enumerate(net_weights):
         for key, value in requests.items():
             if key[0] == nw and key[3] == user:
                 bar = ax.bar(index[i] + j * bar_width, value, bar_width, label=f'(α,β)=({nw},{1-nw})', color=palette[j])
+                
+                ax.text(bar[0].get_x() + bar[0].get_width() / 2, bar[0].get_height() , f'{(value/1000):.1f}K ', rotation='vertical', ha='center', va='top', color='white', fontsize=8, fontweight='bold')
+                print(bar[0].get_height())
                 if i == 0:
                     legend_entries.append(bar)
 
 def RtToK(x,pos):
     return f'{int(x//1000)}K'
 ax.yaxis.set_major_formatter(FuncFormatter(RtToK))
-ax.set_ylabel('$R_t$')
+ax.set_ylabel('$R_t$', fontsize=14)
 xticks = []
 xticks.extend(index + group_width / 2 - bar_width / 2)
 ax.set_xticks(xticks)
 ax.set_xticklabels( [f'N={user}' for user in USERS])
-ax.legend(handles=legend_entries, loc='upper center', bbox_to_anchor=(0.5, -0.12), ncol=len(net_weights)/2, fontsize='medium')
+ax.legend(handles=legend_entries, loc='upper center', bbox_to_anchor=(0.5, -0.12), ncol=3, fontsize='medium')
 
 plt.tight_layout()
-plt.savefig(f'thesis_plots/images/v2Total_Requests_ExceptCost2.png', dpi=300, bbox_inches='tight')
+plt.savefig(f'thesis_plots/images/v2Total_Requests_ExceptCost2.png', dpi=1200, bbox_inches='tight')
+plt.savefig(f'thesis_plots/images/v2Total_Requests_ExceptCost2.svg', bbox_inches='tight')

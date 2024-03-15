@@ -6,6 +6,9 @@ import pandas as pd
 import os
 from collections import defaultdict
 os.chdir('/root/loadTest/')
+USERS = [50,500,1000,2000]
+FILENAME = 'entries.txt'
+BASEFILENAME = 'entries_baselines.txt'
 
 class EntryLoader :
     def __init__(self):
@@ -50,6 +53,17 @@ class EntryLoader :
             requestDict[key] = request
         return requestDict
 
+    def getCost(self, datas):
+        costDict = defaultdict(list)
+        for key,values in datas.items():
+            cost = 0
+            for value in values:
+                df = pd.read_csv('data/hpdc/'+str(value)+'-costMonitor.csv')
+                cost += df['avgCost'].iloc[-1]
+            cost /= len(values)
+            costDict[(key[0], key[1], key[2])] = cost
+        return costDict
+
 class BaseLineLoader :
     def __init__(self):
         file = open('entries_baselines.txt', 'r')
@@ -82,77 +96,73 @@ class BaseLineLoader :
             requestDict[key] = request
         return requestDict
 
-USERFILTER =  50
+    def getCost(self, datas):
+        costDict = defaultdict(list)
+        for key,values in datas.items():
+            cost = 0
+            for value in values:
+                df = pd.read_csv('data/baselines/'+str(value)+'-costMonitor.csv')
+                cost += df['avgCost'].iloc[-1]
+            cost /= len(values)
+            costDict[(key[0])] = cost # removed user count
+        return costDict
+
 entries = EntryLoader()
-filteredDatas = entries.filter(userCount=[USERFILTER], cost_weight=[0,.25,.5])
+filteredDatas = entries.filter(userCount=USERS, cost_weight=[0])
 requests = entries.getTotalRequests(filteredDatas)
 
-cost_weights = sorted(set(key[2] for key in requests.keys()))
 net_weights = sorted(set(key[0] for key in requests.keys()))
 
 palette = sns.color_palette("tab10")
-fig, (ax,ax2) = plt.subplots(1, 2, figsize=(12,4))
-plt.subplots_adjust(bottom=0.2)
+fig, (ax1,ax2) = plt.subplots(1, 2, figsize=(12,4), gridspec_kw={'width_ratios': [5, 2]})
+plt.subplots_adjust(bottom=0.2)  # Adjust the bottom space
 legend_entries = []
-bar_width = .2
-group_width = bar_width * len(cost_weights)  # The total width of a group
-gap_width = 0.05
-index = np.arange(len(net_weights)) * (group_width + gap_width) 
+bar_width = .2  # Width of individual bars
+group_width = bar_width * len(net_weights)  # The total width of a group
+gap_width = 0.1 # Width of the gap between groups
+index = np.arange(len(USERS)) * (group_width + gap_width) 
 
-for i, cw in enumerate(cost_weights):
-    sameNetRequests = []
-    for j, nw in enumerate(net_weights):
+baselines = 0
+baselineLoader = BaseLineLoader()
+
+for j, nw in enumerate(net_weights):
+    for i, user in enumerate(USERS):
         for key, value in requests.items():
-            if key[0] == nw and key[2] == cw:
-                sameNetRequests.append(value)
-    for j, nw in enumerate(net_weights):
-        bar = ax.bar(index[j] + i * bar_width, sameNetRequests[j], bar_width, label=f'γ = {cw}', color=palette[i])
-        ax.text(bar[0].get_x() + bar[0].get_width() / 2, bar[0].get_height() , f'{(sameNetRequests[j]/1000):.1f}K ', rotation='vertical', ha='center', va='top', color='white', fontsize=12, fontweight='bold')
-    legend_entries.append(bar)
+            if key[0] == nw and key[3] == user:
+                bar = ax1.bar(index[i] + j * bar_width, value, bar_width, label=f'(α,β)=({nw},{1-nw})', color=palette[j])
+                ax1.text(bar[0].get_x() + bar[0].get_width() / 2, bar[0].get_height() , f'{(value/1000):.1f}K ', rotation='vertical', ha='center', va='top', color='white', fontsize=12, fontweight='bold')
+                if i == 0:
+                    legend_entries.append(bar)
 
 def RtToK(x,_):
     return f'{int(x//1000)}K'
-
-ax.yaxis.set_major_formatter(FuncFormatter(RtToK))
-ax.set_ylabel('$R_t$', fontsize=14)
+ax1.yaxis.set_major_formatter(FuncFormatter(RtToK))
+ax1.set_ylabel('$R_t$', fontsize=14)
 xticks = []
 xticks.extend(index + group_width / 2 - bar_width / 2)
-ax.set_xticks(xticks)
-ax.set_xticklabels([f'$𝛼_R$ = {weight}' for weight in net_weights], fontsize=12)
-ax.set_title(f'User Count, $N$ = {USERFILTER}', fontsize=14)
+ax1.set_xticks(xticks)
+ax1.set_xticklabels( [f'N={user}' for user in USERS])
 
-USERFILTER =  2000
 entries = EntryLoader()
-filteredDatas = entries.filter(userCount=[USERFILTER], cost_weight=[0,.25,.5])
-requests = entries.getTotalRequests(filteredDatas)
+filteredDatas = entries.filter(cost_weight=[0])
+costs = entries.getCost(filteredDatas)
+net_weights = sorted(set(key[0] for key in costs.keys()))
 
-cost_weights = sorted(set(key[2] for key in requests.keys()))
-net_weights = sorted(set(key[0] for key in requests.keys()))
+bar_width = .2  # Width of individual bars
+gap_width = 0.05 # Width of the gap between groups
+index = np.arange(len(net_weights)) * (bar_width + gap_width) 
 
-bar_width = .2
-group_width = bar_width * len(cost_weights)  # The total width of a group
-gap_width = 0.05
-index = np.arange(len(net_weights)) * (group_width + gap_width) 
+for j, nw in enumerate(net_weights):
+    for key, value in costs.items():
+        if key[0] == nw :
+            bar = ax2.bar(index[j], value, bar_width, label=f'(α,β)=({nw},{1-nw})')
+            ax2.text(bar[0].get_x() + bar[0].get_width() / 2, bar[0].get_height() , f'{value:.0f}$  ', rotation='vertical', ha='center', va='top', color='white', fontsize=12, fontweight='bold')
 
-for i, cw in enumerate(cost_weights):
-    sameNetRequests = []
-    for j, nw in enumerate(net_weights):
-        for key, value in requests.items():
-            if key[0] == nw and key[2] == cw:
-                sameNetRequests.append(value)
-    for j, nw in enumerate(net_weights):
-        bar = ax2.bar(index[j] + i * bar_width, sameNetRequests[j], bar_width, label=f'γ = {cw}', color=palette[i])
-        ax2.text(bar[0].get_x() + bar[0].get_width() / 2, bar[0].get_height() , f'{(sameNetRequests[j]/1000):.1f}K ', rotation='vertical', ha='center', va='top', color='white', fontsize=12, fontweight='bold')
+ax2.set_ylabel('$C$', fontsize=14)
+plt.gca().set_xticks([])
+plt.gca().set_xticklabels([])
 
-ax2.yaxis.set_major_formatter(FuncFormatter(RtToK))
-ax2.set_ylabel('$R_t$', fontsize=14)
-xticks = []
-xticks.extend(index + group_width / 2 - bar_width / 2)
-ax2.set_xticks(xticks)
-ax2.set_xticklabels([f'$𝛼_R$ = {weight}' for weight in net_weights], fontsize=12)
-ax2.set_title(f'User Count, $N$ = {USERFILTER}', fontsize=14)
-
-fig.legend(handles=legend_entries, loc='upper center', bbox_to_anchor=(0.5, 0), ncol=len(cost_weights), fontsize=12)
+fig.legend(handles=legend_entries, loc='upper center', bbox_to_anchor=(0.5, -0.05), ncol=5, fontsize=13)
 plt.tight_layout()
-plt.savefig(f'thesis_plots/images/Rt.png', dpi=1200, bbox_inches='tight')
-plt.savefig(f'thesis_plots/images/Rt.svg', bbox_inches='tight')
+plt.savefig(f'thesis_plots/images/Rt_C_withoutGamma.png', dpi=1200, bbox_inches='tight')
+plt.savefig(f'thesis_plots/images/Rt_C_withoutGamma.svg', bbox_inches='tight')

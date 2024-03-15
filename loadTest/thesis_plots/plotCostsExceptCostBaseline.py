@@ -35,7 +35,7 @@ class EntryLoader :
                     filteredDatas[key] = values
         return filteredDatas
     
-    def getCost(self, datas: defaultdict(list)):
+    def getCost(self, datas):
         costDict = defaultdict(list)
         for key,values in datas.items():
             cost = 0
@@ -63,7 +63,7 @@ class BaseLineLoader :
                 filterData[key] = values
         return filterData
     
-    def getCost(self, datas: defaultdict(list)):
+    def getCost(self, datas):
         costDict = defaultdict(list)
         for key,values in datas.items():
             cost = 0
@@ -108,11 +108,6 @@ for j, nw in enumerate(net_weights):
             bar = ax.bar(index[j+baselines], value, bar_width, label=f'(α,β)=({nw},{1-nw})')
 
 ax.set_ylabel('Cost/min')
-# xticks= index - bar_width / 2
-# print(xticks)
-# ax.set_xticks(xticks)
-# ax.set_xticklabels([f'(α,β)=({nw},{1-nw})' for nw in net_weights])
-# ax.tick_params(axis='x')
 plt.gca().set_xticks([])
 plt.gca().set_xticklabels([])
 ax.legend()
