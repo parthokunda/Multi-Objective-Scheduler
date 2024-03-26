@@ -1,0 +1,8 @@
+{'fileNum': 1001, 'baseline': 'default', 'user': 1000}
+{'fileNum': 1002, 'baseline': 'default', 'user': 1000}
+{'fileNum': 1003, 'baseline': 'default', 'user': 50}
+{'fileNum': 1006, 'baseline': 'default', 'user': 50}
+{'fileNum': 1001, 'baseline': 'default', 'user': 50}
+{'fileNum': 1002, 'baseline': 'default', 'user': 50}
+{'fileNum': 1003, 'baseline': 'default', 'user': 50}
+{'fileNum': 1001, 'baseline': 'default', 'user': 1000}
