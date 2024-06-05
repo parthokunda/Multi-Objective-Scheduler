@@ -1,0 +1,87 @@
+2024-06-04 16:16:48 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 []
+2024-06-04 16:16:48 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:49 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 []
+2024-06-04 16:16:49 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:49 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm3 []
+2024-06-04 16:16:49 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:49 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm5 []
+2024-06-04 16:16:49 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:49 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-06-04 16:16:49 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-06-04 16:16:49 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999800003999919, 'k8s-vm5': 0.9999800003999919}
+2024-06-04 16:16:49 - INFO  [mosscheduler.py:183] - Scheduled details to k8s-vm1
+2024-06-04 16:16:50 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 ['details-v1-5f67d9c7fc-pzm76']
+2024-06-04 16:16:50 - INFO  [mosscheduler.py:49] - appended details, details-v1-5f67d9c7fc-pzm76 to list_pod
+2024-06-04 16:16:50 - INFO  [mosscheduler.py:68] - app on Node list ['details']
+2024-06-04 16:16:50 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 []
+2024-06-04 16:16:50 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:50 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm3 []
+2024-06-04 16:16:50 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:50 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm5 []
+2024-06-04 16:16:50 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:50 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.9999999999875093, 'k8s-vm3': 0.9999999999875093, 'k8s-vm5': 0.9999999999875093}
+2024-06-04 16:16:50 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.9999928987204536, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-06-04 16:16:50 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.49999500004999947, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
+2024-06-04 16:16:50 - INFO  [mosscheduler.py:183] - Scheduled productpage to k8s-vm1
+2024-06-04 16:16:51 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 ['details-v1-5f67d9c7fc-pzm76', 'productpage-v1-7f969fb4d4-jh8fr']
+2024-06-04 16:16:51 - INFO  [mosscheduler.py:49] - appended details, details-v1-5f67d9c7fc-pzm76 to list_pod
+2024-06-04 16:16:51 - INFO  [mosscheduler.py:49] - appended productpage, productpage-v1-7f969fb4d4-jh8fr to list_pod
+2024-06-04 16:16:51 - INFO  [mosscheduler.py:68] - app on Node list ['details', 'productpage']
+2024-06-04 16:16:52 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 []
+2024-06-04 16:16:52 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:52 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm3 []
+2024-06-04 16:16:52 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:52 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm5 []
+2024-06-04 16:16:52 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:52 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-06-04 16:16:52 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.9999991346262245, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-06-04 16:16:52 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.49999500004999947, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
+2024-06-04 16:16:52 - INFO  [mosscheduler.py:183] - Scheduled ratings to k8s-vm2
+2024-06-04 16:16:53 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 ['details-v1-5f67d9c7fc-pzm76', 'productpage-v1-7f969fb4d4-jh8fr']
+2024-06-04 16:16:53 - INFO  [mosscheduler.py:49] - appended details, details-v1-5f67d9c7fc-pzm76 to list_pod
+2024-06-04 16:16:53 - INFO  [mosscheduler.py:49] - appended productpage, productpage-v1-7f969fb4d4-jh8fr to list_pod
+2024-06-04 16:16:53 - INFO  [mosscheduler.py:68] - app on Node list ['details', 'productpage']
+2024-06-04 16:16:53 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 ['ratings-v1-5f4b4c598f-56gtb']
+2024-06-04 16:16:53 - INFO  [mosscheduler.py:49] - appended ratings, ratings-v1-5f4b4c598f-56gtb to list_pod
+2024-06-04 16:16:53 - INFO  [mosscheduler.py:68] - app on Node list ['ratings']
+2024-06-04 16:16:53 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm3 []
+2024-06-04 16:16:53 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:54 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm5 []
+2024-06-04 16:16:54 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:54 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-06-04 16:16:54 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.9999991346262245, 'k8s-vm2': 0.03810186781164157, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-06-04 16:16:54 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.9999900000999989}
+2024-06-04 16:16:54 - INFO  [mosscheduler.py:183] - Scheduled reviews to k8s-vm5
+2024-06-04 16:16:55 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 ['details-v1-5f67d9c7fc-pzm76', 'productpage-v1-7f969fb4d4-jh8fr']
+2024-06-04 16:16:55 - INFO  [mosscheduler.py:49] - appended details, details-v1-5f67d9c7fc-pzm76 to list_pod
+2024-06-04 16:16:55 - INFO  [mosscheduler.py:49] - appended productpage, productpage-v1-7f969fb4d4-jh8fr to list_pod
+2024-06-04 16:16:55 - INFO  [mosscheduler.py:68] - app on Node list ['details', 'productpage']
+2024-06-04 16:16:55 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 ['ratings-v1-5f4b4c598f-56gtb']
+2024-06-04 16:16:55 - INFO  [mosscheduler.py:49] - appended ratings, ratings-v1-5f4b4c598f-56gtb to list_pod
+2024-06-04 16:16:55 - INFO  [mosscheduler.py:68] - app on Node list ['ratings']
+2024-06-04 16:16:55 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm3 []
+2024-06-04 16:16:55 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:56 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm5 ['reviews-v1-55dcc68978-dvjgh']
+2024-06-04 16:16:56 - INFO  [mosscheduler.py:49] - appended reviews, reviews-v1-55dcc68978-dvjgh to list_pod
+2024-06-04 16:16:56 - INFO  [mosscheduler.py:68] - app on Node list ['reviews']
+2024-06-04 16:16:56 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-06-04 16:16:56 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.9999991346262245, 'k8s-vm2': 0.03810186781164157, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-06-04 16:16:56 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.0}
+2024-06-04 16:16:56 - INFO  [mosscheduler.py:183] - Scheduled reviews to k8s-vm5
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 ['details-v1-5f67d9c7fc-pzm76', 'productpage-v1-7f969fb4d4-jh8fr']
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:49] - appended details, details-v1-5f67d9c7fc-pzm76 to list_pod
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:49] - appended productpage, productpage-v1-7f969fb4d4-jh8fr to list_pod
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:68] - app on Node list ['details', 'productpage']
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 ['ratings-v1-5f4b4c598f-56gtb']
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:49] - appended ratings, ratings-v1-5f4b4c598f-56gtb to list_pod
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:68] - app on Node list ['ratings']
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm3 []
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm5 ['reviews-v1-55dcc68978-dvjgh', 'reviews-v2-5f66fbcc6f-d6vvc']
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:49] - appended reviews, reviews-v1-55dcc68978-dvjgh to list_pod
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:49] - appended reviews, reviews-v2-5f66fbcc6f-d6vvc to list_pod
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:68] - app on Node list ['reviews', 'reviews']
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.9999991346262245, 'k8s-vm2': 0.03810186781164157, 'k8s-vm3': 0.0, 'k8s-vm5': 0.0}
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0, 'k8s-vm3': 0.9999900000999989, 'k8s-vm5': 0.0}
+2024-06-04 16:16:57 - INFO  [mosscheduler.py:183] - Scheduled reviews to k8s-vm5

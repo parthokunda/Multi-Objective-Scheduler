@@ -72,6 +72,7 @@ spec:
         version: v1
         serviceName: details
     spec:
+      schedulerName: my-scheduler
       serviceAccountName: bookinfo-details
       containers:
       - name: details
@@ -133,6 +134,7 @@ spec:
         version: v1
         serviceName: ratings
     spec:
+      schedulerName: my-scheduler
       serviceAccountName: bookinfo-ratings
       containers:
       - name: ratings
@@ -194,6 +196,7 @@ spec:
         version: v1
         serviceName: reviews-v1
     spec:
+      schedulerName: my-scheduler
       serviceAccountName: bookinfo-reviews
       containers:
       - name: reviews
@@ -244,6 +247,7 @@ spec:
         version: v2
         serviceName: reviews-v2
     spec:
+      schedulerName: my-scheduler
       serviceAccountName: bookinfo-reviews
       containers:
       - name: reviews
@@ -294,6 +298,7 @@ spec:
         version: v3
         serviceName: reviews-v3
     spec:
+      schedulerName: my-scheduler
       serviceAccountName: bookinfo-reviews
       containers:
       - name: reviews
@@ -304,6 +309,11 @@ spec:
           value: "/tmp/logs"
         ports:
         - containerPort: 9080
+        volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+        - name: wlp-output
+          mountPath: /opt/ibm/wlp/output
         resources:
           requests:
             cpu: 100m
@@ -311,11 +321,6 @@ spec:
           limits:
             cpu: 1000m
             memory: 2Gi
-        volumeMounts:
-        - name: tmp
-          mountPath: /tmp
-        - name: wlp-output
-          mountPath: /opt/ibm/wlp/output
       volumes:
       - name: wlp-output
         emptyDir: {}
@@ -372,6 +377,7 @@ spec:
         version: v1
         serviceName: productpage
     spec:
+      schedulerName: my-scheduler
       serviceAccountName: bookinfo-productpage
       containers:
       - name: productpage
