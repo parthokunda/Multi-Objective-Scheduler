@@ -1,0 +1,12 @@
+{'fileNum': 1001, 'net_weight': 0.1875, 'cpu_weight': 0.5625, 'cost_weight': 0.25, 'userCount': 50}
+{'fileNum': 1002, 'net_weight': 0.375, 'cpu_weight': 0.375, 'cost_weight': 0.25, 'userCount': 50}
+{'fileNum': 1003, 'net_weight': 0.5625, 'cpu_weight': 0.1875, 'cost_weight': 0.25, 'userCount': 50}
+{'fileNum': 1004, 'net_weight': 0.75, 'cpu_weight': 0.0, 'cost_weight': 0.25, 'userCount': 50}
+{'fileNum': 1005, 'net_weight': 0.125, 'cpu_weight': 0.375, 'cost_weight': 0.5, 'userCount': 50}
+{'fileNum': 1006, 'net_weight': 0.25, 'cpu_weight': 0.25, 'cost_weight': 0.5, 'userCount': 50}
+{'fileNum': 1007, 'net_weight': 0.375, 'cpu_weight': 0.125, 'cost_weight': 0.5, 'userCount': 50}
+{'fileNum': 1008, 'net_weight': 0.5, 'cpu_weight': 0.0, 'cost_weight': 0.5, 'userCount': 50}
+{'fileNum': 1009, 'net_weight': 0.0625, 'cpu_weight': 0.1875, 'cost_weight': 0.75, 'userCount': 50}
+{'fileNum': 1010, 'net_weight': 0.125, 'cpu_weight': 0.125, 'cost_weight': 0.75, 'userCount': 50}
+{'fileNum': 1011, 'net_weight': 0.1875, 'cpu_weight': 0.0625, 'cost_weight': 0.75, 'userCount': 50}
+{'fileNum': 1012, 'net_weight': 0.25, 'cpu_weight': 0.0, 'cost_weight': 0.75, 'userCount': 50}

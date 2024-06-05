@@ -1,0 +1,24 @@
+2024-06-04 16:19:03 - INFO  [costMonitor.py:66] - Total Cost: 0.3333333333333333 at Time: 10 sec
+2024-06-04 16:19:03 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 2.0
+2024-06-04 16:19:13 - INFO  [costMonitor.py:66] - Total Cost: 0.6666666666666666 at Time: 20 sec
+2024-06-04 16:19:13 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 2.0
+2024-06-04 16:19:23 - INFO  [costMonitor.py:66] - Total Cost: 1.0 at Time: 30 sec
+2024-06-04 16:19:23 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 2.0
+2024-06-04 16:19:33 - INFO  [costMonitor.py:66] - Total Cost: 1.3333333333333333 at Time: 40 sec
+2024-06-04 16:19:33 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 2.0
+2024-06-04 16:19:43 - INFO  [costMonitor.py:66] - Total Cost: 1.6666666666666665 at Time: 50 sec
+2024-06-04 16:19:43 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 2.0
+2024-06-04 16:19:54 - INFO  [costMonitor.py:66] - Total Cost: 1.9999999999999998 at Time: 60 sec
+2024-06-04 16:19:54 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 2.0
+2024-06-04 16:20:04 - INFO  [costMonitor.py:66] - Total Cost: 2.333333333333333 at Time: 70 sec
+2024-06-04 16:20:04 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 1.9999999999999996
+2024-06-04 16:20:14 - INFO  [costMonitor.py:66] - Total Cost: 2.6666666666666665 at Time: 80 sec
+2024-06-04 16:20:14 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 2.0
+2024-06-04 16:20:24 - INFO  [costMonitor.py:66] - Total Cost: 3.0 at Time: 90 sec
+2024-06-04 16:20:24 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 2.0
+2024-06-04 16:20:34 - INFO  [costMonitor.py:66] - Total Cost: 3.3333333333333335 at Time: 100 sec
+2024-06-04 16:20:34 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 2.0
+2024-06-04 16:20:44 - INFO  [costMonitor.py:66] - Total Cost: 3.666666666666667 at Time: 110 sec
+2024-06-04 16:20:44 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 2.0
+2024-06-04 16:20:56 - INFO  [costMonitor.py:66] - Total Cost: 4.0 at Time: 120 sec
+2024-06-04 16:20:56 - INFO  [costMonitor.py:67] - Avg Cost per Minute: 2.0

@@ -57,17 +57,20 @@ metadata:
   labels:
     app: details
     version: v1
+    serviceName: details
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: details
       version: v1
+      serviceName: details
   template:
     metadata:
       labels:
         app: details
         version: v1
+        serviceName: details
     spec:
       schedulerName: netMarksScheduler
       serviceAccountName: bookinfo-details
@@ -77,6 +80,13 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 1000m
+            memory: 2Gi
 ---
 ##################################################################################################
 # Ratings service
@@ -109,17 +119,20 @@ metadata:
   labels:
     app: ratings
     version: v1
+    serviceName: ratings
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: ratings
       version: v1
+      serviceName: ratings
   template:
     metadata:
       labels:
         app: ratings
         version: v1
+        serviceName: ratings
     spec:
       schedulerName: netMarksScheduler
       serviceAccountName: bookinfo-ratings
@@ -129,6 +142,13 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 1000m
+            memory: 2Gi
 ---
 ##################################################################################################
 # Reviews service
@@ -161,17 +181,20 @@ metadata:
   labels:
     app: reviews
     version: v1
+    serviceName: reviews-v1
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: reviews
       version: v1
+      serviceName: reviews-v1
   template:
     metadata:
       labels:
         app: reviews
         version: v1
+        serviceName: reviews-v1
     spec:
       schedulerName: netMarksScheduler
       serviceAccountName: bookinfo-reviews
@@ -189,6 +212,13 @@ spec:
           mountPath: /tmp
         - name: wlp-output
           mountPath: /opt/ibm/wlp/output
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 1000m
+            memory: 2Gi
       volumes:
       - name: wlp-output
         emptyDir: {}
@@ -202,17 +232,20 @@ metadata:
   labels:
     app: reviews
     version: v2
+    serviceName: reviews-v2
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: reviews
       version: v2
+      serviceName: reviews-v2
   template:
     metadata:
       labels:
         app: reviews
         version: v2
+        serviceName: reviews-v2
     spec:
       schedulerName: netMarksScheduler
       serviceAccountName: bookinfo-reviews
@@ -230,6 +263,13 @@ spec:
           mountPath: /tmp
         - name: wlp-output
           mountPath: /opt/ibm/wlp/output
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 1000m
+            memory: 2Gi
       volumes:
       - name: wlp-output
         emptyDir: {}
@@ -243,17 +283,20 @@ metadata:
   labels:
     app: reviews
     version: v3
+    serviceName: reviews-v3
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: reviews
       version: v3
+      serviceName: reviews-v3
   template:
     metadata:
       labels:
         app: reviews
         version: v3
+        serviceName: reviews-v3
     spec:
       schedulerName: netMarksScheduler
       serviceAccountName: bookinfo-reviews
@@ -264,6 +307,13 @@ spec:
         env:
         - name: LOG_DIR
           value: "/tmp/logs"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 1000m
+            memory: 2Gi
         ports:
         - containerPort: 9080
         volumeMounts:
@@ -308,12 +358,14 @@ metadata:
   labels:
     app: productpage
     version: v1
+    serviceName: productpage
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: productpage
       version: v1
+      serviceName: productpage
   template:
     metadata:
       annotations:
@@ -323,6 +375,7 @@ spec:
       labels:
         app: productpage
         version: v1
+        serviceName: productpage
     spec:
       schedulerName: netMarksScheduler
       serviceAccountName: bookinfo-productpage
@@ -335,6 +388,13 @@ spec:
         volumeMounts:
         - name: tmp
           mountPath: /tmp
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 1000m
+            memory: 2Gi
       volumes:
       - name: tmp
         emptyDir: {}
