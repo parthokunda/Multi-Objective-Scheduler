@@ -223,10 +223,14 @@ def scheduler(name, node, namespace="default"):
     return v1.create_namespaced_binding(namespace, body, _preload_content=False)
 
 if __name__ == "__main__":
-    if len(sys.argv) == 4:
-        NET_WEIGHT = float(sys.argv[1])
-        CPU_WEIGHT = float(sys.argv[2])
-        COST_WEIGHT = float(sys.argv[3])
+    # if len(sys.argv) == 4:
+    #     NET_WEIGHT = float(sys.argv[1])
+    #     CPU_WEIGHT = float(sys.argv[2])
+    #     COST_WEIGHT = float(sys.argv[3])
+    with open('weights.txt', 'r') as weights:
+        NET_WEIGHT = float(weights.readline())
+        CPU_WEIGHT = float(weights.readline())
+        COST_WEIGHT = float(weights.readline())
     
     logs.debug(f'weights net : {NET_WEIGHT} cpu: {CPU_WEIGHT} cost: {COST_WEIGHT}')
     print(f'weights net : {NET_WEIGHT} cpu: {CPU_WEIGHT} cost: {COST_WEIGHT}')
