@@ -1,0 +1,143 @@
+2024-06-03 08:53:36 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 []
+2024-06-03 08:53:36 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-03 08:53:36 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 []
+2024-06-03 08:53:36 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-03 08:53:36 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:36 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:36 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:36 - INFO  [mosscheduler.py:183] - Scheduled adservice to k8s-vm2
+2024-06-03 08:53:36 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 []
+2024-06-03 08:53:36 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-03 08:53:36 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 ['adservice-75c9fd6ffb-2w5fr']
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:49] - appended adservice, adservice-75c9fd6ffb-2w5fr to list_pod
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:68] - app on Node list ['adservice']
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.9999800003999921, 'k8s-vm2': 0.0}
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:183] - Scheduled cartservice to k8s-vm2
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 []
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 ['adservice-75c9fd6ffb-2w5fr', 'cartservice-7bdcd5d5c9-nmct5']
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:49] - appended adservice, adservice-75c9fd6ffb-2w5fr to list_pod
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:49] - appended cartservice, cartservice-7bdcd5d5c9-nmct5 to list_pod
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:68] - app on Node list ['adservice', 'cartservice']
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.9999800003999921, 'k8s-vm2': 0.0}
+2024-06-03 08:53:37 - INFO  [mosscheduler.py:183] - Scheduled checkoutservice to k8s-vm2
+2024-06-03 08:53:38 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 []
+2024-06-03 08:53:38 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-03 08:53:38 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 ['adservice-75c9fd6ffb-2w5fr', 'cartservice-7bdcd5d5c9-nmct5', 'checkoutservice-6d649676cd-8ggc7']
+2024-06-03 08:53:38 - INFO  [mosscheduler.py:49] - appended adservice, adservice-75c9fd6ffb-2w5fr to list_pod
+2024-06-03 08:53:38 - INFO  [mosscheduler.py:49] - appended cartservice, cartservice-7bdcd5d5c9-nmct5 to list_pod
+2024-06-03 08:53:38 - INFO  [mosscheduler.py:49] - appended checkoutservice, checkoutservice-6d649676cd-8ggc7 to list_pod
+2024-06-03 08:53:38 - INFO  [mosscheduler.py:68] - app on Node list ['adservice', 'cartservice', 'checkoutservice']
+2024-06-03 08:53:38 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:38 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:38 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.9999800003999921, 'k8s-vm2': 0.0}
+2024-06-03 08:53:38 - INFO  [mosscheduler.py:183] - Scheduled currencyservice to k8s-vm2
+2024-06-03 08:53:39 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 []
+2024-06-03 08:53:39 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-03 08:53:39 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 ['adservice-75c9fd6ffb-2w5fr', 'cartservice-7bdcd5d5c9-nmct5', 'checkoutservice-6d649676cd-8ggc7', 'currencyservice-8f97ccf78-khdw6']
+2024-06-03 08:53:39 - INFO  [mosscheduler.py:49] - appended adservice, adservice-75c9fd6ffb-2w5fr to list_pod
+2024-06-03 08:53:39 - INFO  [mosscheduler.py:49] - appended cartservice, cartservice-7bdcd5d5c9-nmct5 to list_pod
+2024-06-03 08:53:39 - INFO  [mosscheduler.py:49] - appended checkoutservice, checkoutservice-6d649676cd-8ggc7 to list_pod
+2024-06-03 08:53:39 - INFO  [mosscheduler.py:49] - appended currencyservice, currencyservice-8f97ccf78-khdw6 to list_pod
+2024-06-03 08:53:39 - INFO  [mosscheduler.py:68] - app on Node list ['adservice', 'cartservice', 'checkoutservice', 'currencyservice']
+2024-06-03 08:53:39 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:39 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:39 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.9999800003999921, 'k8s-vm2': 0.0}
+2024-06-03 08:53:39 - INFO  [mosscheduler.py:183] - Scheduled emailservice to k8s-vm2
+2024-06-03 08:53:40 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 []
+2024-06-03 08:53:40 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-03 08:53:40 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 ['adservice-75c9fd6ffb-2w5fr', 'cartservice-7bdcd5d5c9-nmct5', 'checkoutservice-6d649676cd-8ggc7', 'currencyservice-8f97ccf78-khdw6', 'emailservice-684d858f44-rdv97']
+2024-06-03 08:53:40 - INFO  [mosscheduler.py:49] - appended adservice, adservice-75c9fd6ffb-2w5fr to list_pod
+2024-06-03 08:53:40 - INFO  [mosscheduler.py:49] - appended cartservice, cartservice-7bdcd5d5c9-nmct5 to list_pod
+2024-06-03 08:53:40 - INFO  [mosscheduler.py:49] - appended checkoutservice, checkoutservice-6d649676cd-8ggc7 to list_pod
+2024-06-03 08:53:41 - INFO  [mosscheduler.py:49] - appended currencyservice, currencyservice-8f97ccf78-khdw6 to list_pod
+2024-06-03 08:53:41 - INFO  [mosscheduler.py:49] - appended emailservice, emailservice-684d858f44-rdv97 to list_pod
+2024-06-03 08:53:41 - INFO  [mosscheduler.py:68] - app on Node list ['adservice', 'cartservice', 'checkoutservice', 'currencyservice', 'emailservice']
+2024-06-03 08:53:41 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:41 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:41 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.9999800003999921, 'k8s-vm2': 0.0}
+2024-06-03 08:53:41 - INFO  [mosscheduler.py:183] - Scheduled frontend to k8s-vm2
+2024-06-03 08:53:41 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 []
+2024-06-03 08:53:41 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-03 08:53:41 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 ['adservice-75c9fd6ffb-2w5fr', 'cartservice-7bdcd5d5c9-nmct5', 'checkoutservice-6d649676cd-8ggc7', 'currencyservice-8f97ccf78-khdw6', 'emailservice-684d858f44-rdv97', 'frontend-5bcc5575f4-swg6t']
+2024-06-03 08:53:41 - INFO  [mosscheduler.py:49] - appended adservice, adservice-75c9fd6ffb-2w5fr to list_pod
+2024-06-03 08:53:41 - INFO  [mosscheduler.py:49] - appended cartservice, cartservice-7bdcd5d5c9-nmct5 to list_pod
+2024-06-03 08:53:41 - INFO  [mosscheduler.py:49] - appended checkoutservice, checkoutservice-6d649676cd-8ggc7 to list_pod
+2024-06-03 08:53:42 - INFO  [mosscheduler.py:49] - appended currencyservice, currencyservice-8f97ccf78-khdw6 to list_pod
+2024-06-03 08:53:42 - INFO  [mosscheduler.py:49] - appended emailservice, emailservice-684d858f44-rdv97 to list_pod
+2024-06-03 08:53:42 - INFO  [mosscheduler.py:49] - appended frontend, frontend-5bcc5575f4-swg6t to list_pod
+2024-06-03 08:53:42 - INFO  [mosscheduler.py:68] - app on Node list ['adservice', 'cartservice', 'checkoutservice', 'currencyservice', 'emailservice', 'frontend']
+2024-06-03 08:53:42 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:42 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:42 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.9999800003999921, 'k8s-vm2': 0.0}
+2024-06-03 08:53:42 - INFO  [mosscheduler.py:183] - Scheduled paymentservice to k8s-vm2
+2024-06-03 08:53:43 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 []
+2024-06-03 08:53:43 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-03 08:53:43 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 ['adservice-75c9fd6ffb-2w5fr', 'cartservice-7bdcd5d5c9-nmct5', 'checkoutservice-6d649676cd-8ggc7', 'currencyservice-8f97ccf78-khdw6', 'emailservice-684d858f44-rdv97', 'frontend-5bcc5575f4-swg6t', 'paymentservice-7985588c4d-hxz5g']
+2024-06-03 08:53:43 - INFO  [mosscheduler.py:49] - appended adservice, adservice-75c9fd6ffb-2w5fr to list_pod
+2024-06-03 08:53:43 - INFO  [mosscheduler.py:49] - appended cartservice, cartservice-7bdcd5d5c9-nmct5 to list_pod
+2024-06-03 08:53:43 - INFO  [mosscheduler.py:49] - appended checkoutservice, checkoutservice-6d649676cd-8ggc7 to list_pod
+2024-06-03 08:53:43 - INFO  [mosscheduler.py:49] - appended currencyservice, currencyservice-8f97ccf78-khdw6 to list_pod
+2024-06-03 08:53:43 - INFO  [mosscheduler.py:49] - appended emailservice, emailservice-684d858f44-rdv97 to list_pod
+2024-06-03 08:53:43 - INFO  [mosscheduler.py:49] - appended frontend, frontend-5bcc5575f4-swg6t to list_pod
+2024-06-03 08:53:44 - INFO  [mosscheduler.py:49] - appended paymentservice, paymentservice-7985588c4d-hxz5g to list_pod
+2024-06-03 08:53:44 - INFO  [mosscheduler.py:68] - app on Node list ['adservice', 'cartservice', 'checkoutservice', 'currencyservice', 'emailservice', 'frontend', 'paymentservice']
+2024-06-03 08:53:44 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:44 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:44 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.9999800003999921, 'k8s-vm2': 0.0}
+2024-06-03 08:53:44 - INFO  [mosscheduler.py:183] - Scheduled productcatalogservice to k8s-vm2
+2024-06-03 08:53:44 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 []
+2024-06-03 08:53:44 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-03 08:53:44 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 ['adservice-75c9fd6ffb-2w5fr', 'cartservice-7bdcd5d5c9-nmct5', 'checkoutservice-6d649676cd-8ggc7', 'currencyservice-8f97ccf78-khdw6', 'emailservice-684d858f44-rdv97', 'frontend-5bcc5575f4-swg6t', 'paymentservice-7985588c4d-hxz5g', 'productcatalogservice-84766477fd-2phmg']
+2024-06-03 08:53:44 - INFO  [mosscheduler.py:49] - appended adservice, adservice-75c9fd6ffb-2w5fr to list_pod
+2024-06-03 08:53:44 - INFO  [mosscheduler.py:49] - appended cartservice, cartservice-7bdcd5d5c9-nmct5 to list_pod
+2024-06-03 08:53:44 - INFO  [mosscheduler.py:49] - appended checkoutservice, checkoutservice-6d649676cd-8ggc7 to list_pod
+2024-06-03 08:53:44 - INFO  [mosscheduler.py:49] - appended currencyservice, currencyservice-8f97ccf78-khdw6 to list_pod
+2024-06-03 08:53:45 - INFO  [mosscheduler.py:49] - appended emailservice, emailservice-684d858f44-rdv97 to list_pod
+2024-06-03 08:53:45 - INFO  [mosscheduler.py:49] - appended frontend, frontend-5bcc5575f4-swg6t to list_pod
+2024-06-03 08:53:45 - INFO  [mosscheduler.py:49] - appended paymentservice, paymentservice-7985588c4d-hxz5g to list_pod
+2024-06-03 08:53:45 - INFO  [mosscheduler.py:49] - appended productcatalogservice, productcatalogservice-84766477fd-2phmg to list_pod
+2024-06-03 08:53:45 - INFO  [mosscheduler.py:68] - app on Node list ['adservice', 'cartservice', 'checkoutservice', 'currencyservice', 'emailservice', 'frontend', 'paymentservice', 'productcatalogservice']
+2024-06-03 08:53:45 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:45 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:45 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.9999800003999921, 'k8s-vm2': 0.0}
+2024-06-03 08:53:45 - INFO  [mosscheduler.py:183] - Scheduled recommendationservice to k8s-vm2
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 []
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 ['adservice-75c9fd6ffb-2w5fr', 'cartservice-7bdcd5d5c9-nmct5', 'checkoutservice-6d649676cd-8ggc7', 'currencyservice-8f97ccf78-khdw6', 'emailservice-684d858f44-rdv97', 'frontend-5bcc5575f4-swg6t', 'paymentservice-7985588c4d-hxz5g', 'productcatalogservice-84766477fd-2phmg', 'recommendationservice-7c9b6c8c5d-mxh5b']
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:49] - appended adservice, adservice-75c9fd6ffb-2w5fr to list_pod
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:49] - appended cartservice, cartservice-7bdcd5d5c9-nmct5 to list_pod
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:49] - appended checkoutservice, checkoutservice-6d649676cd-8ggc7 to list_pod
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:49] - appended currencyservice, currencyservice-8f97ccf78-khdw6 to list_pod
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:49] - appended emailservice, emailservice-684d858f44-rdv97 to list_pod
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:49] - appended frontend, frontend-5bcc5575f4-swg6t to list_pod
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:49] - appended paymentservice, paymentservice-7985588c4d-hxz5g to list_pod
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:49] - appended productcatalogservice, productcatalogservice-84766477fd-2phmg to list_pod
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:49] - appended recommendationservice, recommendationservice-7c9b6c8c5d-mxh5b to list_pod
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:68] - app on Node list ['adservice', 'cartservice', 'checkoutservice', 'currencyservice', 'emailservice', 'frontend', 'paymentservice', 'productcatalogservice', 'recommendationservice']
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.9999800003999921, 'k8s-vm2': 0.0}
+2024-06-03 08:53:46 - INFO  [mosscheduler.py:183] - Scheduled redis-cart to k8s-vm2
+2024-06-03 08:53:47 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm1 []
+2024-06-03 08:53:47 - INFO  [mosscheduler.py:68] - app on Node list []
+2024-06-03 08:53:47 - INFO  [mosscheduler.py:42] - all pods on node k8s-vm2 ['adservice-75c9fd6ffb-2w5fr', 'cartservice-7bdcd5d5c9-nmct5', 'checkoutservice-6d649676cd-8ggc7', 'currencyservice-8f97ccf78-khdw6', 'emailservice-684d858f44-rdv97', 'frontend-5bcc5575f4-swg6t', 'paymentservice-7985588c4d-hxz5g', 'productcatalogservice-84766477fd-2phmg', 'recommendationservice-7c9b6c8c5d-mxh5b', 'redis-cart-f967ff6f4-7f5rg']
+2024-06-03 08:53:47 - INFO  [mosscheduler.py:49] - appended adservice, adservice-75c9fd6ffb-2w5fr to list_pod
+2024-06-03 08:53:47 - INFO  [mosscheduler.py:49] - appended cartservice, cartservice-7bdcd5d5c9-nmct5 to list_pod
+2024-06-03 08:53:47 - INFO  [mosscheduler.py:49] - appended checkoutservice, checkoutservice-6d649676cd-8ggc7 to list_pod
+2024-06-03 08:53:47 - INFO  [mosscheduler.py:49] - appended currencyservice, currencyservice-8f97ccf78-khdw6 to list_pod
+2024-06-03 08:53:47 - INFO  [mosscheduler.py:49] - appended emailservice, emailservice-684d858f44-rdv97 to list_pod
+2024-06-03 08:53:48 - INFO  [mosscheduler.py:49] - appended frontend, frontend-5bcc5575f4-swg6t to list_pod
+2024-06-03 08:53:48 - INFO  [mosscheduler.py:49] - appended paymentservice, paymentservice-7985588c4d-hxz5g to list_pod
+2024-06-03 08:53:48 - INFO  [mosscheduler.py:49] - appended productcatalogservice, productcatalogservice-84766477fd-2phmg to list_pod
+2024-06-03 08:53:48 - INFO  [mosscheduler.py:49] - appended recommendationservice, recommendationservice-7c9b6c8c5d-mxh5b to list_pod
+2024-06-03 08:53:48 - INFO  [mosscheduler.py:49] - appended redis-cart, redis-cart-f967ff6f4-7f5rg to list_pod
+2024-06-03 08:53:48 - INFO  [mosscheduler.py:68] - app on Node list ['adservice', 'cartservice', 'checkoutservice', 'currencyservice', 'emailservice', 'frontend', 'paymentservice', 'productcatalogservice', 'recommendationservice', 'redis-cart']
+2024-06-03 08:53:48 - INFO  [mosscheduler.py:168] - scores net {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:48 - INFO  [mosscheduler.py:169] - scores cpu {'k8s-vm1': 0.0, 'k8s-vm2': 0.0}
+2024-06-03 08:53:48 - INFO  [mosscheduler.py:170] - scores cost {'k8s-vm1': 0.9999800003999921, 'k8s-vm2': 0.0}
+2024-06-03 08:53:48 - INFO  [mosscheduler.py:183] - Scheduled shippingservice to k8s-vm2
