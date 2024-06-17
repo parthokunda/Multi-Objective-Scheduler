@@ -222,23 +222,27 @@ def scheduler(name, node, namespace="default"):
     body=client.V1Binding(target=target, metadata=meta, api_version="v1", kind="Binding" )
     return v1.create_namespaced_binding(namespace, body, _preload_content=False)
 
+def load_weights():
+    with open('weights.txt', 'r') as weights:
+        NET_WEIGHT = float(weights.readline())
+        CPU_WEIGHT = float(weights.readline())
+        COST_WEIGHT = float(weights.readline())
+
+    logs.debug(f'weights net : {NET_WEIGHT} cpu: {CPU_WEIGHT} cost: {COST_WEIGHT}')
+    print(f'weights net : {NET_WEIGHT} cpu: {CPU_WEIGHT} cost: {COST_WEIGHT}')
+
+
 if __name__ == "__main__":
     # if len(sys.argv) == 4:
     #     NET_WEIGHT = float(sys.argv[1])
     #     CPU_WEIGHT = float(sys.argv[2])
     #     COST_WEIGHT = float(sys.argv[3])
-    with open('weights.txt', 'r') as weights:
-        NET_WEIGHT = float(weights.readline())
-        CPU_WEIGHT = float(weights.readline())
-        COST_WEIGHT = float(weights.readline())
-    
-    logs.debug(f'weights net : {NET_WEIGHT} cpu: {CPU_WEIGHT} cost: {COST_WEIGHT}')
-    print(f'weights net : {NET_WEIGHT} cpu: {CPU_WEIGHT} cost: {COST_WEIGHT}')
     w = watch.Watch()
     scheduledId = [] # gonna hold the uid inside event, to avoid multiple schedule try of same pod
     for event in w.stream(v1.list_namespaced_pod, "default"):
         if event['object'].status.phase == "Pending" and event['object'].spec.scheduler_name == schedulerName and event['object'].metadata.uid not in scheduledId:
             try:
+                load_weights()
                 if 'app' in event['object'].metadata.labels:
                     nodeSelected = v2SchedulerScore(event['object'].metadata.labels['app'], event)
                     scheduler(event['object'].metadata.name, nodeSelected)
