@@ -1,7 +1,6 @@
 import subprocess
 from kubernetes import client, config
 
-
 def run_shell_command(command):
     try:
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)

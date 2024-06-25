@@ -38,7 +38,7 @@ class EntryLoader :
                     filteredDatas[key] = values
         return filteredDatas
     
-    def getTotalRequests(self, datas: defaultdict(list)):
+    def getTotalRequests(self, datas):
         requestDict = defaultdict(int)
         for key,values in datas.items():
             request = 0

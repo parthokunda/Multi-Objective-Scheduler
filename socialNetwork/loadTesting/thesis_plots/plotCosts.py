@@ -9,7 +9,7 @@ os.chdir('/root/socialNetwork/loadTesting')
 
 class EntryLoader :
     def __init__(self):
-        file = open('entries.txt', 'r')
+        file = open('entries1min.txt', 'r')
         lines = file.readlines()
         self.datas = defaultdict(list)
         for line in lines:
@@ -40,7 +40,7 @@ class EntryLoader :
         for key,values in datas.items():
             cost = 0
             for value in values:
-                df = pd.read_csv('data/hpdc/'+str(value)+'-costMonitor.csv')
+                df = pd.read_csv('data/'+str(value)+'-costMonitor.csv')
                 cost += df['avgCost'].iloc[-1]
             cost /= len(values)
             costDict[(key[0], key[1], key[2])] = cost
@@ -48,7 +48,7 @@ class EntryLoader :
 
 class BaseLineLoader :
     def __init__(self):
-        file = open('entries_baselines.txt', 'r')
+        file = open('entries_baselines1min.txt', 'r')
         lines = file.readlines()
         self.datas = defaultdict(list)
         for line in lines:
@@ -68,15 +68,15 @@ class BaseLineLoader :
         for key,values in datas.items():
             cost = 0
             for value in values:
-                df = pd.read_csv('data/baselines/'+str(value)+'-costMonitor.csv')
+                df = pd.read_csv('data/'+str(value)+'-costMonitor.csv')
                 cost += df['avgCost'].iloc[-1]
             cost /= len(values)
             costDict[(key[0])] = cost # removed user count
         return costDict
 
-USERFILTER = 2000
+USERFILTER = 50
 entries = EntryLoader()
-filteredDatas = entries.filter(cost_weight=[0,.25,.5])
+filteredDatas = entries.filter(cost_weight=[0,.25,.5,.75])
 costs = entries.getCost(filteredDatas)
 print(costs)
 
