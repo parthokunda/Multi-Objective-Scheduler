@@ -35,7 +35,7 @@ class EntryLoader :
                     filteredDatas[key] = values
         return filteredDatas
     
-    def getCost(self, datas: defaultdict(list)):
+    def getCost(self, datas):
         costDict = defaultdict(list)
         for key,values in datas.items():
             cost = 0
@@ -63,7 +63,7 @@ class BaseLineLoader :
                 filterData[key] = values
         return filterData
     
-    def getCost(self, datas: defaultdict(list)):
+    def getCost(self, datas):
         costDict = defaultdict(list)
         for key,values in datas.items():
             cost = 0

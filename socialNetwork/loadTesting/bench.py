@@ -5,9 +5,9 @@ import time
 import subprocess
 
 YAML_FILES_DIR = '/root/socialNetwork/deployments'
-SCHEDULER_DIR = '/root/socialNetwork/loadTesting'
-FILENAME = 'entries3min2.txt'
-BASEFILENAME = 'entries_baselines3min2.txt'
+SCHEDULER_DIR = '/root/MOS_Codes'
+FILENAME = 'entries1min.txt'
+BASEFILENAME = 'entries_baselines1min.txt'
 
 def run_command(command):
     result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, text=True)
@@ -40,6 +40,10 @@ def check_pods_deployed():
         return False
     return True
 
+def write_weights(net, cpu, cost):
+    with open(f'{SCHEDULER_DIR}/weights.txt', 'w') as file:
+        file.write(f'{net}\n{cpu}\n{cost}\n')
+
 def run_default_scheduler():
     os.system(f'kubectl delete -f {YAML_FILES_DIR}/socialDefault.yaml')
     time.sleep(15)
@@ -51,14 +55,16 @@ def run_scheduler(net_weight, cpu_weight, cost_weight):
     time.sleep(15)
     os.system(f'kubectl apply -f {YAML_FILES_DIR}/socialNetMarks.yaml') 
     time.sleep(5)
-    os.system(f"timeout 120 python3 {SCHEDULER_DIR}/v2Scheduler.py {net_weight} {cpu_weight} {cost_weight}")
+    # os.system(f"timeout 120 python3 {SCHEDULER_DIR}/mosscheduler.py {net_weight} {cpu_weight} {cost_weight}")
+    write_weights(net_weight, cpu_weight, cost_weight)
 
 def run_netMarks_scheduler():
     os.system(f'kubectl delete -f {YAML_FILES_DIR}/socialNetMarks.yaml') 
     time.sleep(15)
     os.system(f'kubectl apply -f {YAML_FILES_DIR}/socialNetMarks.yaml') 
     time.sleep(5)
-    os.system(f"timeout 120 python3 {SCHEDULER_DIR}/v1Scheduler.py 1.0 0") # all net weight, work like netmarks
+    # os.system(f"timeout 120 python3 {SCHEDULER_DIR}/mosscheduler.py 1.0 0 0") # all net weight, work like netmarks
+    write_weights(1.0, 0, 0)
 
 # uses my-scheduler using kube-scheduler with a NodeResourceFit set to MostAllocated profile
 def run_bin_packing_scheduler():
@@ -81,6 +87,7 @@ def runWebLoad():
     print(f'Done Locust File')
 
 def init_social_graph():
+    return
     pwd = os.getcwd()
     os.chdir('/root/DeathStarBench/socialNetwork')
     os.system('''python3 scripts/init_social_graph.py --graph=socfb-Reed98 --ip=$(kubectl get svc | grep nginx | grep Cluster | awk '{{print $3}}')''')
@@ -93,7 +100,7 @@ def checkOutOfCpu():
         return 1
     return 0
 
-servers = ['pc1', 'pc2', 'pc3', 'pc5']
+servers = ['pc1', 'pc2', 'pc3', 'pc5', 'pc7', 'pc8', 'pc9', 'pc10']
 def create_stress(): # to make two core cpu from 4
     print("Creating server load of 2 core cpu")
     for server in servers:
@@ -105,13 +112,15 @@ def remove_stress():
     for server in servers:
         os.system(f'ssh {server} sudo pkill -9 stress')
 
-# jobs = [.5, .625, .75, .875, 1]
-jobs = [0.25]
-# jobs = [1]
-WEBLOADTIME = 600
-USERCOUNT = 1000
+jobs = [0, .25, .5, .75, 1]
+# jobs = [0.25]
+# jobs = [.5]
+WEBLOADTIME = 120
+USERCOUNT = 0
 REST_PERIOD = 15
 LOCUSTFILE = None
+USERLIST = [50,1000,2000]
+# job 0 and 1? cost 0 added, userlist 1000 added 
 
 def benchV2(start, times=1):
     data_start = start
@@ -120,8 +129,8 @@ def benchV2(start, times=1):
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [2000]:
-            for cost in [.5]:
+        for user in USERLIST:
+            for cost in [0, .25, .5, .75]:
                 for i, w in enumerate(jobs):
                     global LOCUSTFILE
                     global USERCOUNT
@@ -169,7 +178,7 @@ def bench_default(start, times = 1):
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [2000]:
+        for user in USERLIST:
             global LOCUSTFILE
             global USERCOUNT
             LOCUSTFILE = data_start
@@ -209,7 +218,7 @@ def bench_netMarks(start, times):
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [50,2000]:
+        for user in USERLIST:
             global LOCUSTFILE
             global USERCOUNT
             LOCUSTFILE = data_start
@@ -236,8 +245,6 @@ def bench_netMarks(start, times):
             thread_exec.submit(runCPUusage)
 
             time.sleep(30)
-            # os.system(f"rm {LOCUSTFILE}_exceptions.csv {LOCUSTFILE}_failures.csv {LOCUSTFILE}_stats.csv")
-            # os.system(f"mv *.csv data/")
 
             print("DONE")
     remove_stress()
@@ -251,7 +258,7 @@ def bench_binPack(start, times=1):
     remove_stress()
     create_stress()
     for t in range(times):
-        for user in [50,2000]:
+        for user in USERLIST:
             global LOCUSTFILE
             global USERCOUNT
             LOCUSTFILE = data_start
@@ -278,8 +285,6 @@ def bench_binPack(start, times=1):
             thread_exec.submit(runCPUusage)
 
             time.sleep(30)
-            # os.system(f"rm {LOCUSTFILE}_exceptions.csv {LOCUSTFILE}_failures.csv {LOCUSTFILE}_stats.csv")
-            # os.system(f"mv *.csv data/")
 
             print("DONE")
     remove_stress()
@@ -288,10 +293,10 @@ def bench_binPack(start, times=1):
 
 
 if __name__ == "__main__":
-    remove_stress()
-    create_stress()
-    time.sleep(100)
-    benchV2(551, 2)
-    bench_binPack(3551, 2)
-    bench_default(2551, 2)
-    bench_netMarks(4551, 2)
+    # remove_stress()
+    # create_stress()
+    # time.sleep(5)
+    # benchV2(25, 2)
+    bench_binPack(3001, 3)
+    # bench_default(2101, 3)
+    # bench_netMarks(4101, 3)

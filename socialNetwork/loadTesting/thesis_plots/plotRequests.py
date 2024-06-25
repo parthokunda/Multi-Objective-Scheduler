@@ -9,7 +9,7 @@ os.chdir('/root/socialNetwork/loadTesting')
 
 class EntryLoader :
     def __init__(self):
-        file = open('entries.txt', 'r')
+        file = open('entries1min.txt', 'r')
         lines = file.readlines()
         self.datas = defaultdict(list)
         for line in lines:
@@ -40,7 +40,7 @@ class EntryLoader :
         for key,values in datas.items():
             request = 0
             for value in values:
-                df = pd.read_csv('data/hpdc/'+str(value)+'_stats_history.csv')
+                df = pd.read_csv('data/'+str(value)+'_stats_history.csv')
                 df = df[df['Name'] == 'Aggregated']
                 mn = df['Timestamp'].min()
                 df.loc[:, ('Timestamp')] = df.loc[:, ('Timestamp')] - mn
@@ -52,7 +52,7 @@ class EntryLoader :
 
 class BaseLineLoader :
     def __init__(self):
-        file = open('entries_baselines.txt', 'r')
+        file = open('entries_baselines1min.txt', 'r')
         lines = file.readlines()
         self.datas = defaultdict(list)
         for line in lines:
@@ -72,7 +72,7 @@ class BaseLineLoader :
         for key, values in datas.items():
             request = 0
             for value in values:
-                df = pd.read_csv('data/baselines/'+str(value)+'_stats_history.csv')
+                df = pd.read_csv('data/'+str(value)+'_stats_history.csv')
                 df = df[df['Name'] == 'Aggregated']
                 mn = df['Timestamp'].min()
                 df.loc[:, ('Timestamp')] = df.loc[:, ('Timestamp')] - mn
@@ -82,9 +82,9 @@ class BaseLineLoader :
             requestDict[key] = request
         return requestDict
 
-USERFILTER = 2000
+USERFILTER = 50
 entries = EntryLoader()
-filteredDatas = entries.filter(userCount=[USERFILTER], cost_weight=[0,.25,.5])
+filteredDatas = entries.filter(userCount=[USERFILTER], cost_weight=[0, .25, .5, .75])
 print(filteredDatas)
 requests = entries.getTotalRequests(filteredDatas)
 print(requests)
