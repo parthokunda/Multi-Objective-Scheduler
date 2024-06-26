@@ -78,24 +78,25 @@ USERFILTER = 2000
 entries = EntryLoader()
 filteredDatas = entries.filter(cost_weight=[0,.25,.5])
 costs = entries.getCost(filteredDatas)
-print(costs)
 
 cost_weights = sorted(set(key[2] for key in costs.keys()))
 net_weights = sorted(set(key[0] for key in costs.keys()))
-print(net_weights)
 
 palette = sns.color_palette("tab10")
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(12,6))
 plt.subplots_adjust(bottom=0.2)  # Adjust the bottom space
 legend_entries = []
 
-bar_width = .2  # Width of individual bars
+bar_width = .2
 group_width = bar_width * len(cost_weights)  # The total width of a group
-gap_width = 0.3 # Width of the gap between groups
+gap_width = .1
 index = np.arange(len(net_weights)) * (group_width + gap_width) 
 
-baselines = 0
-baselineLoader = BaseLineLoader()
+def getCostString(x):
+    if x - int(x) < .99:
+        return f'{x:.1f}$ '
+    else:
+        return f'{x:.0f}$ '
 
 for i, cw in enumerate(cost_weights):
     sameNetRequests = []
@@ -103,15 +104,20 @@ for i, cw in enumerate(cost_weights):
         for key, value in costs.items():
             if key[0] == nw and key[2] == cw:
                 sameNetRequests.append(value)
-    bar = ax.bar(baselines * (bar_width+gap_width) + index + i * bar_width, sameNetRequests, bar_width, label=f'γ = {cw}', color=palette[i])
+    for j, nw in enumerate(net_weights):
+        bar = ax.bar(index[j] + i * bar_width, sameNetRequests[j], bar_width, label=f'γ = {cw}', color=palette[i])
+        ax.text(bar[0].get_x() + bar[0].get_width() / 2, bar[0].get_height(), getCostString(sameNetRequests[j]), rotation='vertical', ha='center', va='top', color='white', fontsize=16, fontweight='bold')
+    # bar = ax.bar(baselines * (bar_width+gap_width) + index + i * bar_width, sameNetRequests, bar_width, label=f'γ = {cw}', color=palette[i])
     legend_entries.append(bar)
 
-ax.set_ylabel('$C$')
-xticks = [i * (bar_width+gap_width) for i in range(baselines)]
-xticks.extend(baselines * (bar_width+gap_width) + index + group_width / 2 - bar_width / 2)
+ax.set_ylabel('$C$', fontsize=14)
+
+xticks = (index + group_width / 2 - bar_width / 2)
 ax.set_xticks(xticks)
-ax.set_xticklabels([f'$𝛼_R$ = {weight}' for weight in net_weights], fontsize=10)
-ax.legend(handles=legend_entries,loc='upper center', bbox_to_anchor=(0.5, -0.12), ncol=len(cost_weights), fontsize='medium')
+ax.set_xticklabels([f'$𝛼_R$ = {weight}' for weight in net_weights], fontsize=14)
+ax.legend(handles=legend_entries,loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=len(cost_weights), fontsize=14)
+plt.gca().tick_params(axis='y', labelsize=14)
 
 plt.tight_layout()
-plt.savefig(f'thesis_plots/images/v2_Total_Costs.png')
+plt.savefig(f'thesis_plots/images/totalCost.png', dpi = 1200)
+plt.savefig(f'thesis_plots/images/totalCost.svg')

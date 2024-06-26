@@ -81,14 +81,12 @@ class BaseLineLoader :
                 df.loc[:, ('Timestamp')] = df.loc[:, ('Timestamp')] - mn
                 df = df[df['Timestamp'] > 20]
                 request += df['Total Request Count'].max()
-            request /= len(values) # take avg of all available data, if we run multiple benchmarks
+            request /= len(values)
             requestDict[key] = request
         return requestDict
 
 entries = EntryLoader()
-print(entries.datas)
 filteredDatas = entries.filter(userCount=USERS, cost_weight=[0.5], net_weight=[.25])
-print(filteredDatas)
 requests = entries.getTotalRequests(filteredDatas)
 
 cw = sorted(set(key[2] for key in requests.keys()))[0]
@@ -101,11 +99,11 @@ baselinesRequest = baselineLoader.getTotalRequests(filteredBaselines)
 
 palette = sns.color_palette("tab10")
 fig, ax = plt.subplots()
-plt.subplots_adjust(bottom=0.2)  # Adjust the bottom space
+plt.subplots_adjust(bottom=0.2)
 legend_entries = []
-bar_width = .2  # Width of individual bars
-group_width = bar_width * 4  # The total width of a group
-gap_width = 0.3 # Width of the gap between groups
+bar_width = .2
+group_width = bar_width * 4
+gap_width = 0.05
 index = np.arange(len(USERS)) * (group_width + gap_width) 
 print(index)
 
@@ -136,13 +134,6 @@ ax.set_xticklabels(xLabels)
 ax.set_ylabel('R_t')
 ax.yaxis.set_major_formatter(FuncFormatter(convert_Request_count))
 ax.legend(handles=legend_entries,loc='upper center', bbox_to_anchor=(0.5, -0.12), ncol=4, fontsize='medium')
-# xticks = [i * (bar_width+gap_width) for i in range(baselines)]
-# xticks.extend(baselines * (bar_width+gap_width) + index + group_width / 2 - bar_width / 2)
-# ax.set_xticks(xticks)
-# ax.set_xticklabels(USERS)
-# # ax.set_xticklabels([f'{weight}' for weight in net_weights])
-# ax.tick_params(axis='x', labelrotation=45)
-# # ax.legend(handles=legend_entries, loc='upper center', bbox_to_anchor=(0.5, -0.3), ncol=len(cost_weights), fontsize='x-small')
 
 plt.tight_layout()
 plt.savefig(f'thesis_plots/images/v2_Baseline_Total_Requests_Combined_User.png', dpi=300, bbox_inches='tight')

@@ -112,14 +112,14 @@ def remove_stress():
     for server in servers:
         os.system(f'ssh {server} sudo pkill -9 stress')
 
-jobs = [0, .25, .5, .75, 1]
+# jobs = [0, .25, .5, .75, 1]
 # jobs = [0.25]
-# jobs = [.5]
+jobs = [0]
 WEBLOADTIME = 120
 USERCOUNT = 0
 REST_PERIOD = 15
 LOCUSTFILE = None
-USERLIST = [50,1000,2000]
+USERLIST = [2000]
 # job 0 and 1? cost 0 added, userlist 1000 added 
 
 def benchV2(start, times=1):
@@ -130,7 +130,7 @@ def benchV2(start, times=1):
     create_stress()
     for t in range(times):
         for user in USERLIST:
-            for cost in [0, .25, .5, .75]:
+            for cost in [0]:
                 for i, w in enumerate(jobs):
                     global LOCUSTFILE
                     global USERCOUNT
@@ -296,7 +296,7 @@ if __name__ == "__main__":
     # remove_stress()
     # create_stress()
     # time.sleep(5)
-    # benchV2(25, 2)
-    bench_binPack(3001, 3)
+    benchV2(1,1)
+    # bench_binPack(3001, 3)
     # bench_default(2101, 3)
     # bench_netMarks(4101, 3)

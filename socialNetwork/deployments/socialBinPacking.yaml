@@ -1,5 +1,5 @@
 # NAME: social
-# LAST DEPLOYED: Wed Feb  7 07:08:45 2024
+# LAST DEPLOYED: Wed Feb  7 07:09:44 2024
 # NAMESPACE: default
 # STATUS: pending-install
 # REVISION: 1
@@ -5493,7 +5493,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "compose-post-service"
-        image: docker.io/deathstarbench/social-network-microservices:latest
+        image: parthokunda/compose-post-service:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9090
@@ -5501,11 +5501,11 @@ spec:
         - ComposePostService
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: compose-post-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -5541,7 +5541,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "home-timeline-redis"
-        image: docker.io/library/redis:6.2.4
+        image: parthokunda/home-timeline-redis:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 6379
@@ -5549,11 +5549,11 @@ spec:
         - /social-network-microservices/config/redis.conf
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: home-timeline-redis-config
           mountPath: /social-network-microservices/config/redis.conf
@@ -5586,7 +5586,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "home-timeline-service"
-        image: docker.io/deathstarbench/social-network-microservices:latest
+        image: parthokunda/home-timeline-service:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9090
@@ -5594,11 +5594,11 @@ spec:
         - HomeTimelineService
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: home-timeline-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -5634,7 +5634,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "jaeger"
-        image: docker.io/jaegertracing/all-in-one:latest
+        image: parthokunda/jaeger:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5775
@@ -5650,11 +5650,11 @@ spec:
         
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: jaeger-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -5690,7 +5690,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "media-frontend"
-        image: docker.io/yg397/media-frontend:xenial
+        image: parthokunda/media-frontend:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8081
@@ -5700,11 +5700,11 @@ spec:
         
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: media-frontend-config
           mountPath: /usr/local/openresty/nginx/conf/nginx.conf
@@ -5760,17 +5760,17 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "media-memcached"
-        image: docker.io/library/memcached:1.6.7
+        image: parthokunda/media-memcached:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 11211
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: media-memcached-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -5806,7 +5806,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "media-mongodb"
-        image: docker.io/library/mongo:4.4.6
+        image: parthokunda/media-mongodb:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 27017
@@ -5815,11 +5815,11 @@ spec:
         - /social-network-microservices/config/mongod.conf
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: media-mongodb-config
           mountPath: /social-network-microservices/config/mongod.conf
@@ -5852,7 +5852,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "media-service"
-        image: docker.io/deathstarbench/social-network-microservices:latest
+        image: parthokunda/media-service:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9090
@@ -5860,11 +5860,11 @@ spec:
         - MediaService
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: media-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -5900,7 +5900,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "nginx-thrift"
-        image: docker.io/yg397/openresty-thrift:xenial
+        image: parthokunda/nginx-thrift:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
@@ -5910,11 +5910,11 @@ spec:
         
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: nginx-thrift-config
           mountPath: /usr/local/openresty/nginx/jaeger-config.json
@@ -5991,17 +5991,17 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "post-storage-memcached"
-        image: docker.io/library/memcached:1.6.7
+        image: parthokunda/post-storage-memcached:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 11211
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: post-storage-memcached-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6037,7 +6037,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "post-storage-mongodb"
-        image: docker.io/library/mongo:4.4.6
+        image: parthokunda/post-storage-mongodb:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 27017
@@ -6046,11 +6046,11 @@ spec:
         - /social-network-microservices/config/mongod.conf
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: post-storage-mongodb-config
           mountPath: /social-network-microservices/config/mongod.conf
@@ -6083,7 +6083,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "post-storage-service"
-        image: docker.io/deathstarbench/social-network-microservices:latest
+        image: parthokunda/post-storage-service:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9090
@@ -6091,11 +6091,11 @@ spec:
         - PostStorageService
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: post-storage-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6131,7 +6131,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "social-graph-mongodb"
-        image: docker.io/library/mongo:4.4.6
+        image: parthokunda/social-graph-mongodb:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 27017
@@ -6140,11 +6140,11 @@ spec:
         - /social-network-microservices/config/mongod.conf
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: social-graph-mongodb-config
           mountPath: /social-network-microservices/config/mongod.conf
@@ -6177,7 +6177,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "social-graph-redis"
-        image: docker.io/library/redis:6.2.4
+        image: parthokunda/social-graph-redis:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 6379
@@ -6185,11 +6185,11 @@ spec:
         - /social-network-microservices/config/redis.conf
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: social-graph-redis-config
           mountPath: /social-network-microservices/config/redis.conf
@@ -6222,7 +6222,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "social-graph-service"
-        image: docker.io/deathstarbench/social-network-microservices:latest
+        image: parthokunda/social-graph-service:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9090
@@ -6230,11 +6230,11 @@ spec:
         - SocialGraphService
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: social-graph-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6270,7 +6270,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "text-service"
-        image: docker.io/deathstarbench/social-network-microservices:latest
+        image: parthokunda/text-service:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9090
@@ -6278,11 +6278,11 @@ spec:
         - TextService
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: text-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6318,7 +6318,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "unique-id-service"
-        image: docker.io/deathstarbench/social-network-microservices:latest
+        image: parthokunda/unique-id-service:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9090
@@ -6326,11 +6326,11 @@ spec:
         - UniqueIdService
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: unique-id-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6366,17 +6366,17 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "url-shorten-memcached"
-        image: docker.io/library/memcached:1.6.7
+        image: parthokunda/url-shorten-memcached:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 11211
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: url-shorten-memcached-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6412,7 +6412,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "url-shorten-mongodb"
-        image: docker.io/library/mongo:4.4.6
+        image: parthokunda/url-shorten-mongodb:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 27017
@@ -6421,11 +6421,11 @@ spec:
         - /social-network-microservices/config/mongod.conf
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: url-shorten-mongodb-config
           mountPath: /social-network-microservices/config/mongod.conf
@@ -6458,7 +6458,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "url-shorten-service"
-        image: docker.io/deathstarbench/social-network-microservices:latest
+        image: parthokunda/url-shorten-service:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9090
@@ -6466,11 +6466,11 @@ spec:
         - UrlShortenService
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: url-shorten-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6506,17 +6506,17 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "user-memcached"
-        image: docker.io/library/memcached:1.6.7
+        image: parthokunda/user-memcached:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 11211
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: user-memcached-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6552,7 +6552,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "user-mention-service"
-        image: docker.io/deathstarbench/social-network-microservices:latest
+        image: parthokunda/user-mention-service:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9090
@@ -6560,11 +6560,11 @@ spec:
         - UserMentionService
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: user-mention-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6600,7 +6600,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "user-mongodb"
-        image: docker.io/library/mongo:4.4.6
+        image: parthokunda/user-mongodb:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 27017
@@ -6609,11 +6609,11 @@ spec:
         - /social-network-microservices/config/mongod.conf
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: user-mongodb-config
           mountPath: /social-network-microservices/config/mongod.conf
@@ -6646,7 +6646,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "user-service"
-        image: docker.io/deathstarbench/social-network-microservices:latest
+        image: parthokunda/user-service:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9090
@@ -6654,11 +6654,11 @@ spec:
         - UserService
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: user-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
@@ -6694,7 +6694,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "user-timeline-mongodb"
-        image: docker.io/library/mongo:4.4.6
+        image: parthokunda/user-timeline-mongodb:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 27017
@@ -6703,11 +6703,11 @@ spec:
         - /social-network-microservices/config/mongod.conf
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: user-timeline-mongodb-config
           mountPath: /social-network-microservices/config/mongod.conf
@@ -6740,7 +6740,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "user-timeline-redis"
-        image: docker.io/library/redis:6.2.4
+        image: parthokunda/user-timeline-redis:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 6379
@@ -6748,11 +6748,11 @@ spec:
         - /social-network-microservices/config/redis.conf
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory: 2Gi
         volumeMounts:
         - name: user-timeline-redis-config
           mountPath: /social-network-microservices/config/redis.conf
@@ -6785,7 +6785,7 @@ spec:
       schedulerName: my-scheduler
       containers:
       - name: "user-timeline-service"
-        image: docker.io/deathstarbench/social-network-microservices:latest
+        image: parthokunda/user-timeline-service:1.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9090
@@ -6793,11 +6793,11 @@ spec:
         - UserTimelineService
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 128Mi
           limits:
-            cpu : 200m
-            memory: 256Mi        
+            cpu : 500m
+            memory : 2Gi
         volumeMounts:
         - name: user-timeline-service-config
           mountPath: /social-network-microservices/config/jaeger-config.yml
