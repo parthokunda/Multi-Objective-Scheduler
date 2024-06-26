@@ -152,11 +152,17 @@ bar_width = .2  # Width of individual bars
 gap_width = 0.05 # Width of the gap between groups
 index = np.arange(len(net_weights)) * (bar_width + gap_width) 
 
+def getCostString(x):
+    if x - int(x) < .99:
+        return f'{x:.1f}$ '
+    else:
+        return f'{x:.0f}$ '
+        
 for j, nw in enumerate(net_weights):
     for key, value in costs.items():
         if key[0] == nw :
             bar = ax2.bar(index[j], value, bar_width, label=f'(α,β)=({nw},{1-nw})')
-            ax2.text(bar[0].get_x() + bar[0].get_width() / 2, bar[0].get_height() , f'{value:.0f}$  ', rotation='vertical', ha='center', va='top', color='white', fontsize=12, fontweight='bold')
+            ax2.text(bar[0].get_x() + bar[0].get_width() / 2, bar[0].get_height() , f'{getCostString(value)}', rotation='vertical', ha='center', va='top', color='white', fontsize=12, fontweight='bold')
 
 ax2.set_ylabel('$C$', fontsize=14)
 plt.gca().set_xticks([])
