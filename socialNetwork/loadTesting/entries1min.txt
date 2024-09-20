@@ -142,4 +142,3 @@
 {'fileNum': 142, 'net_weight': 0.125, 'cpu_weight': 0.125, 'cost_weight': 0.75, 'userCount': 1000}
 {'fileNum': 143, 'net_weight': 0.1875, 'cpu_weight': 0.0625, 'cost_weight': 0.75, 'userCount': 1000}
 {'fileNum': 144, 'net_weight': 0.25, 'cpu_weight': 0.0, 'cost_weight': 0.75, 'userCount': 1000}
-{'fileNum': 1, 'net_weight': 0, 'cpu_weight': 1, 'cost_weight': 0, 'userCount': 2000}

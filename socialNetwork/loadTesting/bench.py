@@ -119,7 +119,7 @@ WEBLOADTIME = 120
 USERCOUNT = 0
 REST_PERIOD = 15
 LOCUSTFILE = None
-USERLIST = [2000]
+USERLIST = [50]
 # job 0 and 1? cost 0 added, userlist 1000 added 
 
 def benchV2(start, times=1):
@@ -296,7 +296,7 @@ if __name__ == "__main__":
     # remove_stress()
     # create_stress()
     # time.sleep(5)
-    benchV2(1,1)
+    # benchV2(1,3)
     # bench_binPack(3001, 3)
     # bench_default(2101, 3)
     # bench_netMarks(4101, 3)
