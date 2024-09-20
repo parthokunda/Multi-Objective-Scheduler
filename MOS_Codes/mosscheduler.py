@@ -24,15 +24,6 @@ logs.basicConfig(filename="logv2scheduler.txt", level=logs.INFO,
 config.load_kube_config()
 v1 = client.CoreV1Api()
 
-def nodes_available():
-    control_nodes = run_shell_command("kubectl get nodes --selector=node-role.kubernetes.io/control-plane="" | awk '{print $1}'").split()[1:]
-    ready_nodes = []
-    for n in v1.list_node().items:
-        for status in n.status.conditions:
-            if status.status == "True" and status.type == "Ready":
-                if n.metadata.name not in control_nodes:
-                    ready_nodes.append(n.metadata.name)
-    return ready_nodes
 
 # returns tuples of current pods on nodeName in (appName, podName) format 
 def getAllAppsOnNode(nodeName):
@@ -121,10 +112,10 @@ def nodeCostScore(nodeList) -> dict[str, float]:
     logs.debug(f'Cost Score Normalized: {costScores}')
     return costScores
 
-def filter_nodes(nodeList, event):
+def filter_nodes_for_scheduling(nodeList, event):
     filtered_nodes = []
     for node in nodeList:
-        free_cpu, free_mem = node_info.remaining_allocatable_resource(node)
+        free_cpu, free_mem = node_info.remaining_allocatable_resource_in_node(node)
         req_cpu, req_mem = pod_info.eventObj_to_totalRequests(event)
         if(free_cpu > req_cpu and free_mem > req_mem):
             filtered_nodes.append(node)
@@ -134,8 +125,8 @@ def filter_nodes(nodeList, event):
     return filtered_nodes
 
 def v2SchedulerScore(appName, event):
-    nodeList = nodes_available()
-    nodeList = filter_nodes(nodeList, event)
+    nodeList = node_info.get_name_of_worker_nodes()
+    nodeList = filter_nodes_for_scheduling(nodeList, event)
     if len(nodeList) <= 0:
         print("No Schedulable Nodes Found")
         raise Exception

@@ -23,7 +23,7 @@ def get_total_requested_resources(node_name):
 
     return total_cpu, total_memory
 
-def remaining_allocatable_resource(node_name):
+def remaining_allocatable_resource_in_node(node_name):
     node = v1.read_node(name=node_name)
     allocatable = node.status.allocatable
 
@@ -46,3 +46,19 @@ def remaining_allocatable_resource(node_name):
 
     used_cpu, used_memory = get_total_requested_resources(node_name=node_name)
     return allocatable_cpu-used_cpu, allocatable_memory-used_memory
+
+def get_name_of_control_nodes():
+    control_nodes = v1.list_node(limit = 4, label_selector='node-role.kubernetes.io/control-plane=').items
+    control_node_names = [node.metadata.name for node in control_nodes]
+    return control_node_names
+
+def get_name_of_worker_nodes():
+    control_node_names = get_name_of_control_nodes()
+
+    ready_nodes = []
+    for node in v1.list_node().items:
+        for status in node.status.conditions:
+            if status.status == "True" and status.type == "Ready":
+                if node.metadata.name not in control_node_names:
+                    ready_nodes.append(node.metadata.name)
+    return ready_nodes
