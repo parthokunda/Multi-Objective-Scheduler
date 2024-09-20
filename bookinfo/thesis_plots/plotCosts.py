@@ -77,7 +77,7 @@ class BaseLineLoader :
 
 USERFILTER = 50
 entries = EntryLoader()
-filteredDatas = entries.filter(cost_weight=[.25,.5,.75])
+filteredDatas = entries.filter(cost_weight=[0,.25,.5,.75])
 costs = entries.getCost(filteredDatas)
 print(costs)
 

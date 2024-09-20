@@ -22,7 +22,8 @@ class EntryLoader :
                 net = net / (1-cost)
                 cpu = cpu / (1-cost)
             weights = (net,cpu,cost, line['userCount'])
-            self.datas[weights].append(line['fileNum'])
+            if line['fileNum'] not in self.datas[weights]:
+                self.datas[weights].append(line['fileNum'])
 
     # filters fileNumbers from datas, gives a single value even if there are multiples
     def filter(self, net_weight:list = None, cpu_weight:list = None, cost_weight:list = None, userCount:list = None):
@@ -45,7 +46,7 @@ class EntryLoader :
                 mn = df['Timestamp'].min()
                 df.loc[:, ('Timestamp')] = df.loc[:, ('Timestamp')] - mn
                 df = df[df['Timestamp'] > 20]
-                request += df['Total Request Count'].max()
+                request += df['Total Request Count'].max() - df['Total Failure Count'].max()
             request /= len(values) # take avg of all available data, if we run multiple benchmarks
             requestDict[key] = request
         return requestDict
@@ -77,14 +78,14 @@ class BaseLineLoader :
                 mn = df['Timestamp'].min()
                 df.loc[:, ('Timestamp')] = df.loc[:, ('Timestamp')] - mn
                 df = df[df['Timestamp'] > 20]
-                request += df['Total Request Count'].max()
+                request += df['Total Request Count'].max() - df['Total Failure Count'].max()
             request /= len(values) # take avg of all available data, if we run multiple benchmarks
             requestDict[key] = request
         return requestDict
 
 USERFILTER = 50
 entries = EntryLoader()
-filteredDatas = entries.filter(userCount=[USERFILTER], cost_weight=[.25,.5,.75])
+filteredDatas = entries.filter(userCount=[USERFILTER], cost_weight=[0,.25,.5,.75])
 print(filteredDatas)
 requests = entries.getTotalRequests(filteredDatas)
 print(requests)

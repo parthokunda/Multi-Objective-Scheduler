@@ -31,6 +31,7 @@ def queryCPUUsage(filename = "cpuUsage.csv", secondsToRun = 600):
     result = queryRange(f'sum(rate(node_cpu_seconds_total{{mode="user"}}[30s])) by (node)', secondsToRun)
     if 'data' in result and 'result' in result['data'] and len(result['data']['result']) > 0:
         datas = result['data']['result']
+        logs.debug(datas)
         with open(filename, 'w', newline='') as csvfile:
             csv_writer = csv.writer(csvfile)
             csv_writer.writerow(["node_name","timestamp", 'value'])

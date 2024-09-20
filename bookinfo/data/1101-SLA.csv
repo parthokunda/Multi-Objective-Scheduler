@@ -1,0 +1,10 @@
+request_type,request_context,name,response_time
+GET,index,/productpage?u=normal,1145.7073799101636
+GET,index,/productpage?u=normal,1153.2821190776303
+GET,index,/productpage?u=normal,1215.6009699683636
+GET,index,/productpage?u=normal,1224.7538369847462
+GET,index,/productpage?u=normal,1249.857300077565
+GET,index,/productpage?u=normal,1251.8873310182244
+GET,index,/productpage?u=test,23.01213692408055
+GET,index,/productpage?u=normal,64.69374394509941
+GET,index,/productpage?u=normal,128.2655349932611

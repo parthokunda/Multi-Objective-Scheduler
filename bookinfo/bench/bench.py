@@ -12,6 +12,7 @@ DATA_DIR = f'{ROOT_DIR}/data'
 FILENAME = 'entries.txt'
 BASEFILENAME = 'entries_baselines.txt'
 
+SCHEDULER_DIR = '/root/MOS_Codes'
 DEFAULT_YAML = f'{YAML_FILES_DIR}/bookinfo.yaml'
 NETMARKS_YAML = f'{YAML_FILES_DIR}/bookinfo-netMarks.yaml'
 BINPACK_YAML = f'{YAML_FILES_DIR}/bookinfo-binPack.yaml'
@@ -47,6 +48,10 @@ def check_pods_deployed():
         return False
     return True
 
+def write_weights(net, cpu, cost):
+    with open(f'{SCHEDULER_DIR}/weights.txt', 'w') as file:
+        file.write(f'{net}\n{cpu}\n{cost}\n')
+
 def run_default_scheduler():
     os.system(f'kubectl delete -f {DEFAULT_YAML}')
     time.sleep(15)
@@ -58,14 +63,16 @@ def run_scheduler(net_weight, cpu_weight, cost_weight):
     time.sleep(15)
     os.system(f'kubectl apply -f {NETMARKS_YAML}') 
     time.sleep(5)
-    os.system(f"timeout 120 python3 {MOS_SCHEDULER_DIR}/mosscheduler.py {net_weight} {cpu_weight} {cost_weight}")
+    # os.system(f"timeout 120 python3 {MOS_SCHEDULER_DIR}/mosscheduler.py {net_weight} {cpu_weight} {cost_weight}")
+    write_weights(net_weight, cpu_weight, cost_weight)
 
 def run_netMarks_scheduler():
     os.system(f'kubectl delete -f {NETMARKS_YAML}') 
     time.sleep(15)
     os.system(f'kubectl apply -f {NETMARKS_YAML}') 
     time.sleep(5)
-    os.system(f"timeout 120 python3 {MOS_SCHEDULER_DIR}/mosscheduler.py 1.0 0 0") # all net weight, work like netmarks
+    # os.system(f"timeout 120 python3 {MOS_SCHEDULER_DIR}/mosscheduler.py 1.0 0 0") # all net weight, work like netmarks
+    write_weights(1.0, 0, 0)
 
 # uses my-scheduler using kube-scheduler with a NodeResourceFit set to MostAllocated profile
 def run_bin_packing_scheduler():
@@ -106,12 +113,12 @@ def remove_stress():
     for server in servers:
         os.system(f'ssh {server} sudo pkill -9 stress')
 
-jobs = [.25,.5,.75,1]
-WEBLOADTIME = 90
+jobs = [0, .25, .5, .75, 1]
+WEBLOADTIME = 120
 USERCOUNT = 0
 REST_PERIOD = 15
 LOCUSTFILE = None
-USERLIST = [50]
+USERLIST = [50, 1000]
 
 def benchV2(start, times=1):
     data_start = start
@@ -121,7 +128,7 @@ def benchV2(start, times=1):
     create_stress()
     for t in range(times):
         for user in USERLIST:
-            for cost in [.25,.5,.75]:
+            for cost in [0, .25, .5, .75]:
                 for i, w in enumerate(jobs):
                     global LOCUSTFILE
                     global USERCOUNT
@@ -282,8 +289,8 @@ def bench_binPack(start, times=1):
 if __name__ == "__main__":
     remove_stress()
     create_stress()
-    time.sleep(100) #100
-    benchV2(1001, 1)
-    bench_default(2001, 1)
-    bench_binPack(3001, 1)
-    bench_netMarks(4001, 1)
+    time.sleep(20) #100
+    # benchV2(10001, 1)
+    # bench_default(2101, 3)
+    bench_binPack(3101, 3)
+    # bench_netMarks(4101, 3)

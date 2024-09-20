@@ -12,7 +12,7 @@ import node_info, pod_info
 NET_WEIGHT = .33
 CPU_WEIGHT = .33
 COST_WEIGHT = .33
-SCHEDULER_DATABASE_DIR = '/root/bookinfo/bench/data.db'
+SCHEDULER_DATABASE_DIR = '/root/socialNetwork/loadTesting/data.db'
 random.seed(107)
 schedulerName = 'netMarksScheduler'
 
@@ -87,7 +87,7 @@ def scoreNode(node, scheduleAppName):
     for src_app, dest_app, rate in netRates:
         if dest_app in appOnNodeList or src_app in appOnNodeList:
             netScore += rate
-    logs.debug(f'{scheduleAppName} on {node} has all_pod_net_sum {netScore}')
+    logs.info(f'{scheduleAppName} on {node} has all_pod_net_sum {netScore}')
     
     for app_name, cpu in cpuRates:
         if app_name in appOnNodeList :
@@ -148,7 +148,7 @@ def v2SchedulerScore(appName, event):
         # scores.append((node, net, cpu))
         netScores[node] = net
         cpuScores[node] = cpu
-    
+
     sumNet = sum(netScores.values())
     for key in netScores.keys():
         netScores[key] = sumNet - netScores[key]
@@ -223,6 +223,15 @@ def scheduler(name, node, namespace="default"):
     return v1.create_namespaced_binding(namespace, body, _preload_content=False)
 
 def load_weights():
+    global NET_WEIGHT
+    global CPU_WEIGHT
+    global COST_WEIGHT
+    if len(sys.argv) == 4:
+        NET_WEIGHT = float(sys.argv[1])
+        CPU_WEIGHT = float(sys.argv[2])
+        COST_WEIGHT = float(sys.argv[3])
+        return 
+    # only load from file if not 4 args
     with open('weights.txt', 'r') as weights:
         NET_WEIGHT = float(weights.readline())
         CPU_WEIGHT = float(weights.readline())
@@ -233,10 +242,6 @@ def load_weights():
 
 
 if __name__ == "__main__":
-    # if len(sys.argv) == 4:
-    #     NET_WEIGHT = float(sys.argv[1])
-    #     CPU_WEIGHT = float(sys.argv[2])
-    #     COST_WEIGHT = float(sys.argv[3])
     w = watch.Watch()
     scheduledId = [] # gonna hold the uid inside event, to avoid multiple schedule try of same pod
     for event in w.stream(v1.list_namespaced_pod, "default"):

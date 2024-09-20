@@ -1,0 +1,3 @@
+request_type,request_context,name,response_time
+GET,index,/productpage?u=normal,819.1327389795333
+GET,index,/productpage?u=normal,1042.1839359914884
