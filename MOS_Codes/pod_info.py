@@ -58,3 +58,10 @@ def get_pods(**kwargs):
         pods = [pod for pod in pods if pod.spec.node_name == local_var_params['node']]
     
     return pods
+
+def are_all_pods_ready(pods):
+    for pod in pods:
+        for container_status in pod.status.container_statuses:
+            if not container_status.ready:
+                return False
+    return True
