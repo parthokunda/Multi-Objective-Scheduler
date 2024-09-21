@@ -1,8 +1,7 @@
 from kubernetes import client, config
 from utils import convertCPUData, convertMemoryData
-
-config.load_kube_config()
-v1 = client.CoreV1Api()
+from mos_logger import mos_logger as mos_log
+from k8sApi import v1
 
 
 def get_total_requested_resources(node_name):

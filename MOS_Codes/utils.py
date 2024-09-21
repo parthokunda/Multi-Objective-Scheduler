@@ -1,5 +1,6 @@
 import subprocess
 from kubernetes import client, config
+from mos_logger import mos_logger as mos_log
 
 def convertCPUData(allocatable_cpu):
     # Convert CPU to millicores (if necessary)
@@ -30,7 +31,7 @@ def run_shell_command(command):
         print(f"Exception: {str(e)}")
         return None
 
-def get_node_location(logs):
+def get_node_location():
     config.load_kube_config()
     v1 = client.CoreV1Api()
     local_nodes = []
@@ -44,19 +45,19 @@ def get_node_location(logs):
                 local_nodes.append(item.metadata.name)
             elif node_loc == 'cloud':
                 cloud_nodes.append(item.metadata.name)
-    logs.debug(f'local {local_nodes} cloud {cloud_nodes}')
+    mos_log.debug(f'local {local_nodes} cloud {cloud_nodes}')
 
     return local_nodes, cloud_nodes
 
-def getRunningNodes(logs):
+def getRunningNodes():
     config.load_kube_config()
     v1 = client.CoreV1Api()
     ret = v1.list_namespaced_pod(namespace="default", watch=False)
 
     running_nodes = set()
     for item in ret.items:
-        logs.debug(f'{item.metadata.name} {item.status.phase} {item.spec.node_name}')
+        mos_log.debug(f'{item.metadata.name} {item.status.phase} {item.spec.node_name}')
         running_nodes.add(item.spec.node_name)
-    logs.debug(f'Running nodes {running_nodes}')
+    mos_log.debug(f'Running nodes {running_nodes}')
 
     return running_nodes

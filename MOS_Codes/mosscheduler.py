@@ -1,13 +1,14 @@
 import subprocess
-from kubernetes import watch, client, config
 import json
-import logging as logs
+from mos_logger import mos_logger as mos_log
+from kubernetes import client, watch
 import sqlite3
 import random
 from utils import run_shell_command
 import sys
 import utils
 import node_info, pod_info
+from k8sApi import v1
 
 NET_WEIGHT = .33
 CPU_WEIGHT = .33
@@ -16,35 +17,25 @@ SCHEDULER_DATABASE_DIR = '/root/socialNetwork/loadTesting/data.db'
 random.seed(107)
 schedulerName = 'netMarksScheduler'
 
-logs.basicConfig(filename="logv2scheduler.txt", level=logs.INFO, 
-                    filemode='w',
-                    format='%(asctime)s - %(levelname)s  [%(filename)s:%(lineno)d] - %(message)s', 
-                    datefmt='%Y-%m-%d %H:%M:%S')
-
-config.load_kube_config()
-v1 = client.CoreV1Api()
-
-
-# returns tuples of current pods on nodeName in (appName, podName) format 
+# returns tuples of current pods on nodeName in (appName, podName) format
 def getAllAppToPodMappingsOnNode(nodeName):
     app_to_pods = []
     running_pods_in_default_namespace = pod_info.get_pods(node=nodeName, namespace="default", status="Running")
     pod_names = [pod.metadata.name for pod in running_pods_in_default_namespace]
 
-    logs.info(f"all pods on node {nodeName} {str(pod_names)}")
+    mos_log.info(f"all pods on node {nodeName} {str(pod_names)}")
     for pod in running_pods_in_default_namespace:
         app = pod_info.get_app_name_from_pod(pod)
         print(app)
-        # app = run_shell_command(f"kubectl get pod {pod} --namespace=default -o jsonpath='{{.metadata.labels.app}}'")
         if app == None or len(app) == 0:
-            logs.critical(f"app name not found for {pod.metadata.name}")
+            mos_log.critical(f"app name not found for {pod.metadata.name}")
         else:
             app_to_pods.append((app, pod))
             # logs.info(f"appended {app}, {pod} to list_pod")
     return app_to_pods
 
 def getRateFromDB(cursor, scheduleAppName, neighborApp):
-    logs.info(f"fetching rate from db with {scheduleAppName} {neighborApp}")
+    mos_log.info(f"fetching rate from db with {scheduleAppName} {neighborApp}")
     cursor.execute('''
         SELECT SUM(rate) as score
         FROM app_matrix
@@ -52,14 +43,14 @@ def getRateFromDB(cursor, scheduleAppName, neighborApp):
     ''', (scheduleAppName, neighborApp, neighborApp, scheduleAppName))
     result = cursor.fetchone()[0]
     if result == None:
-        logs.critical(f'getRateFromDB {scheduleAppName} {neighborApp} result fetch error')
+        mos_log.critical(f'getRateFromDB {scheduleAppName} {neighborApp} result fetch error')
         exit(0)
     return result
 
 def scoreNode(node, scheduleAppName):
     appOnNodeList = getAllAppToPodMappingsOnNode(node)
     appOnNodeList = [i[0] for i in appOnNodeList]
-    logs.info(f'app on Node list {appOnNodeList}')
+    mos_log.info(f'app on Node list {appOnNodeList}')
     netScore = 0.0
     cpuScore = 0.0
 
@@ -81,7 +72,7 @@ def scoreNode(node, scheduleAppName):
     for src_app, dest_app, rate in netRates:
         if dest_app in appOnNodeList or src_app in appOnNodeList:
             netScore += rate
-    logs.info(f'{scheduleAppName} on {node} has all_pod_net_sum {netScore}')
+    mos_log.info(f'{scheduleAppName} on {node} has all_pod_net_sum {netScore}')
     
     for app_name, cpu in cpuRates:
         if app_name in appOnNodeList :
@@ -91,8 +82,8 @@ def scoreNode(node, scheduleAppName):
 
 # return a normalized version of costing
 def nodeCostScore(nodeList) -> dict[str, float]:
-    local_nodes, cloud_nodes = utils.get_node_location(logs)
-    running_nodes = utils.getRunningNodes(logs)
+    local_nodes, cloud_nodes = utils.get_node_location()
+    running_nodes = utils.getRunningNodes()
     costScores : dict[str,float] = {}
 
     for node in nodeList:
@@ -104,15 +95,15 @@ def nodeCostScore(nodeList) -> dict[str, float]:
             elif node in cloud_nodes:
                 costScores[node] = 1.0
             else:
-                logs.error(f"node not found anywhere {node}")
-            logs.debug(f'{node} has cost: {costScores[node]}')
+                mos_log.error(f"node not found anywhere {node}")
+            mos_log.debug(f'{node} has cost: {costScores[node]}')
     
     mx = max(costScores.values()) + .00001
     mn = min(costScores.values()) 
-    logs.debug(f'Before normalization cost: {costScores}')
+    mos_log.debug(f'Before normalization cost: {costScores}')
     for node in nodeList:
         costScores[node] = (costScores[node] - mn) / (mx - mn)
-    logs.debug(f'Cost Score Normalized: {costScores}')
+    mos_log.debug(f'Cost Score Normalized: {costScores}')
     return costScores
 
 def filter_nodes_for_scheduling(nodeList, event):
@@ -147,21 +138,21 @@ def v2SchedulerScore(appName, event):
     for key in netScores.keys():
         netScores[key] = sumNet - netScores[key]
 
-    logs.debug(f'scores retrieved {nodeList} {netScores} {cpuScores}')
+    mos_log.debug(f'scores retrieved {nodeList} {netScores} {cpuScores}')
     
     mxNet = max(netScores.values()) + .000001
     mnNet = min(netScores.values())
     mxCpu = max(cpuScores.values()) + .000001
     mnCpu = min(cpuScores.values())
-    logs.debug(f' mxNet {mxNet} mnNet {mnNet} mxCpu {mxCpu} mnCpu {mnCpu}')
+    mos_log.debug(f' mxNet {mxNet} mnNet {mnNet} mxCpu {mxCpu} mnCpu {mnCpu}')
 
     for node in nodeList:
         netScores[node] = (netScores[node] - mnNet) / (mxNet - mnNet)
         cpuScores[node] = (cpuScores[node] - mnCpu) / (mxCpu - mnCpu)
     
-    logs.info(f'scores net {netScores}')
-    logs.info(f'scores cpu {cpuScores}')
-    logs.info(f'scores cost {costScores}')
+    mos_log.info(f'scores net {netScores}')
+    mos_log.info(f'scores cpu {cpuScores}')
+    mos_log.info(f'scores cost {costScores}')
         
     mnScore = 100.0
     
@@ -170,11 +161,11 @@ def v2SchedulerScore(appName, event):
     
     for node in nodeList:
         score = netScores[node] * NET_WEIGHT + cpuScores[node] * CPU_WEIGHT + costScores[node] * COST_WEIGHT
-        logs.debug(f'node: {node} score: {score}')
+        mos_log.debug(f'node: {node} score: {score}')
         if mnScore > score:
             mnScore = score
             selectedNode = node
-    logs.info(f"Scheduled {appName} to {selectedNode}")
+    mos_log.info(f"Scheduled {appName} to {selectedNode}")
 
     return selectedNode
 
@@ -184,10 +175,6 @@ def run_command(command):
         print("Error executing command:", result.stderr)
         return None
     return result.stdout
-
-def check_pods_deployed():
-    default_namespace_pods = pod_info.get_pods(namespace="default")
-    return pod_info.are_all_pods_ready(default_namespace_pods)
 
 def scheduler(name, node, namespace="default"):
     print(f"Scheduling {name} to {node}")
@@ -211,7 +198,7 @@ def load_weights():
         CPU_WEIGHT = float(weights.readline())
         COST_WEIGHT = float(weights.readline())
 
-    logs.debug(f'weights net : {NET_WEIGHT} cpu: {CPU_WEIGHT} cost: {COST_WEIGHT}')
+    mos_log.debug(f'weights net : {NET_WEIGHT} cpu: {CPU_WEIGHT} cost: {COST_WEIGHT}')
     print(f'weights net : {NET_WEIGHT} cpu: {CPU_WEIGHT} cost: {COST_WEIGHT}')
 
 
@@ -226,9 +213,9 @@ if __name__ == "__main__":
                     nodeSelected = v2SchedulerScore(event['object'].metadata.labels['app'], event)
                     scheduler(event['object'].metadata.name, nodeSelected)
                     scheduledId.append( event['object'].metadata.uid )
-                    logs.debug("Done Scheduling")
+                    mos_log.debug("Done Scheduling")
                 else:
-                    logs.warning("Pod without app label cannot be scheduled")
+                    mos_log.warning("Pod without app label cannot be scheduled")
             except client.rest.ApiException as e:
                 print(json.loads(e.body)['message'])
 

@@ -1,13 +1,8 @@
 import utils
-from kubernetes import client, config
 import six
-from kubernetes.client.exceptions import (
-    ApiTypeError,
-    ApiValueError
-)
+from kubernetes.client.exceptions import ApiTypeError
+from k8sApi import v1
 
-config.load_kube_config()
-v1 = client.CoreV1Api()
 
 def eventObj_to_totalRequests(eventObj):
     total_CPU = 0
@@ -70,3 +65,7 @@ def get_app_name_from_pod(pod):
     if 'app' not in pod.metadata.labels:
         return None
     return pod.metadata.labels['app']
+
+def check_pods_deployed():
+    default_namespace_pods = get_pods(namespace="default")
+    return are_all_pods_ready(default_namespace_pods)
