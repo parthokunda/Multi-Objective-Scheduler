@@ -26,20 +26,22 @@ v1 = client.CoreV1Api()
 
 
 # returns tuples of current pods on nodeName in (appName, podName) format 
-def getAllAppsOnNode(nodeName):
-    list_pod = []
+def getAllAppToPodMappingsOnNode(nodeName):
+    app_to_pods = []
     running_pods_in_default_namespace = pod_info.get_pods(node=nodeName, namespace="default", status="Running")
     pod_names = [pod.metadata.name for pod in running_pods_in_default_namespace]
 
     logs.info(f"all pods on node {nodeName} {str(pod_names)}")
-    for pod in pod_names:
-        app = run_shell_command(f"kubectl get pod {pod} --namespace=default -o jsonpath='{{.metadata.labels.app}}'")
+    for pod in running_pods_in_default_namespace:
+        app = pod_info.get_app_name_from_pod(pod)
+        print(app)
+        # app = run_shell_command(f"kubectl get pod {pod} --namespace=default -o jsonpath='{{.metadata.labels.app}}'")
         if app == None or len(app) == 0:
-            logs.warning("No app name found")
+            logs.critical(f"app name not found for {pod.metadata.name}")
         else:
-            list_pod.append((app, pod))
-            logs.info(f"appended {app}, {pod} to list_pod")
-    return list_pod
+            app_to_pods.append((app, pod))
+            # logs.info(f"appended {app}, {pod} to list_pod")
+    return app_to_pods
 
 def getRateFromDB(cursor, scheduleAppName, neighborApp):
     logs.info(f"fetching rate from db with {scheduleAppName} {neighborApp}")
@@ -55,7 +57,7 @@ def getRateFromDB(cursor, scheduleAppName, neighborApp):
     return result
 
 def scoreNode(node, scheduleAppName):
-    appOnNodeList = getAllAppsOnNode(node)
+    appOnNodeList = getAllAppToPodMappingsOnNode(node)
     appOnNodeList = [i[0] for i in appOnNodeList]
     logs.info(f'app on Node list {appOnNodeList}')
     netScore = 0.0

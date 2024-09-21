@@ -65,3 +65,8 @@ def are_all_pods_ready(pods):
             if not container_status.ready:
                 return False
     return True
+
+def get_app_name_from_pod(pod):
+    if 'app' not in pod.metadata.labels:
+        return None
+    return pod.metadata.labels['app']
