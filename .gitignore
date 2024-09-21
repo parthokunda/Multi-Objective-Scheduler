@@ -1,4 +1,9 @@
 # Ignore all files starting with a dot in the home directory
 /.*
 snap/
+compose-post-service/
+DeathStarBench/
+microservices-demo/
+istio-1.20.2
+MOS_Codes/__pycache__/*.pyc
 !/.gitignore
