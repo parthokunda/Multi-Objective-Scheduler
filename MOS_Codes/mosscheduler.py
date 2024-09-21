@@ -28,10 +28,11 @@ v1 = client.CoreV1Api()
 # returns tuples of current pods on nodeName in (appName, podName) format 
 def getAllAppsOnNode(nodeName):
     list_pod = []
-    #? not done(grep RUNNING problemous) only take the running pods on nodes, otherwise descheduled pods might get calculated
-    pod_on_node =  run_shell_command(f"kubectl get pods --namespace=default --field-selector spec.nodeName={nodeName} | awk '{{print $1}}'").split()[1:]
-    logs.info(f"all pods on node {nodeName} {str(pod_on_node)}")
-    for pod in pod_on_node:
+    running_pods_in_default_namespace = pod_info.get_pods(node=nodeName, namespace="default", status="Running")
+    pod_names = [pod.metadata.name for pod in running_pods_in_default_namespace]
+
+    logs.info(f"all pods on node {nodeName} {str(pod_names)}")
+    for pod in pod_names:
         app = run_shell_command(f"kubectl get pod {pod} --namespace=default -o jsonpath='{{.metadata.labels.app}}'")
         if app == None or len(app) == 0:
             logs.warning("No app name found")
