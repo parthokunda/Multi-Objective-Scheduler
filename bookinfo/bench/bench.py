@@ -1,8 +1,12 @@
 import subprocess
 import os
+import sys
 from concurrent.futures import ThreadPoolExecutor
 import time
 import subprocess
+
+sys.path.append('/root/MOS_Codes')
+from pod_info import check_pods_deployed
 
 ROOT_DIR = '/root/bookinfo'
 YAML_FILES_DIR = f'{ROOT_DIR}/deploy'
@@ -24,29 +28,6 @@ def run_command(command):
         return None
     return result.stdout
 
-def check_pods_deployed():
-    output = run_command("kubectl get pods -n default")
-    if output is None:
-        print("kubectl get pods failed")
-        return False
-
-    lines = output.strip().split('\n')
-    pod_count = 0
-    
-    for line in lines[1:]:  # Skip the header line
-        columns = line.split()
-        if len(columns) > 1:
-            ready = columns[1]
-            parts = ready.split('/')
-            if parts[0] != parts[1]:
-                # print(f"Pod {columns[0]} is not fully ready: {ready}")
-                return False
-            pod_count += 1
-
-    # print("All pods are fully ready.")
-    if pod_count == 0 :
-        return False
-    return True
 
 def write_weights(net, cpu, cost):
     with open(f'{SCHEDULER_DIR}/weights.txt', 'w') as file:
@@ -287,10 +268,10 @@ def bench_binPack(start, times=1):
 
 
 if __name__ == "__main__":
-    remove_stress()
-    create_stress()
-    time.sleep(20) #100
-    # benchV2(10001, 1)
+    # remove_stress()
+    # create_stress()
+    # time.sleep(20) #100
+    benchV2(696969, 1)
     # bench_default(2101, 3)
-    bench_binPack(3101, 3)
+    # bench_binPack(3101, 3)
     # bench_netMarks(4101, 3)
