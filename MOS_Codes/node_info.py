@@ -1,8 +1,8 @@
 from kubernetes import client, config
 from utils import convertCPUData, convertMemoryData
 from mos_logger import mos_logger as mos_log
+import pod_info
 from k8sApi import v1
-
 
 def get_total_requested_resources(node_name):
     pods = v1.list_pod_for_all_namespaces(watch=False)
@@ -61,3 +61,12 @@ def get_name_of_worker_nodes():
                 if node.metadata.name not in control_node_names:
                     ready_nodes.append(node.metadata.name)
     return ready_nodes
+
+def filter_nodes_for_scheduling(nodeList, event):
+    filtered_nodes = []
+    for node in nodeList:
+        free_cpu, free_mem = remaining_allocatable_resource_in_node(node)
+        req_cpu, req_mem = pod_info.eventObj_to_totalRequests(event)
+        if(free_cpu > req_cpu and free_mem > req_mem):
+            filtered_nodes.append(node)
+    return filtered_nodes
