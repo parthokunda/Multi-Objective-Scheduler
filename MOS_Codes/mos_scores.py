@@ -2,10 +2,7 @@ import utils
 from mos_logger import logs as mos_log
 import pod_info
 import sqlite3
-
-LOCAL_NODE_SCORE = 0.5
-CLOUD_NODE_SCORE = 1.0
-SCHEDULER_DATABASE_DIR = '/root/socialNetwork/loadTesting/data.db'
+import config
 
 # returns tuples of current pods on nodeName in (appName, podName) format
 def getAllAppToPodMappingsOnNode(nodeName):
@@ -31,7 +28,7 @@ def nonNormalizedCpuAndNetScoreForNode(node, scheduleAppName):
     netScore = 0.0
     cpuScore = 0.0
 
-    conn = sqlite3.connect(SCHEDULER_DATABASE_DIR)
+    conn = sqlite3.connect(config.SCHEDULER_DATABASE_DIR)
     cursor = conn.cursor()
 
     cursor.execute('''
@@ -59,9 +56,9 @@ def nonNormalizedCpuAndNetScoreForNode(node, scheduleAppName):
 
 
 # return a normalized version of costing
-def nodeCostScore(nodeList) -> dict[str, float]:
-    local_nodes, cloud_nodes = utils.get_node_location(mos_log)
-    running_nodes = utils.getRunningNodes(mos_log)
+def getCostForNodes( _, nodeList ) -> dict[str, float]:
+    local_nodes, cloud_nodes = utils.get_node_location()
+    running_nodes = utils.getRunningNodes()
     costScores : dict[str,float] = {}
 
     for node in nodeList:
@@ -69,9 +66,9 @@ def nodeCostScore(nodeList) -> dict[str, float]:
             costScores[node] = 0.0
         else:
             if node in local_nodes:
-                costScores[node] = LOCAL_NODE_SCORE
+                costScores[node] = config.LOCAL_NODE_SCORE
             elif node in cloud_nodes:
-                costScores[node] = CLOUD_NODE_SCORE
+                costScores[node] = config.CLOUD_NODE_SCORE
             else:
                 mos_log.error(f"node not found anywhere {node}")
             mos_log.debug(f'{node} has cost: {costScores[node]}')
@@ -99,6 +96,7 @@ def getCpuScore(appName, nodeList):
         cpuScores[node] = (cpuScores[node] - mnCpu) / (mxCpu - mnCpu)
 
     mos_log.info(f'scores cpu {cpuScores}')
+    return cpuScores
 
 def getNetScore(appName, nodeList):
     netScores = {} 
@@ -121,3 +119,7 @@ def getNetScore(appName, nodeList):
         netScores[node] = (netScores[node] - mnNet) / (mxNet - mnNet)
     
     mos_log.info(f'scores net {netScores}')
+    return netScores
+
+def dummyFunc():
+    return 5

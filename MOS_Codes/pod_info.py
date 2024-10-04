@@ -56,6 +56,8 @@ def get_pods(**kwargs):
 
 def are_all_pods_ready(pods):
     for pod in pods:
+        if pod.status.container_statuses is None:
+            return False
         for container_status in pod.status.container_statuses:
             if not container_status.ready:
                 return False
