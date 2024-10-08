@@ -1,7 +1,6 @@
 import utils
 from mos_logger import logs as mos_log
-import pod_info
-import sqlite3
+import pod_info, SingletonMosData
 import config
 
 # returns tuples of current pods on nodeName in (appName, podName) format
@@ -28,27 +27,12 @@ def nonNormalizedCpuAndNetScoreForNode(node, scheduleAppName):
     netScore = 0.0
     cpuScore = 0.0
 
-    conn = sqlite3.connect(config.SCHEDULER_DATABASE_DIR)
-    cursor = conn.cursor()
-
-    cursor.execute('''
-                    SELECT source_app,destination_app, rate from netRate where source_app = ? or destination_app = ?;
-                   ''', (scheduleAppName,scheduleAppName))
-    netRates = cursor.fetchall()
-
-    cursor.execute('''
-                        SELECT source_app, rate from cpuRate;
-                   ''')
-    cpuRates = cursor.fetchall()
-
-    conn.close()
-
-    for src_app, dest_app, rate in netRates:
+    for src_app, dest_app, rate in SingletonMosData.netRates:
         if dest_app in appOnNodeList or src_app in appOnNodeList:
             netScore += rate
     mos_log.info(f'{scheduleAppName} on {node} has all_pod_net_sum {netScore}')
     
-    for app_name, cpu in cpuRates:
+    for app_name, cpu in SingletonMosData.cpuRates:
         if app_name in appOnNodeList :
             cpuScore += cpu
 
