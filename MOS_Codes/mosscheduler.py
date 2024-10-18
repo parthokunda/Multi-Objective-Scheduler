@@ -131,6 +131,3 @@ if __name__ == "__main__":
                     mos_log.warning("Pod without app label cannot be scheduled")
             except client.rest.ApiException as e:
                 print(json.loads(e.body)['message'])
-
-    
-

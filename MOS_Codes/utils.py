@@ -1,6 +1,8 @@
+from k8sApi import v1
 import subprocess
 from kubernetes import client, config
 from mos_logger import mos_logger as mos_log
+import config
 
 def convertCPUData(allocatable_cpu):
     # Convert CPU to millicores (if necessary)
@@ -61,3 +63,9 @@ def getRunningNodes():
     mos_log.debug(f'Running nodes {running_nodes}')
 
     return running_nodes
+
+def getAllAppNames():
+    appList = []
+    for app_name in config.yamlConfig['app_list']:
+        appList.append(app_name)
+    return appList
