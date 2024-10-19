@@ -23,14 +23,14 @@ cursor.execute('''
     )
 ''')
 
-app_list = set([
+app_list = [
     "details",
     "ratings",
     "reviews-v1",
     "reviews-v2",
     "reviews-v3",
     "productpage"
-])
+]
 
 sample_data = []
 

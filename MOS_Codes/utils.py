@@ -66,6 +66,33 @@ def getRunningNodes():
 
 def getAllAppNames():
     appList = []
-    for app_name in config.yamlConfig['app_list']:
-        appList.append(app_name)
+    for appInfo in config.yamlConfig['microService']['appList']:
+        appList.append(appInfo['name'])
     return appList
+
+def getPromethusEndpoint() -> tuple[str, str]:
+    return getServiceEndpoint('prometheus')
+
+def getServiceEndpoint(svcName: str) -> str:
+    all_services = v1.list_service_for_all_namespaces().items
+    # all_services = v1.list_namespaced_service('istio-system').items
+
+    count = 0
+    ip = None
+    port = None
+
+    for svc in all_services:
+        if svc.metadata.name == svcName:
+            count += 1
+            ip = svc.spec.cluster_ip
+            if(len(svc.spec.ports) != 1):
+                raise Exception(f'{svcName} service do not have exactly one port')
+            port = svc.spec.ports[0].port
+
+    if count > 1:
+        raise Exception('Multiple Prometheus services found')
+    if count == 0:
+        raise Exception(f'{svcName} service not found')
+
+    mos_log.info(f'{svcName} service found at {ip}:{port}')
+    return str(ip) + ":" + str(port)

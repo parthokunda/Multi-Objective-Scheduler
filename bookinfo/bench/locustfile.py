@@ -35,12 +35,15 @@ def my_request_handler(request_type, name, response_time, response_length, respo
 
 @events.init_command_line_parser.add_listener
 def _(parser):
-    parser.add_argument("--csv-number", type=int, default="1")
+    parser.add_argument("--csv-number", type=int, default="-1")
 
 @events.test_start.add_listener
 def _(environment, **kw):
     global csvfile
-    csvfile = open(f'{environment.parsed_options.csv_number}-SLA.csv', 'w')
+    if environment.parsed_options.csv_number == -1:
+        csvfile = open(f'dbSetup-SLA.csv', 'w')
+    else:
+        csvfile = open(f'{environment.parsed_options.csv_number}-SLA.csv', 'w')
     csvfile.write(f'request_type,request_context,name,response_time\n')
 
 @events.quitting.add_listener
