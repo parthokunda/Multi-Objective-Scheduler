@@ -2,7 +2,7 @@ from k8sApi import v1
 import subprocess
 from kubernetes import client, config
 from mos_logger import mos_logger as mos_log
-import config
+import config.config as config
 
 def convertCPUData(allocatable_cpu):
     # Convert CPU to millicores (if necessary)

@@ -1,4 +1,4 @@
-import os, config, random, json, subprocess, importlib.util
+import os, config.config as config, random, json, subprocess, importlib.util
 from yaml import safe_load as safe_load_yaml
 
 from kubernetes import client, watch

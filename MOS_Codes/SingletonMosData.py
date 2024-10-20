@@ -1,5 +1,5 @@
 import sqlite3
-import config
+import config.config as config
 
 conn = sqlite3.connect(config.SCHEDULER_DATABASE_DIR)
 cursor = conn.cursor()

@@ -1,7 +1,7 @@
 import utils
 from mos_logger import logs as mos_log
 import pod_info, SingletonMosData
-import config
+import config.config as config
 
 # returns tuples of current pods on nodeName in (appName, podName) format
 def getAllAppToPodMappingsOnNode(nodeName):

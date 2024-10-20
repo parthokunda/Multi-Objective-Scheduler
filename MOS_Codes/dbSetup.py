@@ -4,9 +4,9 @@ This file when imported should do the following
 - Query Prometheus and update the database
 """
 
-import utils, requests, os, sqlite3
+import utils, requests, sqlite3
 from mos_logger import mos_logger as mos_log
-from config import yamlConfig
+from config.config import yamlConfig
 from k8sApi import v1
 from concurrent.futures import ThreadPoolExecutor
 from kubernetes import config, watch
@@ -160,11 +160,6 @@ def update(dbPath):
     print('Database Information Update Done')
     mos_log.debug('Database Information Update Done')
 
-def runWebLoad(usercount, locustFile, loadtime, endpoint: str):
-    print(f'Web load with {usercount} users')
-    os.system(f"locust -f {locustFile} -u {usercount} -r 100 -t {loadtime}s -H http://{endpoint} --headless --only-summary")
-    print(f'Done Locust File')
-
 ### this block should run when the file is imported
 print("Setting up the database")
 appNames = utils.getAllAppNames()
@@ -216,7 +211,7 @@ if shouldCollectData:
     with ThreadPoolExecutor() as thread_executor:
         while True:
             if(timestamp == 60 * (USERINDEX+1) + singleLoadTime * USERINDEX):
-                thread_executor.submit(runWebLoad, USERCOUNTS[USERINDEX], locustFileLocation, singleLoadTime, svcToSendLoadEndpoint)
+                thread_executor.submit(utils.runWebLoad, USERCOUNTS[USERINDEX], locustFileLocation, singleLoadTime, svcToSendLoadEndpoint)
                 USERINDEX += 1
 
             if timestamp == 0:
