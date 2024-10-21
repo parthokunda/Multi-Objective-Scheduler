@@ -16,8 +16,6 @@ class SingleScoringFunction:
         self.function = function_to_call
         self.weight = None
     
-    def setWeight(self, _weight):
-        self.weight = _weight
 
 class ScoringFunctions:
     def __init__(self):
@@ -36,10 +34,12 @@ class ScoringFunctions:
             mos_log.error(f"Error loading scoring functions: {e}")
             raise e
     
-    def refresh_weights(self):
-        ## read weight first
+    def setWeightForAllScoringFunction(self, _weightList):
+        assert(len(_weightList) == len(self.scoringFunctions))
+        for index, singleFunction in enumerate(self.scoringFunctions):
+            singleFunction.weight = _weightList[index]
+
         self.normalize_weights()
-        pass
 
     def normalize_weights(self):
         total_weight = 0.0
