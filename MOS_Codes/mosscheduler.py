@@ -1,5 +1,6 @@
 import os, config.config as config, random, json, subprocess, importlib.util
 from yaml import safe_load as safe_load_yaml
+from scoringFunctions import allScoringFunctions
 
 from kubernetes import client, watch
 from k8sApi import v1
@@ -12,39 +13,6 @@ with open('/root/MOS_Codes/config-scheduler.yaml', 'r') as file:
 
 random.seed(107)
 
-def normalize_weights(scoringFunctions):
-    total_weight = 0.0
-    for function in scoringFunctions:
-        total_weight += function['weight']
-    for function in scoringFunctions:
-        function['weight'] /= total_weight
-
-
-def load_scoring_functions() -> list[ dict['func': any, 'weight': float]]:
-    # yamlFile has list of scoring functions, load them in a list of functions to execute
-    scoringFunctions: list[ dict['func': function, 'weight': float]] = []
-
-    try:
-        for functionSpec in yamlFile['scoreFunctions']:
-            function_name   = functionSpec['name']
-            function_path   = functionSpec['path']
-            function_weight = functionSpec['weight']
-
-            module_name = os.path.splitext(os.path.basename(function_path))[0]
-
-            spec = importlib.util.spec_from_file_location(module_name, function_path)
-            module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(module)
-
-            function_to_call = getattr(module, function_name)
-            scoringFunctions.append({'func' : function_to_call, 'weight' : function_weight})
-
-        return scoringFunctions
-
-    except Exception as e:
-        mos_log.error(f"Error loading scoring functions: {e}")
-        raise e
-
 def v2SchedulerScore(appName, event):
     nodeList = node_info.get_name_of_worker_nodes()
     nodeList = node_info.filter_nodes_for_scheduling(nodeList, event)
@@ -52,14 +20,12 @@ def v2SchedulerScore(appName, event):
         print("No Schedulable Nodes Found")
         raise Exception
 
-    scoringFunctionWithWeights = load_scoring_functions()
-    normalize_weights(scoringFunctionWithWeights)
+    allScoringFunctions.refresh_weights() # read weights and normalize them
 
     # for each function a dictionary of (node, score) pairs
     scores = list[dict[str, float]]()
-    for functionWithWeights in scoringFunctionWithWeights:
-        function = functionWithWeights['func']
-        scoreFromFunc = function(appName, nodeList)
+    for scoringFunction in allScoringFunctions.scoringFunctions:
+        scoreFromFunc = scoringFunction.function(appName, nodeList)
         scores.append(scoreFromFunc)
 
     # without below line, scheduler will always choose the first app's node deterministically 
@@ -69,10 +35,10 @@ def v2SchedulerScore(appName, event):
     mnScore = 100.0
     for node in nodeList:
         score = 0.0
-        assert len(scores) == len(scoringFunctionWithWeights)
+        assert len(scores) == len(allScoringFunctions.scoringFunctions)
 
         for i in range(len(scores)):
-            score += scores[i][node] * scoringFunctionWithWeights[i]['weight']
+            score += scores[i][node] * allScoringFunctions[i].weight
 
         mos_log.debug(f'node: {node} score: {score}')
         if mnScore > score:

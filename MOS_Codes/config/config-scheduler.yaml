@@ -1,0 +1,66 @@
+MOS:
+# enabled: true
+  mosWeightsDir: "/root/MOS_Codes/benchmark/mos_weights.csv"
+  scoringFunctions:
+  - name: getNetScore
+    path: /root/MOS_Codes/mos_scores.py
+  - name: getCpuScore
+    path: /root/MOS_Codes/mos_scores.py
+  - name: getCostForNodes
+    path: /root/MOS_Codes/mos_scores.py
+# scoreFunctions:
+# - name: getNetScore
+#   path: /root/MOS_Codes/mos_scores.py
+#   weight: 1
+# - name: getCpuScore
+#   path: /root/MOS_Codes/mos_scores.py
+#   weight: 5
+# - name: getCostForNodes
+#   path: /root/MOS_Codes/mos_scores.py
+#   weight: 1
+microService:
+  name: bookinfo
+  appList:
+  - name: details
+  - name: ratings
+  - name: reviews-v1
+  - name: reviews-v2
+  - name: reviews-v3
+  - name: productpage
+database:
+  shouldInitDb: true # create DB; if it is true, shouldCollectData should be true
+  location: /root/MOS_Codes/testDatabase.db # new DB save location or old db path
+telemetry:
+  prometheus:
+    strategy:
+      name: serviceQuery
+      match: startsWith
+      value: prometheus
+dataCollection:
+  shouldCollectData: true # if false, no data will be collected for scheduling, already existing data will be used
+  minute: 12
+  userCounts:
+    - 50
+    - 1000
+    # - 2000
+svcToSendLoad: "productpage"
+locustFileLocation: "/root/bookinfo/bench/locustfile.py"
+benchmark:
+  enabled: true
+  locustFileLocation: "/root/bookinfo/bench/locustfile.py"
+  svcToSendLoad: "productpage"
+  restPeriod: 15 // not much important
+  userCounts:
+    - 50
+    # - 1000
+    # - 2000
+  baselines:
+  - name: default
+    schedulerFunction: "runDefaultScheduler"
+    startNumberingFrom: 1
+  - name: binpack
+    schedulerFunction: runBinpackScheduler
+    startNumberingFrom: 1001
+  - name: netMarks
+    schedulerFunction: runNetMarksScheduler
+    startNumberingFrom: 2001

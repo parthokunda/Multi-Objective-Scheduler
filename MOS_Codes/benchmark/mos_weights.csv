@@ -1,0 +1,4 @@
+net_weight,cpu_weight,cost_weight
+0,1,0
+0,.5,.5
+.33,.33,.33
