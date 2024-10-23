@@ -1,5 +1,4 @@
 import os, config.config as config, random, json, subprocess, importlib.util
-from yaml import safe_load as safe_load_yaml
 from scoringFunctions import allScoringFunctions
 
 from kubernetes import client, watch
@@ -8,8 +7,6 @@ from k8sApi import v1
 from mos_logger import mos_logger as mos_log
 import node_info
 
-with open('/root/MOS_Codes/config-scheduler.yaml', 'r') as file:
-    yamlFile = safe_load_yaml(file)
 
 random.seed(107)
 
@@ -19,8 +16,6 @@ def v2SchedulerScore(appName, event):
     if len(nodeList) <= 0:
         print("No Schedulable Nodes Found")
         raise Exception
-
-    allScoringFunctions.refresh_weights() # read weights and normalize them
 
     # for each function a dictionary of (node, score) pairs
     scores = list[dict[str, float]]()
@@ -38,7 +33,11 @@ def v2SchedulerScore(appName, event):
         assert len(scores) == len(allScoringFunctions.scoringFunctions)
 
         for i in range(len(scores)):
-            score += scores[i][node] * allScoringFunctions[i].weight
+            ### for test only
+            if allScoringFunctions.scoringFunctions[i].weight == None:
+                allScoringFunctions.scoringFunctions[i].weight = 1.0
+            score += scores[i][node] * allScoringFunctions.scoringFunctions[i].weight
+            mos_log.info(f"function name: {allScoringFunctions.scoringFunctions[i].name} score: {scores[i][node]} weight: {allScoringFunctions.scoringFunctions[i].weight}")
 
         mos_log.debug(f'node: {node} score: {score}')
         if mnScore > score:
@@ -81,7 +80,8 @@ def scheduler(name, node, namespace="default"):
 #     print(f'weights net : {NET_WEIGHT} cpu: {CPU_WEIGHT} cost: {COST_WEIGHT}')
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
+def run_scheduler():
     w = watch.Watch()
     scheduledId = [] # gonna hold the uid inside event, to avoid multiple schedule try of same pod
     for event in w.stream(v1.list_namespaced_pod, "default"):
@@ -97,3 +97,6 @@ if __name__ == "__main__":
                     mos_log.warning("Pod without app label cannot be scheduled")
             except client.rest.ApiException as e:
                 print(json.loads(e.body)['message'])
+
+if __name__ == "__main__":
+    run_scheduler()

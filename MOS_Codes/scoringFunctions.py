@@ -3,9 +3,10 @@ import os, importlib.util
 from mos_logger import mos_logger as mos_log
 
 class SingleScoringFunction:
-    def __init__(self, _name, _path):
+    def __init__(self, _name, _path, _weightHeader):
         self.name = _name
         self.path = _path
+        self.weightHeader = _weightHeader
 
         module_name = os.path.splitext(os.path.basename(_path))[0]
         spec = importlib.util.spec_from_file_location(module_name, _path)
@@ -15,7 +16,6 @@ class SingleScoringFunction:
 
         self.function = function_to_call
         self.weight = None
-    
 
 class ScoringFunctions:
     def __init__(self):
@@ -25,19 +25,20 @@ class ScoringFunctions:
         # yamlFile has list of scoring functions, load them in a list of functions to execute
         try:
             for functionSpec in yamlConfig['MOS']['scoringFunctions']:
-                function_name   = functionSpec['name']
-                function_path   = functionSpec['path']
+                functionName   = functionSpec['name']
+                functionPath   = functionSpec['path']
+                functionWeightHeader = functionSpec['weightHeader']
 
-                self.scoringFunctions.append(SingleScoringFunction(function_name, function_path))
+                self.scoringFunctions.append(SingleScoringFunction(functionName, functionPath, functionWeightHeader))
 
         except Exception as e:
             mos_log.error(f"Error loading scoring functions: {e}")
             raise e
     
-    def setWeightForAllScoringFunction(self, _weightList):
-        assert(len(_weightList) == len(self.scoringFunctions))
-        for index, singleFunction in enumerate(self.scoringFunctions):
-            singleFunction.weight = _weightList[index]
+    def setWeightForAllScoringFunction(self, headerToWeightDict):
+        assert(len(headerToWeightDict) == len(self.scoringFunctions))
+        for singleFunction in self.scoringFunctions:
+            singleFunction.weight = headerToWeightDict[singleFunction.weightHeader]
 
         self.normalize_weights()
 

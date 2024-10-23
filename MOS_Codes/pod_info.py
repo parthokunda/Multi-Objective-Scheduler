@@ -68,6 +68,6 @@ def get_app_name_from_pod(pod):
         return None
     return pod.metadata.labels['app']
 
-def check_pods_deployed():
+def checkPodsRunning():
     default_namespace_pods = get_pods(namespace="default")
     return are_all_pods_ready(default_namespace_pods)

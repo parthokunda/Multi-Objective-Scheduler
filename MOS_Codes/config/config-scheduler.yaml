@@ -3,11 +3,15 @@ MOS:
   mosWeightsDir: "/root/MOS_Codes/benchmark/mos_weights.csv"
   scoringFunctions:
   - name: getNetScore
+    weightHeader: net_weight
     path: /root/MOS_Codes/mos_scores.py
   - name: getCpuScore
+    weightHeader: cpu_weight
     path: /root/MOS_Codes/mos_scores.py
   - name: getCostForNodes
+    weightHeader: cost_weight
     path: /root/MOS_Codes/mos_scores.py
+  deploymentFile: /root/bookinfo/deploy/bookinfo-netMarks.yaml
 # scoreFunctions:
 # - name: getNetScore
 #   path: /root/MOS_Codes/mos_scores.py
@@ -46,21 +50,28 @@ dataCollection:
 svcToSendLoad: "productpage"
 locustFileLocation: "/root/bookinfo/bench/locustfile.py"
 benchmark:
+  dataSaveDir: /root/MOS_Codes/dataTesting # no / at the end please
   enabled: true
   locustFileLocation: "/root/bookinfo/bench/locustfile.py"
   svcToSendLoad: "productpage"
-  restPeriod: 15 // not much important
+  repetitions: 1
+  restPeriod: 5 # not much important
+  loadTime: 15 # seconds
   userCounts:
-    - 50
+    - 10
     # - 1000
     # - 2000
+  startMOSNumberingFrom: 1
   baselines:
   - name: default
     schedulerFunction: "runDefaultScheduler"
-    startNumberingFrom: 1
+    startNumberingFrom: 1001
+    deploymentFile: /root/bookinfo/deploy/bookinfo.yaml
   - name: binpack
     schedulerFunction: runBinpackScheduler
-    startNumberingFrom: 1001
+    startNumberingFrom: 2001
+    deploymentFile: /root/bookinfo/deploy/bookinfo-binPack.yaml
   - name: netMarks
     schedulerFunction: runNetMarksScheduler
-    startNumberingFrom: 2001
+    startNumberingFrom: 3001
+    deploymentFile: /root/bookinfo/deploy/bookinfo-netMarks.yaml
