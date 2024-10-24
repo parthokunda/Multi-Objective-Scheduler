@@ -63,15 +63,16 @@ benchmark:
     # - 2000
   startMOSNumberingFrom: 1
   baselines:
-  - name: default
-    schedulerFunction: "runDefaultScheduler"
-    startNumberingFrom: 1001
-    deploymentFile: /root/bookinfo/deploy/bookinfo.yaml
-  - name: binpack
-    schedulerFunction: runBinpackScheduler
-    startNumberingFrom: 2001
-    deploymentFile: /root/bookinfo/deploy/bookinfo-binPack.yaml
+  # - name: default
+    # useCustomBenchmarkFunction: false
+  #   startCsvNumber: 1001
+  #   deploymentFile: /root/bookinfo/deploy/bookinfo.yaml
+  # - name: binpack
+    # useCustomBenchmarkFunction: false
+  #   startCsvNumber: 2001
+  #   deploymentFile: /root/bookinfo/deploy/bookinfo-binPack.yaml
   - name: netMarks
-    schedulerFunction: runNetMarksScheduler
-    startNumberingFrom: 3001
+    useCustomBenchmarkFunction: true
+    customBenchmarkFunctionName: benchNetMarks
+    startCsvNumber: 3001
     deploymentFile: /root/bookinfo/deploy/bookinfo-netMarks.yaml

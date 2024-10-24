@@ -49,6 +49,7 @@ class ScoringFunctions:
 
         for function in self.scoringFunctions:
             function.weight /= total_weight
+
         
 allScoringFunctions = ScoringFunctions()
 allScoringFunctions.load_scoring_functions()

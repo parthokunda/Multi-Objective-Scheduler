@@ -1,5 +1,5 @@
 from k8sApi import v1
-import subprocess
+import subprocess, os, utils
 from kubernetes import client, config
 from mos_logger import mos_logger as mos_log
 import config.config as config
@@ -34,8 +34,6 @@ def run_shell_command(command):
         return None
 
 def get_node_location():
-    config.load_kube_config()
-    v1 = client.CoreV1Api()
     local_nodes = []
     cloud_nodes = []
 
@@ -52,8 +50,6 @@ def get_node_location():
     return local_nodes, cloud_nodes
 
 def getRunningNodes():
-    config.load_kube_config()
-    v1 = client.CoreV1Api()
     ret = v1.list_namespaced_pod(namespace="default", watch=False)
 
     running_nodes = set()
@@ -96,3 +92,9 @@ def getServiceEndpoint(svcName: str) -> str:
 
     mos_log.info(f'{svcName} service found at {ip}:{port}')
     return str(ip) + ":" + str(port)
+
+def runWebLoad(userCount, locustFilePath, loadtime, svcName: str, path, csvNumber):
+    print(f'Web load with {userCount} users')
+
+    endpoint = utils.getServiceEndpoint(svcName)
+    os.system(f"locust -f {locustFilePath} --csv {csvNumber} --csv-full-history --csv-number {csvNumber} -u {userCount} -r 100 -t {loadtime}s -H http://{endpoint} --path {path} --headless --only-summary")

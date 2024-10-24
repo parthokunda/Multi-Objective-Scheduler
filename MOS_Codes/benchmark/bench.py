@@ -26,6 +26,7 @@ svcNameToSendLoad = yamlConfig['benchmark']['svcToSendLoad']
 
 loadTimeForEachOne = benchmarkConfig['loadTime']
 restPeriod = benchmarkConfig['restPeriod']
+dataSaveDir = benchmarkConfig['dataSaveDir']
 
 ## Code
 
@@ -35,10 +36,10 @@ with open(mosWeightsDir, "r") as file:
     givenWeights = [{k: float(v) for k, v in row.items()} for row in csv_reader]
 
 
-def deploy_pods():
-    os.system(f'kubectl delete -f {mosDeploymentFileDir}') 
+def deploy_pods(deploymentFileDir):
+    os.system(f'kubectl delete -f {deploymentFileDir}') 
     time.sleep(15)
-    os.system(f'kubectl apply -f {mosDeploymentFileDir}') 
+    os.system(f'kubectl apply -f {deploymentFileDir}') 
     time.sleep(5)
 
 # def checkOutOfCpu():
@@ -55,7 +56,7 @@ def runPreWebLoadTasks(thread_executor, userCount, csvNumber):
 def runPostWebLoadTasks(thread_executor, userCount, csvNumber):
     thread_executor.submit(benchmarkDataCollection.runCPUusage, csvNumber, loadTimeForEachOne, restPeriod)
 
-def benchMOS(start, times, dataSaveDir):
+def benchMOS(start, times):
     csvNumber = start
 
     file = open(mosEntryFileName,'a')
@@ -82,7 +83,7 @@ def benchMOS(start, times, dataSaveDir):
                     allScoringFunctions.setWeightForAllScoringFunction(weight)
 
                     thread_exec = ThreadPoolExecutor()
-                    deploy_pods()
+                    deploy_pods(mosDeploymentFileDir)
                     time.sleep(5)
                     # if checkOutOfCpu():
                     #     continue
@@ -116,3 +117,94 @@ def benchMOS(start, times, dataSaveDir):
     # remove_stress()
     file.close()
     print(data)
+
+def benchBaseline(start, times, deploymentFileDir, baselineName):
+    csvNumber = start
+    file = open(baseEntryFileName,'a')
+    data = []
+
+    # remove_stress()
+    # create_stress()
+
+    for _ in range(times):
+        for userCount in userCounts:
+            thread_exec = ThreadPoolExecutor()
+            deploy_pods(deploymentFileDir)
+            time.sleep(5)
+
+            while pod_info.checkPodsRunning() != True:
+                time.sleep(3)
+
+            data.append({'fileNum': csvNumber, 'baseline':baselineName, 'user': userCount})
+
+            file.write(str(data[-1]))
+            file.write('\n')
+            file.flush()
+
+            runPreWebLoadTasks(thread_exec, userCount = userCount, csvNumber = csvNumber)
+            
+            thread_exec.submit(utils.runWebLoad, userCount, locustFilePath, loadTimeForEachOne, svcNameToSendLoad, dataSaveDir, csvNumber)
+            time.sleep(loadTimeForEachOne + restPeriod)
+
+            runPostWebLoadTasks(thread_exec, userCount, csvNumber)
+
+            time.sleep(30)
+
+            csvNumber += 1
+            print(f"DONE {csvNumber}")
+
+    # remove_stress()
+    file.close()
+    print(data)
+
+def benchNetMarks(start, times, deploymentFileDir, baselineName):
+    csvNumber = start
+
+    file = open(baseEntryFileName,'a')
+    data = []
+
+    for _ in range(times):
+        for userCount in userCounts:
+            weight = {}
+
+            for scoringFunction in allScoringFunctions.scoringFunctions:
+                if scoringFunction.weightHeader == 'net_weight':
+                    weight.update({'net_weight': 1.0})
+                else:
+                    weight.update({scoringFunction.weightHeader: 0.0})
+
+            allScoringFunctions.setWeightForAllScoringFunction(weight)
+
+            thread_exec = ThreadPoolExecutor()
+            deploy_pods(deploymentFileDir)
+            time.sleep(5)
+
+            while pod_info.checkPodsRunning() != True:
+                time.sleep(3)
+
+            print('Pods are running')
+
+            data.append({'fileNum': csvNumber, 'baseline':baselineName, 'user': userCount})
+
+            file.write(str(data[-1]))
+            file.write('\n')
+            file.flush()
+
+
+            runPreWebLoadTasks(thread_exec, userCount = userCount, csvNumber = csvNumber)
+            
+            thread_exec.submit(utils.runWebLoad, userCount, locustFilePath, loadTimeForEachOne, svcNameToSendLoad, dataSaveDir, csvNumber)
+            time.sleep(loadTimeForEachOne + restPeriod)
+
+            runPostWebLoadTasks(thread_exec, userCount, csvNumber)
+
+            time.sleep(30)
+
+            csvNumber+=1
+            print(f"DONE {csvNumber}")
+
+    # remove_stress()
+    file.close()
+    print(data)
+
+### Custom Benchmark Function
